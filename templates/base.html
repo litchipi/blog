@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color:black;">
+
+<head>
+    <meta charset="utf-8">
+    {% block head %}
+        {% block scripts %}
+        {% endblock scripts %}
+
+        <link rel="icon" type="image/x-icon" href="/favicon">
+        <link rel="stylesheet" href="/style.css" />
+        {% block stylesheets %}
+        {% endblock stylesheets %}
+
+        <title>{% block title %}{% endblock title %}</title>
+
+        {% block meta %}
+        {% endblock meta %}
+    {% endblock head %}
+</head>
+
+<body>
+    <header>
+    {% include "banner.html" %}
+    </header>
+
+    <div class="page-grid">
+        <div class="left-panel">
+        {% block leftpanel %}
+        {% endblock leftpanel %}
+        </div>
+
+        <div class="body-content-wrapper">
+            {% block content %}{% endblock content %}
+        </div>
+
+        <div class="right-panel">
+        {% block rightpanel %}
+        {% endblock rightpanel %}
+        </div>
+    </div>
+
+    <footer>
+        <div class="copyrights">
+            <strong>&copy</strong>
+            <a href="mailto:{{ site.author_email }}">{{ site.author_name }}</a>
+            {{ site.copyrights }}
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site.name | capitalize }}{% endblock title %}
+
+{% block content %}
+  <div id="welcome-message">
+  {{ site.welcome_message | linebreaksbr | safe }}
+  </div>
+
+  <div class="styled-list">
+    <h1>Recent posts</h1>
+    <ul>
+    {% for post in recent_posts %}
+      <a href="/post/{{ post.id }}">
+        <li>
+          <div class="item-title">{{ post.title }}</div>
+          {% if post.serie %}
+            <div class="item-metadata">
+              (serie "<strong>{{ post.serie_title | capitalize }}</strong>")
+            </div>
+          {% endif %}
+          <div class="item-description">{{ post.description }}</div>
+        </li>
+      </a>
+    {% endfor %}
+      <a href="/allposts">
+        <li>
+          <div class="item-title show-more">See all posts</div>
+        </li>
+      </a>
+    </ul>
+  </div>
+
+  <div class="styled-list">
+    <h1>All series</h1>
+    <ul>
+    {% for serie in all_series %}
+      <a href="/serie/{{ serie.slug }}">
+        <li>
+          <div class="item-title">{{ serie.title | capitalize }}</div>
+          <div class="item-description">{{ serie.description }}</div>
+        </li>
+      </a>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="styled-list">
+    <h1>All categories</h1>
+    <ul>
+    {% for cat in all_categories %}
+      <a href="/category/{{ cat }}" class="item-title">
+      <li><div>
+      {{ cat | capitalize }}
+      </div></li>
+      </a>
+    {% endfor %}
+    </ul>
+  </div>
+{% endblock content %}

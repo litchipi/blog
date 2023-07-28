@@ -1,0 +1,76 @@
+@import "variables";
+
+$logo-size: 64px;
+
+#banner {
+  border-bottom: 1px solid #4A4A4A;
+  display: grid;
+  grid-template-columns: calc(10px + $logo-size) calc($left-margin-offset - $logo-size) 1fr $left-margin-offset;
+}
+
+#sitedescr {
+  text-align: center;
+  margin: auto;
+}
+
+#logo {
+  padding-left: 10px;
+}
+
+#sitename {
+  letter-spacing: -3px;
+  font-family: "Roboto", sans-serif;
+  font-size: $title-font-size;
+  font-weight: bold;
+  /* top | right | bottom | left */
+  padding: 0px $title-padding-right 0px $banner-padding-left;
+  margin: auto;
+}
+
+#sitedescr, #sitesocial, #sitename, #logo {
+  display: inline-block;
+  // border: 1px solid red;
+}
+
+#sitesocial {
+  margin-right: 10px;
+  text-align: right;
+
+  li {
+    padding-top: 2px;
+    list-style: none;
+  }
+
+  a {
+    color: $color2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+// Hide social when screen too little
+@media screen and (max-width: ($desktop-screen-size + $left-margin-offset)) {
+  #banner {
+    grid-template-columns: $logo-size calc($left-margin-offset - $logo-size) 1fr;
+  }
+  #sitesocial {
+    display: none !important;
+  }
+}
+
+// Put description under title when screen too little
+@media screen and (max-width: $desktop-screen-size) {
+  #banner {
+    display: block;
+  }
+  #sitedescr {
+    display: flex;
+    margin: 10px 0px 10px 40px;
+  }
+  header { 
+    padding-bottom: 20px;
+  }
+}

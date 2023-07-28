@@ -1,0 +1,13 @@
+{
+  "title": "Build a Jekyll blog with Nix using flakes",
+  "category": "nix",
+  "date": 1686206779,
+  "modified": 1686206879,
+  "description": "Use Nix flakes to build a Jekyll blog, overcoming the setup issues to build the static website and/or serve it locally.",
+  "tags": [
+    "jekyll",
+    "blog",
+    "nix",
+    "flake"
+  ]
+}

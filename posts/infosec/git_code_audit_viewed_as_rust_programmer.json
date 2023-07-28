@@ -1,0 +1,12 @@
+{
+  "title":  "The Git source code audit, viewed as a Rust programmer",
+  "category": "infosec",
+  "date": 1674550269,
+  "description": "Analyse the Git source code audit performed by X41 and Gitlab, and find out if the vulnerabilities found would get mitigated by Rust or not. From there, describe good security practices when writing code in Rust.",
+  "tags": [
+    "infosec",
+    "git",
+    "rust",
+    "cybersecurity"
+  ]
+}

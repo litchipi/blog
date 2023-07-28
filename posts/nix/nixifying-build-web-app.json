@@ -1,0 +1,11 @@
+{
+  "title":  "Nixifying the build of web applications more easily",
+  "category": "nix",
+  "date": 1673689056,
+  "description": "Build web applications using Nix, ease the processus using a library to build common Javascript frameworks, and present a script to manage a PostgreSQL database. Also calls for contribution on the nix library.",
+  "tags": [
+    "nix",
+    "web",
+    "flake"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Creating the skeletton",
+  "category": "rust",
+  "date": 1633277875,
+  "serie": "containers_in_rust",
+  "description": "Getting the configuration, creating the skeletton for the container, checking the Linux kernel version for compatibility",
+  "tags": [ "rust", "docker", "container", "tutorial" ]
+}

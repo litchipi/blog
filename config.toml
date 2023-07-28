@@ -1,0 +1,16 @@
+server_port = 63521
+code_theme = "base16-eighties.dark"
+req_limit_per_sec = 50
+
+[cache]
+limit_size = 10485760
+post_cache_weight = 0.8
+post_nav_weight = 0.3
+post_page_rendered = 0.5
+post_metadata = 0.1
+
+[limits]
+recent_posts = 4
+categories = 5
+series = 5
+plain_posts_list = 15

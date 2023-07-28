@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+<!-- TODO   Add button to switch between wide text, medium text or little column text --> 
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="/code.css" />
+{% endblock stylesheets %}
+
+{% block scripts %}
+<script type="text/javascript" src="/post.js"></script>
+{% endblock scripts %}
+
+{% block meta %}
+  <meta name=" robots" content=" index">
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{{ post_metadata.title }}" />
+  {% if post_metadata.description %}
+  <meta property="og:description" content="{{ post_metadata.description }}" />
+  {% endif %}
+  {% if site.og_image %}
+  <meta property="og:image" content="{{ site.og_image }}" />
+  {% endif %}
+  <meta property="og:url" content="{{ site.base_url | safe }}/post/{{ post_metadata.id }}" />
+  <meta property="og:site_name" content="{{ site.name }}" />
+{% endblock meta %}
+
+{% block rightpanel %}
+  <nav id="post-nav" class="nav">
+  {{ nav | safe }}
+  <a href="#" class="back-top">
+    &uarr; Go to top
+  </a>
+  </nav>
+{% endblock rightpanel %}
+
+
+{% block leftpanel %}
+  <nav class="nav" id="site-nav">
+  <a href="/" class="to-index">Home page</a>
+  {% set got_post = 0 %}
+  {% if serie_metadata %}
+    {% set_global got_post = 1 %}
+    <div id="nav-serie-post">
+    <a href="/serie/{{ serie_metadata.slug }}"><h3>{{ serie_metadata.title }}</h3></a>
+    <ul>
+    {% set n = 1 %}
+    {% for post in serie_posts %}
+      <a href="/post/{{ post.id }}">
+        <li
+          {% if post_metadata.id == post.id %}
+          class="current-post"
+          {% endif %}
+        >
+          <div class="serie-post-index">{{ n }}</div>
+          <div class="serie-post-title">{{ post.title }}</div>
+        </li>
+      </a>
+      {% set_global n = n + 1 %}
+    {% endfor %}
+    </ul>
+    </div>
+  {% endif %}
+
+  {% if not serie_metadata %}
+    {% set post_len=category_posts | length %}
+    {% if post_len > 0 %}
+      {% set_global got_post = 1 %}
+      <div id="same-category">
+        <h3>{{ post_metadata.category | capitalize }}</h3>
+        <ul>
+        {% for post in category_posts %}
+        <li><a href="/post/{{ post.id }}">{{ post.title }}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  {% if got_post == 0 %}
+  <!-- TODO    Add recent posts here -->
+  {% endif %}
+  </nav>
+{% endblock leftpanel %}
+
+{% block title %}{{ post_metadata.title }}{% endblock title %}
+
+{% block content %}
+  <h1 id="post-title">{{ post_metadata.title }}</h1>
+
+    <div id="post-metadata">
+      {% if serie_metadata %}
+      <div id="post-serie-metadata">
+        Part {{ post_serie_index }} of serie <a class="serie-title" href="/serie/{{ serie_metadata.slug }}">{{ serie_metadata.title }}</a>
+      </div>
+      {% endif %}
+      <div id="post-date">
+      Published: {{ post_metadata.date | timestamp_convert }}
+      </div>
+
+      {% if post_metadata.modified  %}
+      <div id="post-date-modified">
+      Modified: {{ post_metadata.modified | timestamp_convert }}
+      </div>
+      {% endif %}
+
+      {% set nbtags = post_metadata.tags | length %}
+      {% if nbtags > 0 %}
+        <div id="post-tags">
+        {% for tag in post_metadata.tags %}
+          <a href="/tag/{{ tag }}/1"><code class="post-tag">{{ tag }}</code></a>
+        {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div id="post-content">
+    {{ post_content | safe }}
+    </div>
+
+  <a href="#" class="back-top">
+    &uarr; Go to top
+  </a>
+
+  <nav id="pagination">
+    <span>
+    {% if prev_in_serie %}
+    <a href="/post/{{ prev_in_serie.id }}">
+      <div class="prev"><span>Previous post</span><br/>{{ prev_in_serie.title }}</div>
+    </a>
+    {% endif %}
+    </span>
+    <span>
+    </span>
+
+    <span>
+    {% if next_in_serie %}
+    <a href="/post/{{ next_in_serie.id }}">
+      <div class="next"><span>Next post</span><br/>{{ next_in_serie.title }}</div>
+    </a>
+    {% endif %}
+    </span>
+  </nav>
+{% endblock content %}

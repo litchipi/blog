@@ -1,0 +1,20 @@
+name = "Blog of Litchi Pi"
+author_name = "Litchi Pi"
+author_email = "litchi.pi@proton.me"
+base_url = "http://localhost:8081"
+description = """
+Rust Software engineer, graduated in electronics and embedded systems, with side interests in information security as well.
+"""
+
+welcome_message = """
+Welcome on my blog, I write articles about anything I find interesting, and try to get an interesting scope instead of write "Yet another X article".
+
+I do have other passions and hobbies, but it's unlikely that I'll write about it. I'd be happy to chat with anyone about pretty much anything, so feel free to reach me to have a chat ! :-)
+"""
+
+copyrights = "2023 licensed under a Creative commons CC BY-NC license."
+
+[social]
+github = "https://github.com/litchipi/"
+mastodon = "https://fosstodon.org/@litchipi"
+email = "mailto:litchi.pi@proton.me"

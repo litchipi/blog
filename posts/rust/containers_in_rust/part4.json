@@ -1,0 +1,8 @@
+{
+  "title": "Birth of a child process",
+  "category": "rust",
+  "date": 1636707300,
+  "serie": "containers_in_rust",
+  "description": "Prepare inter-process communication (IPC), create a clone of the parent process while restricting its scope using namespaces.",
+  "tags": [ "rust", "docker", "container", "tutorial" ]
+}

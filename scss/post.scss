@@ -1,0 +1,154 @@
+@import "variables";
+
+#serie-name {
+  color: $color3_light;
+}
+
+#post-date, #post-date-modified {
+  color: $light-gray
+}
+
+#post-metadata {
+  padding: 5px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #4A4A4A;
+
+  #post-serie-metadata {
+    padding-bottom: 10px;
+    color: $light-gray;
+    .serie-title {
+      font-weight: 900;
+      color: $color3;
+    }
+    .serie-title:hover {
+      color: $link-hover;
+      }
+  }
+}
+
+strong {
+  color: $color3_light;
+}
+
+em {
+  color: $color3_light;
+}
+
+code {
+  color: $text-color;
+  border: 1px solid $color1;
+  background-color: $code-background;
+  border-radius: 3px;
+  padding: 0px 5px;
+  white-space: pre;
+}
+
+pre {
+  border: solid $color1 1px;
+  border-radius: 12px;
+  background-color: $code-background;
+  margin-right: 20px;
+
+  code {
+    color: $text-color;
+    border: none;
+    overflow-y: hidden;
+    overflow: scroll;
+    margin: 20px;
+    display: block;
+  }
+  code::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#post-title {
+  font-size: $title-font-size;
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+#post-content {
+  line-height: $base-font-size + 8px;
+  h1 {
+    line-height: 100%;
+    margin-top: 80px;
+    color: $color1;
+    font-size: $title-font-size;
+    letter-spacing: -2px;
+  }
+
+  h2 {
+    line-height: 100%;
+    margin-left: 20px;
+    margin-top: 60px;
+    color: $color2;
+    font-size: calc(0.75 * $title-font-size);
+  }
+
+  h3 {
+    color: $color3;
+    padding-left: 30px;
+    border-left: 5px solid;
+    margin-top: 60px;
+  }
+
+  img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 100%;
+  }
+}
+
+blockquote {
+  font-size: 15px;
+  color: $color2;
+  border-left: 5px solid $color2_dark;
+  margin-left: 20px;
+  padding-left: 20px;
+  line-height: $base-font-size + 10px;
+  font-style: italic;
+}
+
+.back-top {
+  display: block;
+  width: 80%;
+  color: #000000;
+  font-weight: 1000;
+  text-align: center;
+  background-color: desaturate($color2, 20%);
+  margin: 50px auto 30px auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: all 200ms ease-in-out;
+}
+
+.back-top:hover {
+  background-color: $color2_light;
+  color: $color2_dark;
+}
+
+footer {
+  .index-link {
+    font-weight: 700;
+    color: $color2;
+  }
+}
+
+#post-tags {
+  margin-top: 15px;
+  width: auto;
+  strong {
+    margin-right: 20px;
+  }
+  .post-tag {
+    transition: all 250ms ease-in-out;
+    margin-right: 20px;
+  }
+  .post-tag:hover {
+    border-color: $color2;
+    color: $color3_light;
+  }
+}

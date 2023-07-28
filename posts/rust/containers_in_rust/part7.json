@@ -1,0 +1,8 @@
+{
+  "title": "Syscalls and resources restriction",
+  "category": "rust",
+  "date": 1646894910,
+  "serie": "containers_in_rust",
+  "description": "How to restrict the binary running inside our container in order to protect our system. Introduction to seccomp, syscalls, cgroups, rlimit",
+  "tags": [ "rust", "docker", "container", "tutorial" ]
+}
