@@ -1,7 +1,7 @@
 name = "Blog of Litchi Pi"
 author_name = "Litchi Pi"
 author_email = "litchi.pi@proton.me"
-base_url = "http://localhost:8081"
+base_url = "https://litchipi.site"
 description = """
 Rust Software engineer, graduated in electronics and embedded systems, with side interests in information security as well.
 """
