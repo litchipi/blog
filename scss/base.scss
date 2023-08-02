@@ -30,18 +30,6 @@ a:hover {
   grid-template-columns: minmax(0, 1fr) minmax(300px, $desktop-screen-size) minmax(0, 1fr);
 }
 
-@media screen and (max-width: $tablet-media) {
-  .page-grid {
-    grid-template-columns: auto minmax(300px, 3fr) minmax(0, 1fr);
-  }
-}
-
-@media screen and (max-width: $phone-media) {
-  .page-grid {
-    grid-template-columns: auto minmax(300px, $desktop-screen-size) auto;
-  }
-}
-
 .body-content-wrapper {
   max-width: $desktop-screen-size;
   clear: both;
@@ -156,5 +144,30 @@ footer {
     }
     text-align: center;
     // border: 1px solid #FF0000;
+  }
+}
+
+@media screen and (max-width: $tablet-media) {
+  .page-grid {
+    grid-template-columns: auto minmax(300px, 3fr) minmax(0, 1fr);
+  }
+  html {
+    font-size: calc($base-font-size * 1.5);
+  }
+  .item-title {
+    font-size: calc($base-font-size * 1.5) !important;
+  }
+}
+
+@media screen and (max-width: $phone-media) {
+  .page-grid {
+    grid-template-columns: auto minmax(300px, $desktop-screen-size) auto;
+  }
+  html {
+    line-height: $base-font-size + 17px;
+    font-size: calc($base-font-size * 1.7);
+  }
+  .item-title {
+    font-size: calc($base-font-size * 1.8) !important;
   }
 }
