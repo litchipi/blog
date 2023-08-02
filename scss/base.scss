@@ -129,7 +129,8 @@ a:hover {
 #welcome-message {
   margin-top: 50px;
   margin-bottom: 50px;
-  border: solid 1px $color3_dark;
+  border: solid 1px $color3_light;
+  // box-shadow: 0px 0px 80px darken($color3_dark, 10%);
   padding: 30px;
   border-radius: 10px;
   background-color: #2A2A2A;
