@@ -41,6 +41,7 @@ code {
   border-radius: 3px;
   padding: 0px 5px;
   white-space: pre;
+  overflow: scroll;
 }
 
 pre {
@@ -172,25 +173,33 @@ footer {
   h2 {
     font-size: $title-font-size;
   }
+  code {
+    white-space: unset;
+  }
 }
 
 @media screen and (max-width: $phone-media) {
   #post-title {
-    font-size: calc($title-font-size * 1.4);
+    font-size: calc($title-font-size * 1.8);
     line-height: calc($title-line-height * 1.2);
   }
   #post-content {
     line-height: calc($base-line-height * 1.8);
+    h1 {
+      font-size: calc($title-font-size * 1.6);
+      margin-top: 200px;
+    }
+    h2 {
+      font-size: calc($title-font-size * 1.4);
+      margin-top: 100px;
+    }
   }
 
   blockquote {
-    font-size: calc($blockquote-font-size * 1.6);
-    line-height: calc($blockquote-line-height * 1.6);
+    font-size: calc($blockquote-font-size * 1.95);
+    line-height: calc($blockquote-line-height * 1.65);
   }
-  h1 {
-    font-size: calc($title-font-size * 1.4);
-  }
-  h2 {
-    font-size: calc($title-font-size * 1.15);
+  code {
+    white-space: unset;
   }
 }

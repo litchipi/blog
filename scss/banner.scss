@@ -22,6 +22,7 @@ $logo-size: 64px;
   letter-spacing: -3px;
   font-family: "Roboto", sans-serif;
   font-size: $title-font-size;
+  line-height: $title-line-height;
   font-weight: bold;
   /* top | right | bottom | left */
   padding: 0px $title-padding-right 0px $banner-padding-left;
@@ -67,11 +68,28 @@ $logo-size: 64px;
   #banner {
     display: block;
   }
-  #sitedescr {
-    display: flex;
-    margin: 10px 0px 10px 40px;
-  }
   header { 
     padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: $tablet-media) {
+}
+
+@media screen and (max-width: $phone-media) {
+  #sitename {
+    text-align: center;
+    width: 100%;
+    font-size: calc($title-font-size * 2);
+    line-height: calc($title-line-height * 1.1);
+    margin-bottom: 50px;
+  }
+  #sitedescr {
+    display: flex;
+    margin: 10px 0px 40px 40px;
+  }
+  #logo {
+    height: 0px;
+    overflow: hidden;
   }
 }
