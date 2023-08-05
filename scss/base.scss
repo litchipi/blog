@@ -34,8 +34,6 @@ a:hover {
   max-width: $desktop-content-width;
   min-width: $tablet-content-width;
   clear: both;
-  margin-left: 40px;
-  margin-right: 40px;
 }
 
 .styled-list {
@@ -155,9 +153,8 @@ footer {
   .item-title {
     font-size: calc($base-font-size * 1.8) !important;
   }
-
   .page-grid {
-    grid-template-columns: 0 minmax(300px, auto) minmax($min-panel-size, 1fr);
+    grid-template-columns: 0 minmax(300px, 3fr) minmax($min-panel-size, 1fr);
   }
   .body-content-wrapper {
     max-width: unset;
