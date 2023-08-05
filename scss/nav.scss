@@ -179,7 +179,7 @@ nav {
   span a {
     div {
       font-weight: 700;
-      font-size: 20px;
+      font-size: $pagination-font-size;
       color: $text-color;
       transition: color 150ms ease-in-out;
       span {
@@ -201,5 +201,15 @@ nav {
   }
 }
 
-// TODO  Pagination on phone media
+@media screen and (max-width: $tablet-media) {
+  #pagination span a div {
+    font-size: calc($pagination-font-size * 1.4);
+  }
+}
+
+@media screen and (max-width: $phone-media) {
+  #pagination span a div {
+    font-size: calc($pagination-font-size * 1.7);
+  }
+}
 
