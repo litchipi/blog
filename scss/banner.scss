@@ -53,30 +53,19 @@ $logo-size: 64px;
   }
 }
 
-// Hide social when screen too little
-@media screen and (max-width: ($desktop-screen-size + $left-margin-offset)) {
+@media screen and (max-width: $tablet-media) {
   #banner {
     grid-template-columns: $logo-size calc($left-margin-offset - $logo-size) 1fr;
   }
   #sitesocial {
     display: none !important;
   }
-}
-
-// Put description under title when screen too little
-@media screen and (max-width: $desktop-screen-size) {
   #banner {
     display: block;
   }
   header { 
     padding-bottom: 20px;
   }
-}
-
-@media screen and (max-width: $tablet-media) {
-}
-
-@media screen and (max-width: $phone-media) {
   #sitename {
     text-align: center;
     width: 100%;
