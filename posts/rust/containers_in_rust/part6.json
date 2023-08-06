@@ -2,7 +2,7 @@
   "title": "User namespaces and Linux Capabilties",
   "category": "rust",
   "date": 1641458400,
-  "modified": 1661238082,
+  "modified": 1691311854,
   "serie": "containers_in_rust",
   "description": "Set up user namespaces, map the UID / GID, restrict the child process with linux capabilities",
   "tags": [ "rust", "docker", "container", "tutorial" ]

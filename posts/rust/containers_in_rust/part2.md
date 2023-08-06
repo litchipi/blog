@@ -444,12 +444,12 @@ The raw patch to apply on the previous step can be found [here][patch-step4]
 [structopt-cratesio]: https://crates.io/crates/structopt
 [structopt-docs]: https://docs.rs/structopt/latest/structopt/
 [code-step1]: https://github.com/litchipi/crabcan/tree/step1
-[patch-step1]: https://github.com/litchipi/crabcan/commit/step1.diff
+[patch-step1]: https://github.com/litchipi/crabcan/compare/main..step1.diff
 [code-step2]: https://github.com/litchipi/crabcan/tree/step2
-[patch-step2]: https://github.com/litchipi/crabcan/commit/step2.diff
+[patch-step2]: https://github.com/litchipi/crabcan/compare/step1..step2.diff
 [code-step3]: https://github.com/litchipi/crabcan/tree/step3
-[patch-step3]: https://github.com/litchipi/crabcan/commit/step3.diff
+[patch-step3]: https://github.com/litchipi/crabcan/compare/step2..step3.diff
 [code-step4]: https://github.com/litchipi/crabcan/tree/step4
-[patch-step4]: https://github.com/litchipi/crabcan/commit/step4.diff
+[patch-step4]: https://github.com/litchipi/crabcan/compare/step3..step4.diff
 [rustcodeopti]: https://gist.github.com/jFransham/369a86eff00e5f280ed25121454acec1
 [exitcode-meanings]: https://tldp.org/LDP/abs/html/exitcodes.html

@@ -545,10 +545,10 @@ The raw patch to apply on the previous step can be found [here][patch-step12]
 [uidvsgid]: https://www.cbtnuggets.com/blog/technology/system-admin/linux-file-permission-uid-vs-gid
 
 [code-step11]: https://github.com/litchipi/crabcan/tree/step11/
-[patch-step11]: https://github.com/litchipi/crabcan/commit/step11.diff
+[patch-step11]: https://github.com/litchipi/crabcan/compare/step10..step11.diff
 
 [code-step12]: https://github.com/litchipi/crabcan/tree/step12/
-[patch-step12]: https://github.com/litchipi/crabcan/commit/step12.diff
+[patch-step12]: https://github.com/litchipi/crabcan/compare/step11..step12.diff
 
 [man-setgroups]: https://man7.org/linux/man-pages/man2/getgroups.2.html
 [man-capabilities]: https://man7.org/linux/man-pages/man7/capabilities.7.html

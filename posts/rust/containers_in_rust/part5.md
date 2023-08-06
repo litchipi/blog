@@ -75,9 +75,20 @@ pub struct ContainerOpts{
     pub hostname:   String,
 }
 
-impl ContainerOpts {
-    // ...
-    hostname: generate_hostname()?,
+// ...
+
+impl ContainerOpts{
+    pub fn new(...) -> ... {
+        // ...
+
+        Ok((
+            ContainerOpts {
+                // ...
+                hostname: generate_hostname()?,
+            },
+            // ...
+        ))
+    }
 }
 ```
 
@@ -498,7 +509,7 @@ The raw patch to apply on the previous step can be found [here][patch-step10]
 [man-sethostname]: https://linux.die.net/man/2/sethostname
 
 [code-step9]: https://github.com/litchipi/crabcan/tree/step9/
-[patch-step9]: https://github.com/litchipi/crabcan/commit/step9.diff
+[patch-step9]: https://github.com/litchipi/crabcan/compare/step8...step9.diff
 
 [code-step10]: https://github.com/litchipi/crabcan/tree/step10/
-[patch-step10]: https://github.com/litchipi/crabcan/commit/step10.diff
+[patch-step10]: https://github.com/litchipi/crabcan/compare/step9..step10.diff

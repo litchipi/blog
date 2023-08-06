@@ -87,7 +87,7 @@ However imagine `get_next_char` doesn't return the value, but *a pointer* to thi
 value, then `!char` doesn't check if the value is `0` anymore, but it checks if the
 *pointer is a `NULL` pointer*, which **it won't be** even if its value may be `0`.
 
-This vulnerability is a clever exploit of how the code *forgets to dereference*
+This vulnerability exists because the code *forgets to dereference*
 the returned pointer (pointing to somewhere in the string) when performing a
 condition.
 Because this condition will be *always true*, it allows the execution of a

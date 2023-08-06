@@ -383,10 +383,10 @@ content you think could be added to the text of any of these posts.
 Take care, happy coding <3
 
 [code-step15]: https://github.com/litchipi/crabcan/tree/step15/
-[patch-step15]: https://github.com/litchipi/crabcan/commit/step15.diff
+[patch-step15]: https://github.com/litchipi/crabcan/compare/step14..step15.diff
 
 [code-step16]: https://github.com/litchipi/crabcan/tree/step16/
-[patch-step16]: https://github.com/litchipi/crabcan/commit/step16.diff
+[patch-step16]: https://github.com/litchipi/crabcan/compare/step15..step16.diff
 
 [execvedoc]: https://man7.org/linux/man-pages/man2/execve.2.html
 [rustlink]: https://doc.rust-lang.org/reference/linkage.html

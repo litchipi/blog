@@ -657,10 +657,10 @@ The raw patch to apply on the previous step can be found [here][patch-step14]
 
 
 [code-step13]: https://github.com/litchipi/crabcan/tree/step13/
-[patch-step13]: https://github.com/litchipi/crabcan/commit/step13.diff
+[patch-step13]: https://github.com/litchipi/crabcan/compare/step12..step13.diff
 
 [code-step14]: https://github.com/litchipi/crabcan/tree/step14/
-[patch-step14]: https://github.com/litchipi/crabcan/commit/step14.diff
+[patch-step14]: https://github.com/litchipi/crabcan/compare/step13..step14.diff
 
 [origtuto_syscalls]: https://blog.lizzie.io/linux-containers-in-500-loc.html#org8504d16
 [cgroups-vuln]: https://thehackernews.com/2022/03/new-linux-kernel-cgroups-vulnerability.html

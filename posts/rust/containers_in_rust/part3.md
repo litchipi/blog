@@ -268,6 +268,6 @@ The raw patch to apply on the previous step can be found [here][patch-step6]
 [scanfmt-cratesio]: https://crates.io/crates/scan_fmt
 
 [code-step5]: https://github.com/litchipi/crabcan/tree/step5/
-[patch-step5]: https://github.com/litchipi/crabcan/commit/step5.diff
+[patch-step5]: https://github.com/litchipi/crabcan/compare/step4..step5.diff
 [code-step6]: https://github.com/litchipi/crabcan/tree/step6/
-[patch-step6]: https://github.com/litchipi/crabcan/commit/step6.diff
+[patch-step6]: https://github.com/litchipi/crabcan/compare/step5..step6.diff

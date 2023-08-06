@@ -431,9 +431,9 @@ The code for this step is available on github [litchipi/crabcan branch â€œstep8â
 The raw patch to apply on the previous step can be found [here][patch-step8]
 
 [code-step7]: https://github.com/litchipi/crabcan/tree/step7/
-[patch-step7]: https://github.com/litchipi/crabcan/commit/step7.diff
+[patch-step7]: https://github.com/litchipi/crabcan/compare/step6..step7.diff
 [code-step8]: https://github.com/litchipi/crabcan/tree/step8/
-[patch-step8]: https://github.com/litchipi/crabcan/commit/step8.diff
+[patch-step8]: https://github.com/litchipi/crabcan/compare/step7..step8.diff
 
 [ipctuto]: https://opensource.com/article/19/4/interprocess-communication-linux-networking
 [man-socketpair]: https://man7.org/linux/man-pages/man2/socketpair.2.html
