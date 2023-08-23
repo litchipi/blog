@@ -31,3 +31,6 @@ index = "index.html"
   "specific.scss", 
   "error.scss",
 ]
+"print.css" = [
+  "print.scss",
+]
