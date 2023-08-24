@@ -388,6 +388,8 @@ After testing, we can get the following output:
 The code for this step is available on github [litchipi/crabcan branch "step3"][code-step3].   
 The raw patch to apply on the previous step can be found [here][patch-step3]
 
+> Thanks to `filtoid` for his PR fixing an error in the code of this step
+
 # Validate arguments
 
 Before diving into the real work, let's validatet the arguments passed from the commandline.
