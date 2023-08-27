@@ -18,3 +18,8 @@ copyrights = "2023 licensed under a Creative commons CC BY-NC license."
 github = "https://github.com/litchipi/"
 mastodon = "https://fosstodon.org/@litchipi"
 email = "mailto:litchi.pi@proton.me"
+
+[webring]
+name = "Experimental Math & Programming Ring"
+previous = "https://scatter.flowers"
+next = "https://themathjester.com"

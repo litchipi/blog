@@ -142,9 +142,32 @@ footer {
       font-size: 22px;
     }
     text-align: center;
-    // border: 1px solid #FF0000;
   }
 }
+
+.webring-footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  margin: 10px 20px 10px 20px;
+  text-align: center;
+  
+  a {
+    color: $color2;
+  }
+
+  .next {
+    padding-right: 20px;
+    border-right: 5px solid $color2;
+    text-align: right;
+  }
+  
+  .previous {
+    padding-left: 20px;
+    border-left: 5px solid $color2;
+    text-align: left;
+  }
+}
+
 
 // TODO  Fix grid templates columns on index page tablet mode
 
@@ -185,5 +208,8 @@ footer {
   .body-content-wrapper {
     max-width: unset;
     min-width: $phone-content-width;
+  }
+  .webring-footer {
+    display: none;
   }
 }
