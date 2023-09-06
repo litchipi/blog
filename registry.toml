@@ -7,6 +7,17 @@ description = "Series where we create Crabcan, a container software like Docker 
 end_date = 3
 
 # Posts
+[posts.bitfields_explain]
+title = "How Rust builds an API around raw memory"
+category = "rust"
+date = 1694001613
+description = "This post will explain what registers are, what are their use in bare-metal programming, and how these macros allows for smooth Rust code when working with them."
+tags = [
+  "rust",
+  "embedded",
+  "macros",
+]
+
 [posts.build_jekyll_blog]
 title = "Build a Jekyll blog with Nix using flakes"
 category = "nix"
@@ -149,3 +160,4 @@ container_in_rust_part7 = "rust/containers_in_rust/part7.md"
 container_in_rust_part8 = "rust/containers_in_rust/part8.md"
 copy_it_until_you_make_it = "infosec/copyit_until_you_make_it.md"
 git_sourcecode_audit = "infosec/git_code_audit_viewed_as_rust_programmer.md"
+bitfields_explain = "rust/bitfield_explain.md"
