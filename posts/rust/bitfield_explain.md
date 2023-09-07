@@ -66,13 +66,13 @@ So to set the pin `N`, we write `1 << (N - 1)` to the address of the register `G
 If a register holds the value `[...]_1101_1001`, how do we check if the 5th and 6th bit are set ?
 
 For this, we use a `mask`, a value that will only leave the bits we are interested in if
-we apply it on the value of our register with an **AND**.
+we apply it on the value of our register with an **AND** (`&`).
 
 For example:  
-`1101_1001 | 0110_000 (mask) = 0100_000`  
+`1101_1001 & 0110_000 (mask) = 0100_000`  
 The mask allowed us to only leave the 2 bits we were interested in.
 
-To check its value, we can shift it to the right `(0b0100_0000 >> 4) = 0b0000_0010`, giving us the bits we are interested in, `0b01`.
+To check its value, we can shift it to the right `(0b0100_0000 >> 4) = 0b0000_0010`, giving us the bits we are interested in, `0b10`.
 
 > Note that for a single bit, we can just check that the value is > 0 to see if the bit is set, `0b0100_0000 > 0 = true`, `0b0000_0000 > 0 = false`.
 

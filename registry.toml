@@ -11,6 +11,7 @@ end_date = 3
 title = "How Rust builds an API around raw memory"
 category = "rust"
 date = 1694001613
+modified = 1694063632
 description = "This post will explain what registers are, what are their use in bare-metal programming, and how these macros allows for smooth Rust code when working with them."
 tags = [
   "rust",
