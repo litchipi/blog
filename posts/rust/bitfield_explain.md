@@ -1,5 +1,3 @@
-# How Rust builds an API around raw memory
-
 I currently follow the awesome [rust-raspberrypi-OS tutorial][raspi_rust_tuto] to learn how to
 do some bare-metal programming on my Raspberry Pi 3.
 
@@ -16,7 +14,7 @@ This post will explain what registers are, what are their use in bare-metal prog
 Throughout this post, we'll use the [datasheet for the CPU of the Raspberry Pi 3][rpi3_cpu_datasheet] as an example, but this principle applies to any CPU,
 just grab its datasheet and read it up !
 
-## Introduction
+# Introduction
 
 > If you already worked with embedded systems, you can probably skip this section.  
 If you don't skip it, please check it for mistakes I may have written :-)
@@ -47,7 +45,7 @@ field, you have to check a portion of the binary data of the whole value.
 Let's treat it this way, as a `struct` (or `class` if you're Pythonic),
 containing fields we can *get* or *set*.
 
-### Set the value of a register
+## Set the value of a register
 
 As we can see on the datasheet, to **set** the GPIO number **5** of the CPU, you need to write `[..20 more zeros..]_0000_0001_0000` (or `0x20`, or `32`)
 to the memory address of `GPSET0` which is (on page 90) `0x7E20_001C`.
@@ -61,7 +59,7 @@ So to set the pin `N`, we write `1 << (N - 1)` to the address of the register `G
 
 > Note that this way we can set multiple pins at the same time, using an **AND** operation (usually noted `|`), we can set multiple bits like so: `(1 << 4) | (1 << 12) | (1 << 8)`
 
-### Get the value of a register
+## Get the value of a register
 
 If a register holds the value `[...]_1101_1001`, how do we check if the 5th and 6th bit are set ?
 
@@ -76,7 +74,7 @@ To check its value, we can shift it to the right `(0b0100_0000 >> 4) = 0b0000_00
 
 > Note that for a single bit, we can just check that the value is > 0 to see if the bit is set, `0b0100_0000 > 0 = true`, `0b0000_0000 > 0 = false`.
 
-### In the real world
+## In the real world
 
 Usually, the manufacturer of CPUs meant to be programmed in bare-metal will provide some `hal` (Hardware Abstraction Layer),
 a library containing all the memory addresses for the registers.
@@ -85,7 +83,7 @@ If working on a common board, it may even exist a `bsp` (Board Support Package),
 
 When we deal with memory addresses directly, we are basically re-creating the `hal`
 
-## Rusting it up
+# Rusting it up
 
 We can of course do everything from scratch in Rust, get the memory addresses and such, but the crate [tock_registers][tock_registers_crate] allows us to get a much better API using macros !
 
