@@ -8,7 +8,8 @@ end_date = 3
 
 # Posts
 [posts.bitfields_explain]
-title = "How Rust builds an API around raw memory"
+id = "14762501311625827021"  # Forcing same ID with a different title than original
+title = "How Rust can build an elegant API around raw memory"
 category = "rust"
 date = 1694001613
 modified = 1694063632
