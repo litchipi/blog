@@ -288,6 +288,21 @@ See more on [the official documentation of repr(C)][repr_c_docs]
 
 And that's pretty much it !  
 All we have to do now is create our register to the expected memory address, and use it !
+
+But how do we get a clean *Rust type* from the raw memory address ?  
+Thanks to `#[repr(C)]`, we can directly map the `RegisterBlock` structure into a memory address,
+the fields will be provisionned by their binary value stored at this address directly. 
+
+To map the type `RegisterBlock` struct to the address `0x7E200_0000`, we need to:
+- Convert the address to a [rust pointer][rust_ptr_doc] (not to confuse with a reference)
+- Dereference this pointer, pointing out to the compiler that we expect a `RegisterBlock` type
+
+The pointer type we use here is a `*const _`, it means that the pointer will not move in memory (`const`),
+the **_** means that the type will be determined using the [inference system][rust_inference], here the return type.
+
+Dereferencing the pointer `*(ptr)` is an unsafe operation, and as we type the var as `RegisterBlock`,
+we get the expected type, containing the expected values stored at the expected address !
+
 ``` rust
 let start_addr = 0x7E200000;
 let regblock : RegisterBlock = unsafe { *(start_addr as *const _) };
@@ -295,7 +310,7 @@ regblock.GPFSEL1.write(GPFSEL1::FSEL15::Input);
 ```
 
 > The memory address `0x7E20_0000` (found on page 90) we passed corresponds to the start of all the registers related to the GPIO.
-From this *base address*, an offset of `0x04` will link to the memory address `0x7Z20_0004`, which leads to the register `GPFSEL1`
+From this *base address*, an offset of `0x04` will link to the memory address `0x7E20_0004`, which leads to the register `GPFSEL1`
 
 However, there is a case where the user could mess up the inputs in the macro, and **it wouldn't
 be detected**, up until we map the type `RegisterBlock` to the start address.
@@ -382,6 +397,8 @@ it now feels much more mature and I'm happy about this !
 As usual, feel free to correct me, contact me on Mastodon or email, or browse this blog !  
 Take care <3
 
+> Thanks to `Romain KELIFA` for pointing out a typo, and an unclear passage of the article.
+
 [raspi_rust_tuto]: https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master 
 [rpi3_cpu_datasheet]: https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf
 [rpi_dt]: https://github.com/raspberrypi/firmware/blob/master/extra/dt-blob.dts
@@ -389,3 +406,5 @@ Take care <3
 [cargo_expand]: https://crates.io/crates/cargo-expand
 [memory_alignment]: https://en.wikipedia.org/wiki/Data_structure_alignment
 [repr_c_docs]: https://doc.rust-lang.org/nomicon/other-reprs.html#reprc
+[rust_ptr_doc]: https://doc.rust-lang.org/std/primitive.pointer.html
+[rust_inference]: https://doc.rust-lang.org/rust-by-example/types/inference.html
