@@ -1,3 +1,5 @@
+> EDIT: This blog doesn't use *jekyll* anymore and has been moved from Github Pages.
+
 This blog is powered by **Github pages** and **jekyll**. I started it when I had
 never ever heard of Nix, but since then I've moved to NixOS and wanted
 to be able to write again here.

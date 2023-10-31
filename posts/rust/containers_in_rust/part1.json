@@ -1,9 +1,0 @@
-{
-  "title": "Introduction to containers",
-  "category": "rust",
-  "date": 1632127354,
-  "modified": 1646825092,
-  "serie": "containers_in_rust",
-  "description": "Overview of what is a container, the problem of software isolation it solves and how does it compares to other solutions.",
-  "tags": [ "rust", "docker", "container", "tutorial" ]
-}

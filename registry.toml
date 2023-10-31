@@ -24,6 +24,7 @@ tags = [
 title = "Build a Jekyll blog with Nix using flakes"
 category = "nix"
 date = 1673525163
+modified = 1698736070
 description = "Use Nix flakes to build a Jekyll blog, overcoming the setup issues to build the static website and/or serve it locally."
 tags = [
   "jekyll",

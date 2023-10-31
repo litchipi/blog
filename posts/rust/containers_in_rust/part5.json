@@ -1,8 +1,0 @@
-{
-  "title": "Defining the container environment",
-  "category": "rust",
-  "date": 1641279700,
-  "serie": "containers_in_rust",
-  "description": "Set the container hostname, modify the container mount point, pivoting the root.",
-  "tags": [ "rust", "docker", "container", "tutorial" ]
-}

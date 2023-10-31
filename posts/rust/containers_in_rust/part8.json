@@ -1,8 +1,0 @@
-{
-  "title": "Executing the binary",
-  "category": "rust",
-  "date": 1661247785,
-  "serie": "containers_in_rust",
-  "description": "Execute a binary inside our container, resolve issues of dynamic libraries, mount directories inside the environment. Conclusion of the serie",
-  "tags": [ "rust", "docker", "container", "tutorial" ]
-}
