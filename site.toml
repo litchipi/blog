@@ -14,6 +14,8 @@ I do have other passions and hobbies, but it's unlikely that I'll write about it
 
 copyrights = "2023 licensed under a Creative commons CC BY-NC license."
 
+og_image = "https://litchipi.site/images/logo.png"
+
 [social]
 github = "https://github.com/litchipi/"
 mastodon = "https://fosstodon.org/@litchipi"
