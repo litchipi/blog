@@ -27,19 +27,19 @@
     </header>
 
     <div class="page-grid">
-        <div class="left-panel">
+        <aside class="left-panel">
         {% block leftpanel %}
         {% endblock leftpanel %}
-        </div>
+        </aside>
 
-        <div class="body-content-wrapper">
+        <main class="body-content-wrapper">
             {% block content %}{% endblock content %}
-        </div>
+        </main>
 
-        <div class="right-panel">
+        <aside class="right-panel">
         {% block rightpanel %}
         {% endblock rightpanel %}
-        </div>
+        </aside>
     </div>
 
     <footer>

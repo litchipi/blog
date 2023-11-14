@@ -16,6 +16,7 @@
   <meta property="og:title" content="{{ post_metadata.title }}" />
   {% if post_metadata.description %}
   <meta property="og:description" content="{{ post_metadata.description }}" />
+  <meta name="description" content="{{ post_metadata.description }}"/>
   {% endif %}
   {% if site.og_image %}
   <meta property="og:image" content="{{ site.og_image }}" />
@@ -87,19 +88,19 @@
 {% block content %}
   <h1 id="post-title">{{ post_metadata.title }}</h1>
 
-    <div id="post-metadata">
+    <section id="post-metadata">
       {% if serie_metadata %}
       <div id="post-serie-metadata">
         Part {{ post_serie_index }} of serie <a class="serie-title" href="/serie/{{ serie_metadata.slug }}">{{ serie_metadata.title }}</a>
       </div>
       {% endif %}
       <div id="post-date">
-      Published: {{ post_metadata.date | timestamp_convert }}
+      Published: <time>{{ post_metadata.date | timestamp_convert }}</time>
       </div>
 
       {% if post_metadata.modified  %}
       <div id="post-date-modified">
-      Modified: {{ post_metadata.modified | timestamp_convert }}
+      Modified: <time>{{ post_metadata.modified | timestamp_convert }}</time>
       </div>
       {% endif %}
 
@@ -111,11 +112,11 @@
         {% endfor %}
         </div>
       {% endif %}
-    </div>
+    </section>
 
-    <div id="post-content">
+    <article id="post-content">
     {{ post_content | safe }}
-    </div>
+    </article>
 
   <a href="#" class="back-top">
     &uarr; Go to top

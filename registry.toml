@@ -1,5 +1,3 @@
-cache_duration = 30
-
 # Series
 [series.containers_in_rust]
 title = "Writing a container in Rust"

@@ -7,13 +7,13 @@ $categories: (
 );
 
 @each $cat, $color in $categories {
-  #item-#{$cat} {
+  li:hover.item-#{$cat} {
+     border-color: $color;
+  }
+
+  li.item-#{$cat} {
     .item-category {
       color: $color;
     }
-  }
-
-  #item-#{$cat}:hover {
-    border-color: $color;
   }
 }

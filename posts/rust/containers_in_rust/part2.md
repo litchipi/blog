@@ -16,7 +16,7 @@ follow the instructions on [the Book](https://doc.rust-lang.org/book/ch01-01-ins
 So I guess you've heard that Rust's mascot is **Ferris**, the little cutie crab.  
 Well, let's put Ferris in a container ! :D
 
-![Wanna eat Ferris ?](/images/container_in_rust/crabcan.png)
+![Wanna eat Ferris ?](/images/container_in_rust/crabcan.png)[width: 250px, style: "align-self: center"]
 
 We'll create a Rust binary project called **Crabcan**, and the objective will be to separate the
 different parts of the projects as distincly as possible to allow us to search in the code,
