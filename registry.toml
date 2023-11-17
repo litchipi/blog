@@ -146,6 +146,19 @@ tags = [
   "cybersecurity"
 ]
 
+[posts.attempt_nixos_secrets]
+title = "Yet another attempt at managing secrets of a NixOS system"
+category = "nix"
+date = 1700218355
+description = "Proposition for a new method to manage secrets inside a NixOS system. The idea is to keep secrets encrypted inside the nix store, and decrypt these at boot using a provisionned private key, serving as the base of the whole security system."
+tags = [
+  "nix",
+  "infosec",
+  "cybersecurity",
+  "nixos"
+]
+hidden = true
+
 # Posts content
 [post_contents_path]
 build_jekyll_blog = "nix/build_jekyll_blog.md"
@@ -162,3 +175,4 @@ container_in_rust_part8 = "rust/containers_in_rust/part8.md"
 copy_it_until_you_make_it = "infosec/copyit_until_you_make_it.md"
 git_sourcecode_audit = "infosec/git_code_audit_viewed_as_rust_programmer.md"
 bitfields_explain = "rust/bitfield_explain.md"
+attempt_nixos_secrets = "nix/attempt_nixos_secrets.md"
