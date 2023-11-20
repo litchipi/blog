@@ -157,6 +157,7 @@ tags = [
   "cybersecurity",
   "nixos"
 ]
+hidden = true
 
 # Posts content
 [post_contents_path]
