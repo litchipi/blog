@@ -19,7 +19,7 @@
   <meta name="description" content="{{ post_metadata.description }}"/>
   {% endif %}
   {% if site.og_image %}
-  <meta property="og:image" content="{{ site.og_image }}" />
+  <meta property="og:image" content="{{site.base_url | safe}}/{{ site.og_image }}" />
   {% endif %}
   <meta property="og:url" content="{{ site.base_url | safe }}/post/{{ post_metadata.id }}" />
   <meta property="og:site_name" content="{{ site.name }}" />
