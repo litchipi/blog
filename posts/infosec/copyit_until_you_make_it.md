@@ -49,7 +49,7 @@ such a *complete* tool like `sqlmap` to automate a SQL injection (not my favouri
 part of hacking I have to admit), however this statement is *not entirely false*.
 
 Any hacker will have its own unique way of testing a target, because of the tools,
-the angle, the vision of the technology he has. Anybody want's to be able to use
+the angle, the vision of the technology he has. Anybody wants to be able to use
 a tool that is perfectly suited for him, think of it as a carpenter having a
 hammer handle specially made for his palm and fingers, you can do without, but damn
 it feels good !
@@ -60,7 +60,7 @@ Even if we like a tool very much, there's always something about it that doesn't
 totally satisfies us.  
 Personally:
 - I think *Burp* is too much click-based, and I'd prefer having a CLI/TUI interface.
-- I dislike *metasploit*, I think most of it is sugar, the real usefull tool being
+- I dislike *metasploit*, I think most of it is sugar, the real useful tool being
 `msfvenom` only.
 - I think *sqlmap* is generating a ton of traffic and hits way too hard the target.
 
@@ -69,7 +69,7 @@ them entirely from the workflow.
 If you need one of them for a particular operation, you'll have to re-build that
 operation yourself, with a good ol' bash / Python script.
 
-Copy the usefull bit of the software you want to replace, also the things you really
+Copy the useful bit of the software you want to replace, also the things you really
 liked in it, but feel free to please yourself on how to use it.  
 You want a *GUI* ? Build one !
 Some *Lua* scripts to be run between steps of a process ? Go for it !
@@ -82,7 +82,7 @@ for each operation (and its close derivatives), and try to re-use your code as m
 as possible.
 
 > This can be also applied to any art.  
-> Copying artists that inspires you, or smart technics to achieve a result, but only
+> Copying artists that inspires you, or smart techniques to achieve a result, but only
 > take what you like in it, appropriate the copied art to your vision and preferences,
 > and mix it with your other inspirations and tools.
 
@@ -128,7 +128,7 @@ if __name__ == '__main__':
     proxy.loop()
 ```
 
-Imagine when submiting a HTTP form, the website expects you to include in the request
+Imagine when submitting a HTTP form, the website expects you to include in the request
 the value of a token that is randomly generated for each page reloading.
 (Situation encountered during a CTF)  
 Here I simply have to grab the value of the token in `handle_response` and store
@@ -152,10 +152,10 @@ and I'm damn proud of it **:D**
 I won't make the metaphor with the babies learning process, however I'd like to resume
 the learning path using the "Copy it until you make it" process:
 
-- Use script-kiddie technics to root your first CTF box
+- Use script-kiddie techniques to root your first CTF box
 - Become very fluent at rooting CTF boxes using your favourite set of tools
 - Replace your tools one-by-one with custom Python / bash scripts to have custom
-ones and learn more about the underlying technics
+ones and learn more about the underlying techniques
 - Finally, have a complete set of custom tools covering most of the operations
 you need to perform to root a CTF box, can be adapted to your specific needs,
 and you know the processes that make these operations work, because you made them.
@@ -163,7 +163,7 @@ and you know the processes that make these operations work, because you made the
 Sounds to me like a great plan to really get a firm grasp on what is going on,
 while having fun, and advancing step by step, not to mention improvements in
 writing good modular code, network programming, shellcode generation, etc...  
-Also if you want to step-up your tooling, you can write them in another langage,
+Also if you want to step-up your tooling, you can write them in another language,
 like Go (check the book [Black hat Go][bhgo]) or even Rust (check the book
 [Black hat Rust][bhrust]).
 

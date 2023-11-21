@@ -26,7 +26,7 @@ Run the command `cargo new --bin crabcan` to create the project.
 This will generate a `Cargo.toml` file in which we can describe our project, add dependencies and
 tweak configurations of the rust compiler, a handy file to avoid having to avoid having to
 create `rustc` commands by hand in a Makefile.
-You can change the author name, e-mail and version of your project here, but we wont add any
+You can change the author name, e-mail and version of your project here, but we won't add any
 dependencies yet.
 
 In the folder `src/` you will put, well, all your sources.
@@ -45,7 +45,7 @@ the UID number `0`, will output all `debug` messages, and will execute the comma
 the container.
 
 ## Introducing the `structopt` crate
-The [structopt crate][structopt-cratesio] is a very usefull tool to parse arguments from the
+The [structopt crate][structopt-cratesio] is a very useful tool to parse arguments from the
 commandline (using the `clap` crates as a backend).
 The method is very straightforward, by defining a [struct][rustbook-struct] containing all the arguments:
 ```rust
@@ -119,7 +119,7 @@ pub fn parse_args() -> Args {
 ```
 So here we first import our necessary dependencies `structopt` but also `PathBuf` from the standard
 library.   
-Then we define our `Args` struct, containing all the arguments and informations to be used for
+Then we define our `Args` struct, containing all the arguments and information to be used for
 argument parsing. Let's look what arguments we are expecting:
 - `debug`: Will be used to display debug messages or just normal logs
 - `command`: The command that will be executed inside the container (with arguments)
@@ -175,7 +175,7 @@ The raw patch to apply on a freshly created project using `cargo new --bin` can 
 
 ## The logging crates
 Now that we got from the user its input, let's set up a way to give him outputs.
-Simple text is enough, but we want to separate debug informations from basic informations and
+Simple text is enough, but we want to separate debug information from basic information and
 errors. For this, there's a lot of tools, but I chose the crates `log` and `env_logger` to perform
 this task.
 
@@ -194,7 +194,7 @@ env_logger = "0.9.0"
 ## Setting up logging
 Loggers have to be initialized with a level of verbosity. This will define wether to display
 debug messages, or only errors, or nothing at all.
-On our case, we want it to display normal informations by default, and increase verbosity to
+On our case, we want it to display normal information by default, and increase verbosity to
 debug messages when the `--debug` flag is passed through the commandline.
 
 Let's initialize our logger in `src/cli.rs`:
@@ -241,7 +241,7 @@ The raw patch to apply on the previous step can be found [here][patch-step2]
 
 # Prepare errors handling
 As a general practise it's good to take care of handling errors.
-When it comes to Rust, this langage is far too powerfull concerning errors handling to ignore
+When it comes to Rust, this language is far too powerful concerning errors handling to ignore
 them and not exploit them.
 
 I am no-one to teach how to properly handle errors, but this part will give an example of how
@@ -345,7 +345,7 @@ If something goes wrong during the execution, we can simply write:
 return Err(Errcode::MyErrorType);
 ```
 
-> The `Result` in Rust are very usefull and powerfull and it's generally a good idea to use it
+> The `Result` in Rust are very useful and powerful and it's generally a good idea to use it
 > everywhere you want error handling as it's the standard Rust way to do.
 
 Okay, but now we need to do something different in our `main` depending on how the function ended
@@ -394,7 +394,7 @@ The raw patch to apply on the previous step can be found [here][patch-step3]
 
 Before diving into the real work, let's validatet the arguments passed from the commandline.
 We will just check that the `mount_dir` actually exists, but this part can be extended with
-additionnal checks, as we add more options, etc ...   
+additional checks, as we add more options, etc ...   
 Let's replace the placeholders in `src/cli.rs` with the actual arguments validation:
 ``` rust
 pub fn parse_args() -> Result<Args, Errcode> {

@@ -17,7 +17,7 @@ this article in consequence.
 # Detailing some vulnerabilities
 
 The explanations are *intentionally kept simple*, please refer to the corresponding
-report section for more informations.  
+report section for more information.  
 I'll be focusing on the basics (that should prevent me from saying too many
 wrong statements), and how these issues could be seen in a program made in Rust.
 
@@ -36,7 +36,7 @@ while (slen > 0) {
 ```
 
 When the input text grows, the value of `slen` does as well, and researchers
-suceeded to allocate **2.5GB** of memory using a *30MB* file.
+succeeded to allocate **2.5GB** of memory using a *30MB* file.
 
 Let's try to reproduce the same kind of loop in Rust now:
 
@@ -166,7 +166,7 @@ at compile time.
 as we pay attention to the types we use. (`let size: i32` is not a good practice
 at all.)
 
-This kinds of issues can **definitly happen** in Rust if you use `as` castings all
+This kinds of issues can **definitely happen** in Rust if you use `as` castings all
 the time, and even if the memory size of variable is much more simple in
 Rust than in C, `usize` size in memory is arch-dependant
 (as described in the [usize type documentation][usize_type_doc]).
@@ -393,7 +393,7 @@ If you *upcast* `u32` to `u64`, you can use `.into()` as `From<u32>` is
 implemented for `u64`, and when you *downcast* `u64` to `u32`,
 use `.try_into()` instead, it will return an error if you overflow
 the bounds of the integer.  
-The performance cost for the usage of these is *negligable* / null,
+The performance cost for the usage of these is *negligible* / null,
 so you should always use them for a clean and secure code.
 
 As `usize` size in memory is arch-dependant (see [the docs][usize_type_doc]),
@@ -423,7 +423,7 @@ cannot make it using *another way*.
 It may be ok to use unsafe blocks in these situations:
 
 - Writing to a memory address in embedded systems and kernel code
-- Importing code from another programming langage, like C
+- Importing code from another programming language, like C
 - Having a global mut pointer, in single threaded application, and only if really
 necessary
 - When implementing the [Quake 3 inverse square root][quake3_inv_sqrt] function,
@@ -441,10 +441,10 @@ your CI to perform the tests before any merge, and make sure all of it is well t
 
 ## Limit the scale of your software
 
-- If you *add a data* struct to some `Vec` everytime someone connects to your server,
+- If you *add a data* struct to some `Vec` every time someone connects to your server,
 this is a resource consumption.
 - If you *start a thread* performing some kind of *computation* when someone connects
-to your server, this is a ressource consumption.
+to your server, this is a resource consumption.
 
 In both cases (and many other kind of examples), you need to think of
 "What happens if the whole Earth wants to connect to my app ?"

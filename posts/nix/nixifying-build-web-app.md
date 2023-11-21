@@ -6,7 +6,7 @@ to do to make it really practical, and the purpose of that blog post is to
 present what this library does, and is a **call for contributions** as
 I really need those to make the library grow. (See the *last section* of this post)
 
-The main idea is to **always** keep it simple for the developper and have a *nice
+The main idea is to **always** keep it simple for the developer and have a *nice
 API*, allow the user to have a *readable* nix code,
 and allow devs to rely on *tested and factorized* code when building their web applications.
 
@@ -38,7 +38,7 @@ for the system you use.
 
 Building the backend of an application is essentially the same as building any
 pieces of software, the process is then no different.  
-How to start the backend is up to the developper using the lib, and he'll be
+How to start the backend is up to the developer using the lib, and he'll be
 able to pass whatever argument and environment variables he wants, we only
 seek to build the binary here.
 
@@ -150,7 +150,7 @@ this particular form:
 A contributor creates a PR, adding *an example* to the repository.  
 For now the PR only adds:
 
-- A source code stored in `examples/{type}/{langage}/{framework}/`
+- A source code stored in `examples/{type}/{language}/{framework}/`
 - A `README.md` file that explains how to build this code **using native tools**
 
 This is the main part of the contribution, and **does not require any Nix knowledge**.
@@ -182,7 +182,7 @@ documentation for anyone wanting to get to this very special case, etc ...
 
 # Closing thoughts
 
-I like how some projects ease the way to build some programming langages using Nix,
+I like how some projects ease the way to build some programming languages using Nix,
 but sometimes it needs to be *scoped down* to a more precise application in order
 to have something more efficient. I attempt to create a way to improve the build
 of all kinds of web-related software using Nix.

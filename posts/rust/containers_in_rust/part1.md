@@ -21,7 +21,7 @@ In this case, you can totally skip the coding part as the explanation will be mo
 before that.
 
 **Keep in mind that I am learning while creating this project, I may make mistakes and in case
-of doubts, please check the differents souces I give or the Internet to double check what I say**.
+of doubts, please check the differents sources I give or the Internet to double check what I say**.
 
 It is mainly a way for me to learn about Linux security measures, virtualization features,
 how containerisation works, and the abilitiy to translate a program written with C paradygms
@@ -45,7 +45,7 @@ manager create a box that will look like a system in which the container can exe
 ### Usages
 Containerisation is used by a lot of servers, as it allows great flexibility and reliability
 for DevOps engineers. Also if a software crashes, takes 100% of its resources available,
-or even gets compromised by a hacker, it wont hurt the whole system and all the other
+or even gets compromised by a hacker, it won't hurt the whole system and all the other
 services who are running on it.
 
 Note that servers use extensively virtual machines too.
@@ -75,7 +75,7 @@ From the [Docker documentation website][docker-website-whatisdocker]:
 > and settings.
 
 Okay, so it's a way to make a software run without the compatibility hassle with the underlying
-execution environment. This is especially usefull to be able to develop a service and ship it to
+execution environment. This is especially useful to be able to develop a service and ship it to
 different servers, laptops or even embedded devices without all the problems it raises.
 
 ### Isolation
@@ -87,7 +87,7 @@ The difference between a container and a virtual machine is explained on the
 > but function differently because containers virtualize the operating system instead of hardware.
 
 So we can run a software having administrator rights and performing any kind of operations without
-harming our system. Of course this is theorical and the real security will depend on a lot of
+harming our system. Of course this is theoretical and the real security will depend on a lot of
 factors, including the implementation, to avoid container evasion (the same way we would want to
 avoid virtual machine evasion), a great post about it is
 [Understanding Docker container escapes][understand-docker-container-escape].
@@ -137,7 +137,7 @@ access to a peripheral.
 Docker is a container focused on the application to run.
 
 Visit [the official website][docker-website] or its [documentation][docker-documentation] to get
-more informations about it.
+more information about it.
 
 ## Linux Containers (LXC)
 Once used as the backbone of Docker, LXC is the user interface for the containement features
@@ -146,7 +146,7 @@ It uses kernel features to isolate and containerize an application to be run, an
 create an execution environment as close as possible of a standard Linux distribution, without
 needing another Linux Kernel.
 
-Visit [the linuxcontainers.org website][lxc-website] for more informations, including informations
+Visit [the linuxcontainers.org website][lxc-website] for more information, including information
 about the variants LXD, LXCFS and other related tools.
 
 [docker-website-whatisdocker]: https://www.docker.com/resources/what-container

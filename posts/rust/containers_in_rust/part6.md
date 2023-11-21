@@ -13,7 +13,7 @@ security issues it raises, etc...
 
 The general user namespace configuration is the following:
 - Child process tries to `unshare` its user resources
-    - If it suceeds, then user namespace isolation is supported
+    - If it succeeds, then user namespace isolation is supported
     - If it fails, then user namespace isolation isn't supported
 - Child process tells parent process if it supports user namespace isolation
 - If it supported user namespace isolation, parent process maps UID / GID of the user namespace
@@ -174,7 +174,7 @@ allowed to be mapped (the *length*).
 It happens exactly the same for GIDs as we only set up the group of the user,
 using exactly the same number.
 
-> For more informations about UID, GID and their relationship, look at [this article][uidvsgid]
+> For more information about UID, GID and their relationship, look at [this article][uidvsgid]
 
 As our child process has his root directory changed, we want our parent process
 to take care of writing to the correct files.   
@@ -264,7 +264,7 @@ This will set the *real user ID*, the *effective user ID*, and the *saved set-us
 
 The *real user ID* is **who you are** (who you logged into),   
 the *effective user ID* is **who you claim you are**
-(used for temporary priviledges with *sudo*, or impersonate a user with *su*),   
+(used for temporary privileges with *sudo*, or impersonate a user with *su*),   
 and the *saved set-user-ID* is **who you were before**
 (in case of chained impersonations ...)
 
@@ -277,7 +277,7 @@ groups without polluting the parent system.
 ## About user namespaces security
 
 On the [original tutorial footnotes][original-tutorial] (seriously, check it out.)
-you can find out more informations, experimentations and documentation about
+you can find out more information, experimentations and documentation about
 user namespaces.
 
 One document I found really helpful when talking about hardening the container
@@ -320,10 +320,10 @@ different UIDs, so all good.
 The code for this step is available on github [litchipi/crabcan branch “step11”][code-step11].   
 The raw patch to apply on the previous step can be found [here][patch-step11]
 
-# Linux Capabilties
+# Linux Capabilities
 
 
-## What are Linux capabilties
+## What are Linux capabilities
 
 ### Dividing the admin powers
 
@@ -333,7 +333,7 @@ systems and processes of the system.
 Those "isolated powers" include:
 - Modifying owner / permission of a file (`CAP_CHOWN`)
 - Using / setting the system time (`CAP_SYS_TIME`)
-- Extensive use of the system ressources (`CAP_SYS_RESOURCE`)
+- Extensive use of the system resources (`CAP_SYS_RESOURCE`)
 - Perform raw I/O port operations (`CAP_SYS_RAWIO`)
 - Lower a process priority (`CAP_SYS_NICE`)
 - Reboot the system (`CAP_SYS_BOOT`)
@@ -342,7 +342,7 @@ Those "isolated powers" include:
 If we don't restrict the power of the contained process, it could change all
 the settings we just set during its configuration.
 
-> For more informations, details, explanations, and a list of all capabilities,
+> For more information, details, explanations, and a list of all capabilities,
 look at [the linux manual][man-capabilities]
 
 ### Acquiring capabilities
@@ -388,7 +388,7 @@ where:
 
 The [linux manual page for capabilities][man-capabilities] have a very
 detailed explanation about the whole thing and is the best reference when searching
-for informations on the subject.
+for information on the subject.
 
 The great **LWN** website got a list of all articles regarding capabilities [here](https://lwn.net/Kernel/Index/#Capabilities)
 

@@ -1,10 +1,10 @@
 # Setting the container hostname
 A hostname is what identifies our machine compared to every other living on the same network.
 
-It is used by many different networking softwares, for example `avahi` is a software that streams
+It is used by many different networking software, for example `avahi` is a software that streams
 our hostname in the local network, allowing a command `ssh crab@192.168.0.42` to become
 `ssh crab@crabcan.local`, the website `http://localhost:80` to `http://crabcan.local`, etc ...
-> Check [the official website of avahi](http://avahi.org/) for more informations
+> Check [the official website of avahi](http://avahi.org/) for more information
 
 In order to differentiate the operations performed by our software contained from the one
 performed by the host system, we will modify its hostname.
@@ -114,7 +114,7 @@ pub fn set_container_hostname(hostname: &String) -> Result<(), Errcode> {
 }
 ```
 
-> Check the [linux manual][man-sethostname] for more informations on the `sethostname` syscall
+> Check the [linux manual][man-sethostname] for more information on the `sethostname` syscall
 
 ## Applying the configuration to the child process
 
@@ -145,7 +145,7 @@ fn child(config: ContainerOpts) -> isize {
 }
 ```
 
-Note that we cannot "recover" from any error hapenning in our child process, so we simply end it
+Note that we cannot "recover" from any error happening in our child process, so we simply end it
 with a `retcode = -1` along with a nice error message in case a problem occurs.
 
 The final thing to do here is adding to `src/main.rs` the `hostname` module we just created:
@@ -318,7 +318,7 @@ pub fn setmountpoint(mount_dir: &PathBuf) -> Result<(), Errcode> {
 ## Mount the new root
 
 Now let's mount the directory provided by the user so we can *pivot root* later.
-I wont go into deep details of every line of code as this is simply calling library functions.
+I won't go into deep details of every line of code as this is simply calling library functions.
 
 First, let's create a `random_string` function that returns, well, a random string.
 

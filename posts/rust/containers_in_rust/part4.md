@@ -250,11 +250,11 @@ pub fn generate_child_process(config: ContainerOpts) -> Result<Pid, Errcode> {
 Let's split this code to understand it properly:
 - We first allocate a raw array (aka buffer) of size `STACK_SIZE` that we define of size `1KiB`.
 This buffer will hold the [stack][whatis-stack] of the child process, note that this is different
-from the original C `clone` function (as detailled in [the nix::sched::clone documentation][docs-clone])
+from the original C `clone` function (as detailed in [the nix::sched::clone documentation][docs-clone])
 
 - Secondly we will set the flags we want to activate, a complete list of the flags and their simple description is available
 [in the nix::sched::CloneFlags documentation][docs-CloneFlags], or directly [in the linux manual for clone(2)][man-clone].
-I'll skip the flags definition for their own seperate parts as they deserve some proper explanation.
+I'll skip the flags definition for their own separate parts as they deserve some proper explanation.
 
 - We then call the `clone` syscall, redirecting to our `child` function, with our `config` struct
 as an argument, the temporary stack for the process, the flags we set, along with the instruction to
@@ -299,33 +299,33 @@ Here is the complete code:
 
 - `CLONE_NEWNS` will start the cloned child in a new `mount` namespace,
 initialized with a copy of the namespace from the parent process.   
-*Check [the mount-namespaces manual][man-mountns] for more informations*
+*Check [the mount-namespaces manual][man-mountns] for more information*
 
 - `CLONE_NEWCGROUP` will start the cloned child in a new `cgroup` namespace.   
 Cgroups are explained a bit later in the tutorial as we will use them to restrict
 the capabilities our child process have.   
-*Check [the cgroup-namespaces manual][man-cgroupns] for more informations*
+*Check [the cgroup-namespaces manual][man-cgroupns] for more information*
 
 - `CLONE_NEWPID` will start the cloned child in a new `pid` namespace.   
 This basically mean that our child process will *think* he will have a PID = X,
 but in reality in the Linux kernel he will have another one.   
-*Check [the pid-namespaces manual][man-pidns] for more informations*
+*Check [the pid-namespaces manual][man-pidns] for more information*
 
 - `CLONE_NEWIPC` will start the cloned child in a new `ipc` namespace.   
 Processes inside this namespace can interact with each other, whereas processes outside
 cannot through normal `IPC` methods.   
-*Check [the ipc-namespaces manual][man-ipcns] for more informations*
+*Check [the ipc-namespaces manual][man-ipcns] for more information*
 
 - `CLONE_NEWNET` will start the cloned child in a new `network` namespace.   
 It will not share the interfaces and network configurations from other
 namespaces.   
-*Check [the network-namespaces manual][man-networkns] for more informations*
+*Check [the network-namespaces manual][man-networkns] for more information*
 
 - `CLONE_NEWUTS` will start the cloned child in a new `uts` namespace.   
 I cannot explain why the name UTS (*UTS stands for UNIX Timesharing System*),
 but it will allow the contained process to set its own hostname and NIS domain name
 in the namespace.   
-*Check [the uts-namespaces manual][man-utsns] for more informations*
+*Check [the uts-namespaces manual][man-utsns] for more information*
 
 So while creating our child, we will separate its world from the one of the system,
 allowing it to modify whatever it wants (at least for the namespaces used) without harming
@@ -403,7 +403,7 @@ This function uses the syscall `waitpid`, from the [manual][man-waitpid]:
 > but this behavior is modifiable via the options argument, as described below.
 
 As we wait for the termination, we will just pass `None` as options, and return a `Errcode::ContainerError`
-error if the syscall didn't finished succesfully.
+error if the syscall didn't finished successfully.
 
 ## Testing
 Maybe since the beginning you were wondering why we need `sudo` to run our tests, in the first 7

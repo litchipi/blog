@@ -172,8 +172,8 @@ However as I work on a much newer version of the kernel, I will just check that 
 is at least the `v4.8` one, and that the architecture is `x86`.
 
 ## Getting system information
-As we want to start interacting with the system to gather informations, we will start to use a
-crate that will be massively usefull later, the [nix crate][nix-cratesio].
+As we want to start interacting with the system to gather information, we will start to use a
+crate that will be massively useful later, the [nix crate][nix-cratesio].
 
 Let's check our kernel version:
 ``` rust
@@ -199,7 +199,7 @@ pub fn check_linux_version() -> Result<(), Errcode> {
 }
 ```
 In this code, we first get the information on the system using [uname][man-uname].   
-From these informations, we get the kernel version as a `f32` float using the [scan_fmt crate][scanfmt-cratesio]
+From these information, we get the kernel version as a `f32` float using the [scan_fmt crate][scanfmt-cratesio]
 and check if it's at least the `v4.8`, then check if the machine architecture is `x86_64`.
 
 ## Handle errors
@@ -223,9 +223,9 @@ As we will use a macro from the `scan_fmt` crate, let's import it in our `src/ma
 #[macro_use] extern crate scan_fmt;
 ```
 
-And add the needed dependancies in the `Cargo.toml` file:
+And add the needed dependencies in the `Cargo.toml` file:
 ``` toml
-[dependancies]
+[dependencies]
 # ...
 nix = "0.22.1"
 scan_fmt = "0.2.6"
@@ -240,8 +240,8 @@ pub fn start(args: Args) -> Result<(), Errcode> {
     // ...
 }
 ```
-> I wont write again how errors handling are so elegant in Rust, but check out how we wired a new
-> function into the flow without needing any additionnal line of code to handle its errors.
+> I won't write again how errors handling are so elegant in Rust, but check out how we wired a new
+> function into the flow without needing any additional line of code to handle its errors.
 
 After testing that's the kind of output we get:
 ```

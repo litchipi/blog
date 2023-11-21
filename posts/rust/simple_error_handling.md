@@ -1,5 +1,5 @@
 Error handling can be tedious and extermely annoying...
-On most programming langages, but using **Rust** it's actually very simple !
+On most programming languages, but using **Rust** it's actually very simple !
 
 Of course coding methods are a matter of preference and I am nobody to say this
 is better than something else, but here's my 2 cents on this subject, and how I

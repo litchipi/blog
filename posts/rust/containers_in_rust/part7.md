@@ -16,7 +16,7 @@ are replaced with pre-recorded demos
 To avoid this case to happend, Linux separates software into 2 "lands",
 **kernel**-land and **user**-land.
 
-The kernel-land is *priviliged*, meaning it owns every bit of the machine (to some
+The kernel-land is *privileged*, meaning it owns every bit of the machine (to some
 exceptions like the processor-level context separation of [Arm TrustZone][arm_trust_zone]),
 it can read and write into all the memory and uses drivers to interact with the
 connected peripherals.
@@ -38,7 +38,7 @@ width="350">
 Here is a representation of an application writing to the disk using the `write`
 syscall.
 
-> When using `write` in another langage like Python, it usually calls
+> When using `write` in another language like Python, it usually calls
 > the `write` function of C as this function is directly translated into the
 > corresponding syscall when compiled.
 
@@ -80,7 +80,7 @@ such as Docker, basically it isolates a process into a state where *it can only
 read and write* into the filesystem, *or exit*.
 
 This secore computing mode is very restrtictive by default as it denies *any*
-syscall attempt. However for the good functionnality of our container, we may
+syscall attempt. However for the good functionality of our container, we may
 want to configure this and add exceptions.   
 To do this, we can set a **profile** for seccomp, which defines special rules,
 allows some syscalls, or triggers special actions.
@@ -120,7 +120,7 @@ userfaultfd
 perf_event_open
 ```
 
-> Some additionnal resources about what we restrict:   
+> Some additional resources about what we restrict:   
 > [Kernel keyring](https://www.systutorials.com/docs/linux/man/7-keyrings)   
 > [NUMA](https://www.kernel.org/doc/html/latest/vm/numa.html)   
 > [Userland memory handling](https://www.kernel.org/doc/html/latest/admin-guide/mm/userfaultfd.html)   
@@ -146,9 +146,9 @@ use syscallz::{Context, Action};
 pub fn setsyscalls() -> Result<(), Errcode> {
     log::debug!("Refusing / Filtering unwanted syscalls");
 
-    // Unconditionnal syscall deny
+    // Unconditional syscall deny
 
-    // Conditionnal syscall deny
+    // Conditional syscall deny
 
     // Initialize seccomp profile with all syscalls allowed by default
     if let Ok(mut ctx) = Context::init_with_action(Action::Allow) {
@@ -197,7 +197,7 @@ pub fn setup_container_configurations(config: &ContainerOpts) -> Result<(), Errc
 }
 ```
 
-### Unconditionnal syscalls restriction
+### Unconditional syscalls restriction
 
 Let's first refuse the syscalls we don't want the child to execute.   
 For this, we create the function `refuse_syscall` to totally deny any
@@ -223,7 +223,7 @@ use crate::syscallz::Syscall;
 
 pub fn setsyscalls() -> Result<(), Errcode> {
     // ...
-    // Unconditionnal syscall deny
+    // Unconditional syscall deny
     let syscalls_refused = [
         Syscall::keyctl,
         Syscall::add_key,
@@ -248,12 +248,12 @@ pub fn setsyscalls() -> Result<(), Errcode> {
 }
 ```
 
-### Conditionnal syscalls restriction
+### Conditional syscalls restriction
 
 Syscalls can be restricted when a particular condition is met.   
 For this, we create a rule that takes a value and return wether
 the permission should be set or not. As we have a basic usage of
-this functionnality, we simply test wether the variable is *equal* or not
+this functionality, we simply test wether the variable is *equal* or not
 to an expected value.
 
 Let's create the `refuse_if_comp` function implementing this:
@@ -288,7 +288,7 @@ pub fn setsyscalls() -> Result<(), Errcode> {
     let s_isgid: u64 = Mode::S_ISGID.bits().into();
     let clone_new_user: u64 = CloneFlags::CLONE_NEWUSER.bits() as u64;
 
-    // Conditionnal syscall deny
+    // Conditional syscall deny
     let syscalls_refuse_ifcomp = [
         (Syscall::chmod, 1, s_isuid),
         (Syscall::chmod, 1, s_isgid),
@@ -377,7 +377,7 @@ The raw patch to apply on the previous step can be found [here][patch-step13]
 ## Cgroups
 
 Cgroups is a mechanism introduced in Linux v2.6.4 which allows to *"allocate"
-ressources* for a group of processes.   
+resources* for a group of processes.   
 For the given group of processes, the system will "look like" it only has
 X of a given resource.
 
@@ -396,7 +396,7 @@ As this feature has been reworked, two versions coexist in the Linux kernel.
 The main difference for us users is that the `v2` groups all the configuration
 for a given group under the same directory.
 
-For more information about them, you can check this [great serie of articles on LWN][lwn_cgroups].
+For more information about them, you can check this [great series of articles on LWN][lwn_cgroups].
 
 This feature is used a lot in the containerisation of applications on a same server,
 and to be able to sell a specific set of performances on a server to a customer,
@@ -407,7 +407,7 @@ let attackers escape from the container and infect the host system directly.
 You have to remember that as *we give full power to the contained application*,
 if this app manages to escape the box, **it may keep its powers on the host system**
 
-### Limitting the CPU time
+### Limiting the CPU time
 
 To limit the CPU, cgroup uses weights to determine how much CPU time a process
 will get.   
@@ -420,13 +420,13 @@ The more the weight compared to the others, the more CPU shares.
 than if they all have 1024. The great range of values allows for fine tuning
 of this value.
 
-More informations on CPU sharing can be found [on this article of redhat][redhat_article]
+More information on CPU sharing can be found [on this article of redhat][redhat_article]
 
 ## Rlimit
 
 Rlimit is a system used to restrict a single process.   
 It's focus is more centered around what this process can do than what realtime
-system ressources it consumes.
+system resources it consumes.
 
 For details on rlimit you can check [this great article][rlimit_article]
 from which I extracted the list of all the rlimits available:
@@ -457,7 +457,7 @@ because, as stated in [the original tutorial][original_tuto]:
 
 So we need to set the `RLIMIT_NOFILE`
 
-> It is theorically possible that rlimit and cgroups "overlap" their
+> It is theoretically possible that rlimit and cgroups "overlap" their
 restrictions (the first limit reached will be the limiting one),
 but in practice their application area is different and that should
 almost never happend.

@@ -90,7 +90,7 @@ allow execution !
 ### Dynamically linked binaries
 
 When a program is compiled, it requires a lot of dependencies, even for a small
-Hello World, such as the standard library of the programming langage or
+Hello World, such as the standard library of the programming language or
 the bindings to the underlying operating system.
 
 It is possible to compile a binary statically, but it produces a big file, and
@@ -174,9 +174,9 @@ Yipee ! We got our **Hello, world!**, our container is now able to launch execut
 The code for this step is available on github [litchipi/crabcan branch “step15”][code-step15].   
 The raw patch to apply on the previous step can be found [here][patch-step15]
 
-# Mounting additionnal paths
+# Mounting additional paths
 
-The last bit we need for a usefull container is to allow some dynamic binaries
+The last bit we need for a useful container is to allow some dynamic binaries
 to be used inside our container. We could simply copy everything each time, and
 it can be better in terms of security, but we'll use a lighter method for now,
 let's mount directories inside our container !
@@ -185,7 +185,7 @@ The idea is simple, when creating the container, we pass a list of directory of
 the hosts and where they should appear inside the container. Then we "mount" them
 and can freely access to them.
 
-Let's add a parameter to the CLI for these additionnal paths to mount, in `src/cli.rs`:
+Let's add a parameter to the CLI for these additional paths to mount, in `src/cli.rs`:
 
 ``` rust
 pub struct Args {
@@ -252,7 +252,7 @@ impl ContainerOpts{
 
 ```
 
-Then, they are passed as an additionnal argument of the `setmountpoint` function
+Then, they are passed as an additional argument of the `setmountpoint` function
 and used to create the mountpoint and perform the `mount` operation.
 In the file `src/mounts.rs`:
 
@@ -260,7 +260,7 @@ In the file `src/mounts.rs`:
 pub fn setmountpoint(mount_dir: &PathBuf, addpaths: &Vec<(PathBuf, PathBuf)>) -> Result<(), Errcode> {
     // ...
 
-    log::debug!("Mounting additionnal paths");
+    log::debug!("Mounting additional paths");
     for (inpath, mntpath) in addpaths.iter(){
         let outpath = new_root.join(mntpath);
         create_directory(&outpath)?;
@@ -274,10 +274,10 @@ pub fn setmountpoint(mount_dir: &PathBuf, addpaths: &Vec<(PathBuf, PathBuf)>) ->
 ```
 
 > **Security Note**: You do not want all mounts to be read/write, especially when
-sharing system directories. An additionnal `MS_RDONLY` flag should be added for them.
+sharing system directories. An additional `MS_RDONLY` flag should be added for them.
 (You could have `-a` for read/write directories, and `-r` for read only ones)
 
-Finally, let's pass the new additionnal parameter to the `setmountpoint` inside
+Finally, let's pass the new additional parameter to the `setmountpoint` inside
 the `setup_container_configurations` function, in `src/child.rs`:
 
 ``` rust
@@ -290,8 +290,8 @@ fn setup_container_configurations(config: &ContainerOpts) -> Result<(), Errcode>
 
 ## Testing
 
-Now we can finally test our container with additionnal paths passed using
-mutliple pairs of the form `from:to`, like so:
+Now we can finally test our container with additional paths passed using
+multiple pairs of the form `from:to`, like so:
 
 ``` bash
 $ mkdir -p ./mountdir
@@ -306,7 +306,7 @@ $ sudo ./target/debug/crabcan --debug -u 0 -m ./mountdir/ -c "/bash" -a /lib64:/
 [2022-08-23T09:27:34Z DEBUG crabcan::hostname] Container hostname is now blue-pinguin-161
 [2022-08-23T09:27:34Z DEBUG crabcan::mounts] Setting mount points ...
 [2022-08-23T09:27:34Z DEBUG crabcan::mounts] Mounting temp directory /tmp/crabcan.0j3XHGRYJMf7
-[2022-08-23T09:27:34Z DEBUG crabcan::mounts] Mounting additionnal paths
+[2022-08-23T09:27:34Z DEBUG crabcan::mounts] Mounting additional paths
 [2022-08-23T09:27:34Z DEBUG crabcan::mounts] Pivoting root
 [2022-08-23T09:27:34Z DEBUG crabcan::mounts] Unmounting old root
 [2022-08-23T09:27:34Z DEBUG crabcan::namespaces] Setting up user namespace with UID 0
@@ -370,7 +370,7 @@ Feel free to reach to me if you have any question or remark, or leave a
 comment using your Github Account.
 
 I tried to keep it beginer-friendly in every aspects, as what I love to
-do when learning a langage is build something real with it.
+do when learning a language is build something real with it.
 
 The code of this tutorial is a Rust rewrite from [this tutorial][linux-containers-tutorial],
 you **should** go and take a look at least to it as it's filled with
