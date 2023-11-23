@@ -192,7 +192,7 @@ env_logger = "0.9.0"
 ```
 
 ## Setting up logging
-Loggers have to be initialized with a level of verbosity. This will define wether to display
+Loggers have to be initialized with a level of verbosity. This will define whether to display
 debug messages, or only errors, or nothing at all.
 On our case, we want it to display normal information by default, and increase verbosity to
 debug messages when the `--debug` flag is passed through the commandline.

@@ -90,7 +90,7 @@ frontend_compiled_dir = weblib.frontend.react.build {
 };
 ```
 
-**Huge thanks to enobayram** for finding a solution to make this happend.
+**Huge thanks to enobayram** for finding a solution to make this happen.
 
 The workflow when developping the frontend would be to simply fire up
 the backend locally and develop using your usual tools, but for the

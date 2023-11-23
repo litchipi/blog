@@ -21,7 +21,7 @@ In this case, you can totally skip the coding part as the explanation will be mo
 before that.
 
 **Keep in mind that I am learning while creating this project, I may make mistakes and in case
-of doubts, please check the differents sources I give or the Internet to double check what I say**.
+of doubts, please check the different sources I give or the Internet to double check what I say**.
 
 It is mainly a way for me to learn about Linux security measures, virtualization features,
 how containerisation works, and the abilitiy to translate a program written with C paradygms
@@ -102,7 +102,7 @@ stack under and inside the Linux kernel, but I won't dive into these details her
 However it is notable that a bunch of Linux libraries and kernel services allows
 to use the virtualization features, and we will use them extensively during the implementation.
 
-Different containers use differents containerisation type, LXC for example is able to perform
+Different containers use different containerisation type, LXC for example is able to perform
 [OS-level virtualization][os-level-virtualization-wikipedia], whereas Docker will achieve an
 application-level virtualization.
 

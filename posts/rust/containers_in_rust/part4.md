@@ -1,6 +1,6 @@
 In this post, we're going to clone the parent process of our container into a child process.
 
-Before that can happend, we'll set up the ground by preparing some inter-process communication
+Before that can happen, we'll set up the ground by preparing some inter-process communication
 channels allowing us to interact with the child process we're going to create.
 
 # Inter-process communication (IPC) with sockets

@@ -3,7 +3,7 @@ execution inside our code.
 
 # The `execve` syscall
 
-When Linux is told to execute a software, wether it's a binary or a text script
+When Linux is told to execute a software, whether it's a binary or a text script
 (if the first line is `#!<interpreter>`), behind the curtains it calls the `execve`
 that takes 3 arguments:
 

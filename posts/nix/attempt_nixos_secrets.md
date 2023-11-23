@@ -77,7 +77,7 @@ In this case, it's hashing the password to a suitable `/etc/shadow` format, but 
 ### In the git repository
 
 In order to configure the system, we need to access the encrypted secrets, and use them to configure services using NixOS modules.
-Imagine we have a solution to edit the secrets, that then *outputs a JSON file* containing the secrets data, encrypted using asymetric cryptography:
+Imagine we have a solution to edit the secrets, that then *outputs a JSON file* containing the secrets data, encrypted using asymmetric cryptography:
 
 ``` json
 {

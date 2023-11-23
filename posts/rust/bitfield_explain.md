@@ -102,7 +102,7 @@ register_bitfields!{
 
 This macro defines a list of registers that holds a `u32` (32 bits), containing a single register `GPFSEL1`.
 
-> In this example, this register allows to select wether we want a pin to be treated as an *Input* or *Output* (or a special function).  
+> In this example, this register allows to select whether we want a pin to be treated as an *Input* or *Output* (or a special function).  
 The **FSEL15** field of this register refers to the configuration for the *pin number 15*
 
 In this register `GPFSEL1` of 32 bits, the value of `3 bits` starting at the offset `15` is named `FSEL15`, and can hold 3 different values:

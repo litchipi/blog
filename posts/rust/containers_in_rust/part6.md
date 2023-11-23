@@ -218,7 +218,7 @@ We map up to 2000 UIDs but that is not really important.
 
 If we resume, from now on, whenever our contained process (matched by its **PID**)
 claim he has (or sets himself) the UID `0`, the kernel will see it with the UID `10000`.   
-The same will happend for the GIDs.
+The same will happen for the GIDs.
 > If the asked UID for the contained process is `0`, the contained process will
 set itself as **root** in the scope of its isolated execution environment
 

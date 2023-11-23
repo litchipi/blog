@@ -206,7 +206,7 @@ and check if it's at least the `v4.8`, then check if the machine architecture is
 If the kernel version is too low or we have a wrong architecture, the function returns a
 `Errcode::NotSupported`, with a number indicating what was not supported.   
 If the scan_fmt fails, we return a `Errcode::ContainerError`, a new error type for the
-"not supposed to happend at all" kind of errors, in our container.
+"not supposed to happen at all" kind of errors, in our container.
 
 Let's add these new errors to the `src/errors.rs` file:
 ``` rust

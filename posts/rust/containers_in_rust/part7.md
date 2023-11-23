@@ -13,7 +13,7 @@ such a state that would cause troubles for any other application to use it after
 [Windows 98 live fail][windows_98_fail], which is also why nowadays live demonstrations
 are replaced with pre-recorded demos
 
-To avoid this case to happend, Linux separates software into 2 "lands",
+To avoid this case to happen, Linux separates software into 2 "lands",
 **kernel**-land and **user**-land.
 
 The kernel-land is *privileged*, meaning it owns every bit of the machine (to some
@@ -251,9 +251,9 @@ pub fn setsyscalls() -> Result<(), Errcode> {
 ### Conditional syscalls restriction
 
 Syscalls can be restricted when a particular condition is met.   
-For this, we create a rule that takes a value and return wether
+For this, we create a rule that takes a value and return whether
 the permission should be set or not. As we have a basic usage of
-this functionality, we simply test wether the variable is *equal* or not
+this functionality, we simply test whether the variable is *equal* or not
 to an expected value.
 
 Let's create the `refuse_if_comp` function implementing this:
@@ -460,7 +460,7 @@ So we need to set the `RLIMIT_NOFILE`
 > It is theoretically possible that rlimit and cgroups "overlap" their
 restrictions (the first limit reached will be the limiting one),
 but in practice their application area is different and that should
-almost never happend.
+almost never happen.
 
 Note that as rlimit uses a syscall, these settings *can be re-configured from a process*,
 which is why we added the `CAP_SYS_RESOURCE` to the blacklist of syscalls
