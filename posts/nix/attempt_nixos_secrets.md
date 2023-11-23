@@ -5,8 +5,7 @@
 When it comes to NixOS systems, a pain point still lives on, in direct conflicts with a *nix* building principle: the `/nix/store`
 
 A public directory where the everything required for the system is stored, where everybody can read what's inside,
-when it comes to secret management, this is a real pain in the git.
-
+when it comes to secret management, this is a real pain in the git.  
 A lot of people came up with solutions, and you can see the complete list on the
 [dedicated nixos wiki page][secret_mgt_comparison].
 
@@ -25,6 +24,12 @@ So this is my attempt at a NixOS secrets management system satisfying all of the
 
 > This is heavily based on [Xe's work on a similar subject][xe_article],
 check out the post for more details, and many thanks to her for writing it !
+
+This first section is a *simple presentation* for the concept, the following parts are **much more technical** and provide
+an example of implementation of such system.
+
+You are advised to be able to read easily NixOS configurations, and data manipulation, *Nix* code in order to go through the
+technical parts.
 
 ## Presenting the workflow
 
@@ -59,7 +64,7 @@ secured using **read only permissions to root**, and that will be used at boot t
 So the workflow is the following:
 - When installing a new NixOS system, you copy the private key used to encrypt all secrets to `/etc/secrets_key`
 - You secure the private key by changing the owner to `root:root` and the permissions to read only (400)
-- When booting the system, a systemd service will iterate through the encrypted secrets required for the system to work
+- When booting the system, a process will iterate over the encrypted secrets required for the system to work
 - Each secret is decrypted (using `rage`), the output is stored in a file (in the `/run/nixos-secrets` directory)
 - Each secret is secured with its own owner, group and read/write permissions.
 
@@ -71,12 +76,32 @@ In this case, it's hashing the password to a suitable `/etc/shadow` format, but 
 
 ### In the git repository
 
-<!-- TODO This section -->
+In order to configure the system, we need to access the encrypted secrets, and use them to configure services using NixOS modules.
+Imagine we have a solution to edit the secrets, that then *outputs a JSON file* containing the secrets data, encrypted using asymetric cryptography:
 
-- Talk about how we want to access the (asymetricly) encrypted secrets inside the modules, and how we can manage it using a `json` file.
-- Talk about how we can generate a NixOS module using this JSON file, in order to have secrets inside `config.secrets`, give an usage example.
-- Talk about how we create the systemd service that will be used on NixOS using it.
-- Talk about the private key stored somewhere safe (outside of git repo, or inside if encrypted with `git-crypt` or `gpg`)
+``` json
+{
+  "gitlab": {
+    "database_password_file": {
+      // Some metadata about the secret
+      "age_enc": "BASE64-DATA"
+    }
+  }
+}
+```
+
+Then, we can import this data inside a NixOS module using the `builtins.fromJSON` file, and from there we can generated everything !
+
+We just need to generate:
+- Services all configured to read their secrets in a file `/run/nixos-secrets/<secret parents>/<secret name>`
+- A NixOS activation script that decrypt the secrets using `rage` and output the result in the file
+- A systemd service to configure the decrypted secret owner and file permissions
+
+> We cannot set the decrypted secrets owner and file permissions in the activation script because it's executed too early in
+the system initialization, and so isn't yet able to it
+
+We use [age](http://age-encryption.org) encryption here as it allows us to encrypt a secret against multiple public keys, so we
+don't re-use the same private key for all our NixOS systems.
 
 ## Bill of needed software
 
@@ -96,13 +121,168 @@ Talk about to pull this off we need:
 - Talk about the piece of software needed to handle this:
   - Encrypted JSON generator from the plaintext JSON (manage_secrets.py)
   - (optional) Plaintext JSON editor, to easily modify things (json_repl)
+- Talk about storing public and private keys inside the git repo
 
+<!-- TODO Find a better title for this part -->
 # Store encrypted secrets inside the nix store
 
 <!-- TODO This section -->
 
-- Talk about the NixOS module generated from the JSON file (nix lib I created)
-- Talk about the systemd service generated from the secrets in config (nix lib I created)
+``` nix
+let
+  system_secrets = builtins.fromJSON (builtins.readFile ./secrets.json);
+
+  sanitize_name = name: name; # Remove dangerous patterns like path traversal
+  secret_path = parents: builtins.concatStringsSep "/" (builtins.map sanitizeName parents);
+
+  generate_secret_option = parents: name: secret: {
+    file = lib.mkOption {
+      default = "/run/nixos-secrets/${secret_path parents}/${santitize_name name}";
+      visible = false;
+    };
+    enc_data = lib.mkOption {
+      # The encrypted data
+      default = secret.age_enc;
+      visible = false;
+    };
+  };
+
+  # Goes through the secrets tree and create secrets options if it's a "leaf"
+  mkOptionTree = parents: name: data: if builtins.hasAttr "age_enc" data
+      then mkSecOptions parents name data
+      else lib.attrsets.mapAttrs (mkOptionTree (parents ++ [ name ])) data;
+in
+  { config, lib, pkgs, ...}: {
+    options.secrets.store = mkOptionTree system_secrets;
+  }
+```
+
+And would allow to configure our system using something like:
+
+``` nix
+services.gitlab.databasePasswordFile = config.secrets.store.gitlab.database_password_file.file;
+```
+
+This means the configured service will expect the file `/run/nixos-secrets/gitlab/database_password_file` to be present at boot, and readable by the user `gitlab`.
+
+We still have 2 problems:
+- We don't want to decrypt every single secrets we have, only the one we need for the system to work
+- Secrets requires specific owner / group and permissions in order to be really useful
+
+For this, we will add a new option for our NixOS module:
+
+``` nix
+let 
+  secretSetupType = lib.types.submodule {
+    options = {
+      secret = lib.mkOption {
+        type = lib.types.attrs;
+      };
+      user = lib.mkOption {
+        type = lib.types.str;
+        default = "root";
+      };
+      group = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        default = null; # Null = same as user
+      };
+      perms = lib.mkOption {
+        type = lib.types.str;
+        default = "400";
+      };
+    };
+  };
+in {
+  options.secrets.setup = lib.mkOption {
+    type = lib.types.attrsOf sectypes.secretSetupType;
+    default = {};
+  };
+}
+```
+
+This allows to have an attrsets containing all the secrets to decrypt, and how to configure them.  
+It can be used like so:
+
+``` nix
+secrets.setup.gitlab_database_password = {
+  secret = config.secrets.store.gitlab.database_password_file;
+  user = "gitlab";
+};
+```
+
+Now the last step is to use all this data to decrypt the secrets at boot using the provisioned `/etc/secrets_key`.  
+Using a `system.activationScripts`, we can generate the script:
+
+``` nix
+system.activationScripts.decrypt_secrets = let
+  # Decrypt a secret using the data passed in config.secrets.store
+  decrypt_secret = parents: { enc_data, file, ...}: let
+    decrypt_cmd = builtins.concatStringsSep " | " [
+      "echo \"${age_enc_data}\""
+      "base64 -d"
+      "${pkgs.rage}/bin/rage --decrypt -i /etc/secrets_key"
+    ];
+  in ''
+    mkdir -p $(dirname ${file})
+    ${decrypt_cmd} > ${file}
+  '';
+
+  # Traverse the tree of all the enabled secrets, and generate the decryption command
+  decrypt_all_secrets = parents: data: if builtins.hasAttr "enc_data" data
+    then decrypt_secret parents data
+    else lib.attrsets.mapAttrsToList (n: s: decrypt_all_secrets (parents ++ [n]) s) data;
+
+  # Concat all the decrypt commands into a single big script
+  decrypt_all_secrets_cmd = builtins.concatStringsSep "\n" (lib.lists.flatten (
+    lib.attrsets.mapAttrsToList (n: s: decrypt_all_secrets [n] s.secret) cfg.setup
+  ));
+in ''
+  if [ -f ${cfg.provision_key.file} ]; then
+    ${decrypt_all_secrets_cmd}
+    echo "All secrets decrypted successfully"
+  else
+    echo "No provision key set"
+  fi
+'';
+```
+
+When executing an `activationScripts`, the system isn't initialized enough to handle file
+permissions. So for now we keep the decrypted files as root-owned, and configure a systemd
+service only to change the permissions
+
+``` nix
+setup-secrets-perms-and-links = {
+  wantedBy = [ "local-fs.target" ];
+  after = [ "local-fs.target" ];
+  serviceConfig.Type = "oneshot";
+  script = let
+    # Go through the secrets config and set permissions based on their configuration set
+    set_perms_and_link = user: group: perms: data:
+      if builtins.hasAttr "__is_leaf" data
+      then ''
+          if [ -f ${data.file} ]; then
+            chmod ${perms} ${data.file}
+            chown ${user}:${group} ${data.file}
+          else
+            echo "File ${data.file} not found, skipping ..."
+          fi
+        '' + (if builtins.isNull data.link then "" else ''
+          ${pkgs.su}/bin/su ${user} -c 'mkdir -p $(dirname ${data.link})'
+          rm -f ${data.link}
+          ln -s ${data.file} ${data.link}
+          chown ${user}:${group} ${data.link}
+        '')
+      else lib.attrsets.mapAttrsToList (_: d: set_perms_and_link user group perms d) data;
+
+    set_tree_perms_and_link = _: { secret, user, group, perms }: let
+      applied_group = if builtins.isNull group then user else group;
+    in set_perms_and_link user applied_group perms secret;
+
+ in builtins.concatStringsSep "\n" (
+    lib.lists.flatten (lib.attrsets.mapAttrsToList set_tree_perms_and_link cfg.setup)
+  );
+};
+```
 
 # Workflow
 
