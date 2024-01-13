@@ -1,10 +1,15 @@
+// Logo
+$logo-size: 120px;
+$logo-padding: 30px;
+$site-descr-grid: 1fr;
+
 // Colors
-$color1: #CA6EA5; //#cf4297;
-$color2: #88D68F; //AEE3B3;
-$color3: #4297cf;
+$color1: #e34967; // Pink
+$color2: #77de81; //67e349; //39b54a; // Green
+$color3: #A2B2F0; //7B91EA; //4967E3; //4297cf; // Blue
 
 $text-color:            #ddd;
-$background-color:      #222222;
+$background-color:      #272727;
 $light-gray: #8F8F8F;
 
 $color1_dark:  darken($color1, 20%);
@@ -13,7 +18,7 @@ $color3_dark:  darken($color3, 20%);
 
 $color1_light: lighten($color1, 18%);
 $color2_light: lighten($color2, 17%);
-$color3_light: lighten($color3, 18%);
+$color3_light: lighten($color3, 12%);
 
 $color1_dimmed: desaturate($color1_dark, 40%);
 $color2_dimmed: desaturate($color2_dark, 40%);

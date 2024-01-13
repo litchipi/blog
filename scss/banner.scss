@@ -1,11 +1,10 @@
 @import "variables";
 
-$logo-size: 64px;
-
 #banner {
   border-bottom: 1px solid #4A4A4A;
   display: grid;
-  grid-template-columns: calc(10px + $logo-size) calc($left-margin-offset - $logo-size) 1fr $left-margin-offset;
+  grid-template-columns: auto auto $site-descr-grid $left-margin-offset;
+  column-gap: 30pt;
 }
 
 #sitedescr {
@@ -14,8 +13,10 @@ $logo-size: 64px;
 }
 
 #logo {
-  margin: auto;
-  padding-left: 10px;
+  padding-left: $logo-padding;
+  img {
+    width: $logo-size;
+  }
 }
 
 #sitename {
@@ -78,6 +79,7 @@ $logo-size: 64px;
     margin: 10px 0px 40px 40px;
   }
   #logo {
+    width: $logo-size;
     height: 0px;
     overflow: hidden;
   }

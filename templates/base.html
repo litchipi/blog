@@ -44,15 +44,13 @@
     </div>
 
     <footer>
+        <div class="copyrights">
+            {{ site.copyrights }}
+        </div>
         <div class="webring-footer">
             <a href="{{ site.webring.previous }}" class="webring-footer-element previous">Previous website</a>
             <span class="webring-footer-element">This website is part of the webring <strong>{{ site.webring.name }}</strong></span>
             <a href="{{ site.webring.next }}" class="webring-footer-element next">Next website</a>
-        </div>
-        <div class="copyrights">
-            <strong>&copy</strong>
-            <a href="mailto:{{ site.author_email }}">{{ site.author_name }}</a>
-            {{ site.copyrights }}
         </div>
     </footer>
 </body>

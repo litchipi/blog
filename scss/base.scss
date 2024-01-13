@@ -78,10 +78,6 @@ a:hover {
       color: inherit;
     }
 
-    .item-category {
-      color: $color1;
-    }
-
     .item-date {
       color: #777777;
     }
@@ -192,11 +188,13 @@ footer {
   footer .copyrights strong {
     font-size: calc(22px * 1.6);
   }
+  .webring-footer {
+    display: none;
+  }
 }
 
 @media screen and (max-width: $phone-media) {
   html {
-    line-height: calc($base-line-height * 1.4);
     font-size: calc($base-font-size * 2);
   }
   .item-title {
