@@ -1,4 +1,4 @@
-name = "Blog of Litchi Pi"
+name = "Litchi Pi"
 author_name = "Litchi Pi"
 author_email = "litchi.pi@proton.me"
 base_url = "https://litchipi.site"
@@ -12,7 +12,7 @@ Welcome on my blog, I write articles about anything I find interesting, and try 
 I do have other passions and hobbies, but it's unlikely that I'll write about it. I'd be happy to chat with anyone about pretty much anything, so feel free to reach me to have a chat ! :-)
 """
 
-copyrights = "2023 licensed under a Creative commons CC BY-NC license."
+copyrights = "Content released under a Creative commons CC BY-NC license"
 og_image = "images/og_banner.png"
 
 blog_src = "https://github.com/litchipi/blog"
