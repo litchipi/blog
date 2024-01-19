@@ -21,8 +21,6 @@ blog_engine_src = "https://github.com/litchipi/ecoweb"
 
 [webhook_update]
 zipfile_fetch_url = "https://github.com/litchipi/blog/archive/"
-container_dir = true
-tmpdir = "/tmp/blog_data_update"
 
 [social]
 github = "https://github.com/litchipi/"
