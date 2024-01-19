@@ -14,9 +14,15 @@ I do have other passions and hobbies, but it's unlikely that I'll write about it
 
 copyrights = "Content released under a Creative commons CC BY-NC license"
 og_image = "images/og_banner.png"
+favicon = "favicon.png"
 
 blog_src = "https://github.com/litchipi/blog"
 blog_engine_src = "https://github.com/litchipi/ecoweb"
+
+[webhook_update]
+zipfile_fetch_url = "https://github.com/litchipi/blog/archive/"
+container_dir = true
+tmpdir = "/tmp/blog_data_update"
 
 [social]
 github = "https://github.com/litchipi/"

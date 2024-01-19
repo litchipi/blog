@@ -3,12 +3,16 @@ code_theme = "base16-eighties.dark"
 req_limit_per_sec = 50
 browser_cache_max_age = 3600
 
-[cache]
-limit_size = 10485760
-post_cache_weight = 0.8
-post_nav_weight = 0.3
-post_page_rendered = 0.5
-post_metadata = 0.1
+scss_dir = "scss"
+scripts_dir = "scripts"
+templates_dir = "templates"
+posts_registry = "registry.toml"
+posts_dir = "posts"
+
+site_config_file = "site.toml"
+add_assets = [
+  "images"
+]
 
 [limits]
 recent_posts = 4
