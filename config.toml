@@ -25,6 +25,7 @@ error = "error.html"
 post = "post.html"
 post_list = "post_list.html"
 index = "index.html"
+hireme = "hireme.html"
 
 [scss]
 "style.css" = [
@@ -35,6 +36,11 @@ index = "index.html"
   "specific.scss", 
   "error.scss",
 ]
+
 "print.css" = [
   "print.scss",
+]
+
+"hireme.css" = [
+  "hireme.scss",
 ]

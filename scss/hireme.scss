@@ -1,0 +1,31 @@
+@import "variables";
+
+.hireme {
+  strong {
+    color: $color1;
+  }
+  
+  h1 {
+    color: $color2;
+    font-size: $title-font-size;
+  }
+
+  h2 {
+    color: $color3;
+  }
+
+  h3 {
+    color: $color3;
+    margin-top: 20pt;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  hr {
+    color: $color1;
+    margin-top: 40pt;
+    margin-bottom: 40pt;
+  }
+}

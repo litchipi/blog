@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="/hireme.css" />
+{% endblock stylesheets %}
+
+{% block meta %}
+  <meta name=" robots" content=" index">
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="{{site.hireme.title}}" />
+  {% if site.og_image %}
+  <meta property="og:image" content="{{site.base_url | safe}}/{{ site.og_image }}" />
+  {% endif %}
+  <meta property="og:url" content="{{ site.base_url | safe }}/hireme" />
+  <meta property="og:site_name" content="{{ site.name }}" />
+{% endblock meta %}
+
+{% block title %}{{ site.hireme.title }}{% endblock title %}
+
+{% block content %}
+<div class="hireme">
+  {{ site.hireme.html_content | safe }}
+</div>
+{% endblock content %}
