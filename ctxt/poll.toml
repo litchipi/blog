@@ -1,4 +1,9 @@
 title = "Sondage"
+disclamer = "Les données de ce formulaire sont stockées de façon anonyme, seuls vos réponses sont conservées, aucune autre donnée n'est collectée."
+
+[lang]
+yes = "Oui"
+no = "Non"
 
 [numeric_or_not]
 text = "Êtes-vous un professionnel du secteur du numérique ou non ?"

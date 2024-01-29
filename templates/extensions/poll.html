@@ -27,14 +27,18 @@
 
       {% if q.type == "yes_or_no" %}
         <input type="radio" id="inp-{{ qslug }}-yes" name="{{ qslug }}" value="true">
-        <label for="inp-{{ qslug }}-yes">Oui</label>
+        <label for="inp-{{ qslug }}-yes">{{ poll.lang.yes }}</label>
         <input type="radio" id="inp-{{ qslug }}-no"  name="{{ qslug }}" value="false">
-        <label for="inp-{{ qslug }}-no">Non</label>
+        <label for="inp-{{ qslug }}-no">{{ poll.lang.no }}</label>
       {% endif %}
     </li>
 {% endmacro disp_question %}
 
 {% block content %}
+  <div id="poll-footer-disclamer">
+    {{ poll.disclamer }}
+  </div>
+
   <form id="poll-form">
   <ul>
   {{ self::disp_question(qslug="numeric-or-not", q=poll.numeric_or_not, addclass="") }}
@@ -48,5 +52,12 @@
   {% endfor %}
 
   </ul>
+
+  <!--
+    TODO  Submit button to a save-data endpoint in ecoweb -> new extension
+          Add a password entry before submit to prevent spoofing
+          In backend, save the thing as a JSON data (anonymously)
+          Encrypt the data using asymetric encryption
+  -->
   </form>
 {% endblock content %}
