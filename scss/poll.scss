@@ -2,3 +2,13 @@
 .question-container {
   border: 1px solid red;
 }
+
+.not-numeric {
+  visibility: hidden;
+  height: 0pt;
+}
+
+.numeric-pro {
+  visibility: hidden;
+  height: 0pt;
+}

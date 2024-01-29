@@ -21,27 +21,32 @@
 
 {% block title %}{{ poll.title }}{% endblock title %}
 
-<!-- TODO  Find a way to use the macro -->
 {% macro disp_question(qslug, q, addclass) %}
     <li id="{{ qslug }}" class="question-container {{ addclass }}">
       <p class="question-text">{{ q.text }}</p>
 
       {% if q.type == "yes_or_no" %}
-        <p> Yes or No ? </p>
+        <input type="radio" id="inp-{{ qslug }}-yes" name="{{ qslug }}" value="true">
+        <label for="inp-{{ qslug }}-yes">Oui</label>
+        <input type="radio" id="inp-{{ qslug }}-no"  name="{{ qslug }}" value="false">
+        <label for="inp-{{ qslug }}-no">Non</label>
       {% endif %}
     </li>
-{% endmacro input %}
+{% endmacro disp_question %}
 
 {% block content %}
+  <form id="poll-form">
   <ul>
-  {{ macros::disp_question(qslug="numeric-or-not", q=poll.numeric_or_not, addclass="") }}
-  {% for qslug, q in poll.question.numeric-pro %}
-    {{ macros::disp_question(qslug=qslug, q=q, addclass="numeric-pro") }}
+  {{ self::disp_question(qslug="numeric-or-not", q=poll.numeric_or_not, addclass="") }}
+
+  {% for qslug, q in poll.question["numeric-pro"] %}
+    {{ self::disp_question(qslug=qslug, q=q, addclass="numeric-pro") }}
   {% endfor %}
 
-  {% for qslug, q in poll.question.not-numeric %}
-    {{ macros::disp_question(qslug=qslug, q=q, addclass="not-numeric") }}
+  {% for qslug, q in poll.question["not-numeric"] %}
+    {{ self::disp_question(qslug=qslug, q=q, addclass="not-numeric") }}
   {% endfor %}
 
   </ul>
+  </form>
 {% endblock content %}
