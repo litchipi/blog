@@ -1,0 +1,8 @@
+title = "Sondage"
+questions = [
+  "1-numeric-or-not"
+]
+
+[question.1-numeric-or-not]
+text = "Êtes-vous un professionnel du secteur du numérique ou non ?"
+type = "yes_or_no"

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+{% block meta %}
+  <meta name=" robots" content=" index">
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="{{ poll.title }}" />
+  {% if site.og_image %}
+  <meta property="og:image" content="{{site.base_url | safe}}/{{ site.og_image }}" />
+  {% endif %}
+  <meta property="og:url" content="{{ site.base_url | safe }}/{{ add_endpoint_path }}" />
+  <meta property="og:site_name" content="{{ site.name }}" />
+{% endblock meta %}
+
+{% block title %}{{ poll.title }}{% endblock title %}
+
+{% block content %}
+  <ul>
+  {% for qslug in poll.questions %}
+    <li id="{{ qslug }}" class="question-container">
+    {% set q = poll.question | get(key=qslug) %}
+      <p class="question-text">{{ q.text }}</p>
+
+      {% if q.type == "yes_or_no" %}
+        <p> Yes or No ? </p>
+      {% endif %}
+
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock content %}

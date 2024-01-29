@@ -25,7 +25,7 @@ error = "error.html"
 post = "post.html"
 post_list = "post_list.html"
 index = "index.html"
-hireme = "hireme.html"
+hireme = "extensions/hireme.html"
 
 [scss]
 "style.css" = [
@@ -44,3 +44,6 @@ hireme = "hireme.html"
 "hireme.css" = [
   "hireme.scss",
 ]
+
+[add_endpoints]
+test = "extensions/poll.html"
