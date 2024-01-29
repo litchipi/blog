@@ -1,8 +1,13 @@
 title = "Sondage"
-questions = [
-  "1-numeric-or-not"
-]
 
-[question.1-numeric-or-not]
+[numeric_or_not]
 text = "Êtes-vous un professionnel du secteur du numérique ou non ?"
 type = "yes_or_no"
+
+[question.numeric-pro.2-experience-in-field]
+text = "Depuis combien de temps (environ) travaillez vous dans le numérique ?"
+type = "number"
+
+[question.not-numeric.2-what-field]
+text = "Dans quel secteur d'activité travaillez-vous ?"
+type = "text"

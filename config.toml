@@ -25,6 +25,8 @@ error = "error.html"
 post = "post.html"
 post_list = "post_list.html"
 index = "index.html"
+
+# TODO    Re-implement hireme page entirely from add-endpoints extension
 hireme = "extensions/hireme.html"
 
 [scss]
@@ -36,14 +38,9 @@ hireme = "extensions/hireme.html"
   "specific.scss", 
   "error.scss",
 ]
-
-"print.css" = [
-  "print.scss",
-]
-
-"hireme.css" = [
-  "hireme.scss",
-]
+"print.css" = [ "print.scss" ]
+"hireme.css" = [ "hireme.scss" ]
+"poll.css" = [ "poll.scss"]
 
 [add_endpoints]
-test = "extensions/poll.html"
+business_survey = "extensions/poll.html"
