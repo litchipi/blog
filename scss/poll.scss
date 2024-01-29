@@ -1,6 +1,10 @@
+@import "variables";
 
 .question-container {
-  border: 1px solid red;
+  border-left: 5pt solid $color1;
+  padding: 10pt 10pt;
+  margin: 20pt 0pt;
+  list-style: none;
 }
 
 .not-numeric {
@@ -15,5 +19,5 @@
 
 #poll-footer-disclamer {
   color: gray;
-  border: 1px solid blue;
+  // border: 1px solid blue;
 }

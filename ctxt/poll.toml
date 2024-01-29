@@ -15,20 +15,20 @@ text = "Depuis combien de temps (environ) travaillez vous dans le numérique ?"
 type = "number"
 
 [question.numeric-pro.3-experience-in-field]
-text = "Depuis combien de temps (environ) travaillez vous dans le numérique ?"
+text = "Je suis une truite"
 type = "number"
 
 [question.numeric-pro.4-experience-in-field]
-text = "Depuis combien de temps (environ) travaillez vous dans le numérique ?"
-type = "number"
+text = "Êtes-vous une truite ?"
+type = "yes_or_no"
 
 [question.numeric-pro.5-experience-in-field]
-text = "Depuis combien de temps (environ) travaillez vous dans le numérique ?"
+text = "Je suis un saumon"
 type = "number"
 
 [question.numeric-pro.6-experience-in-field]
-text = "Depuis combien de temps (environ) travaillez vous dans le numérique ?"
-type = "number"
+text = "Êtes-vous un saumon ?"
+type = "yes_or_no"
 
 
 # Questions for not numeric pros
@@ -37,13 +37,9 @@ text = "Dans quel secteur d'activité travaillez-vous ?"
 type = "text"
 
 [question.not-numeric.3-what-field]
-text = "Dans quel secteur d'activité travaillez-vous ?"
-type = "text"
+text = "Aimez-vous les cookies ?"
+type = "yes_or_no"
 
 [question.not-numeric.4-what-field]
-text = "Dans quel secteur d'activité travaillez-vous ?"
-type = "text"
-
-[question.not-numeric.5-what-field]
-text = "Dans quel secteur d'activité travaillez-vous ?"
+text = "Qui meurt à la fin ?"
 type = "text"

@@ -26,6 +26,7 @@ a:hover {
 }
 
 .page-grid {
+  margin-top: 3pt;
   display: grid;
   grid-template-columns: minmax($min-panel-size, 1fr) minmax(300px, auto) minmax($min-panel-size, 1fr);
 }
