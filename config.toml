@@ -21,10 +21,10 @@ series = 5
 plain_posts_list = 15
 
 [templates]
-error = "error.html"
 post = "post.html"
 post_list = "post_list.html"
 index = "index.html"
+notification = "notification.html"
 
 # TODO    Re-implement hireme page entirely from add-endpoints extension
 hireme = "extensions/hireme.html"
@@ -43,4 +43,5 @@ hireme = "extensions/hireme.html"
 "poll.css" = [ "poll.scss"]
 
 [add_endpoints]
-business_survey = "extensions/poll.html"
+"business_survey/fr" = "extensions/poll.html"
+"business_survey/en" = "extensions/poll.html"

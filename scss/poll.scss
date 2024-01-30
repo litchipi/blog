@@ -7,21 +7,13 @@
   padding-top: 5pt;
   margin: 20pt 0pt;
   list-style: none;
+
+  // Initial state of questions is masked
+  display: none;
 }
 
-.not-numeric {
-  visibility: hidden;
-  height: 0pt;
-}
-
-.numeric-pro {
-  visibility: hidden;
-  height: 0pt;
-}
-
-#poll-footer-disclamer {
+#poll-disclamer {
   color: gray;
-  // border: 1px solid blue;
 }
 
 .question-text {
@@ -34,4 +26,9 @@
   color: gray;
   font-size: 12pt;
   margin-top: 0pt;
+}
+
+.range-value {
+  margin-left: 20pt;
+  color: gray;
 }

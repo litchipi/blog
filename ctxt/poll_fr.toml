@@ -4,6 +4,7 @@ disclamer = "Les données de ce formulaire sont stockées de façon anonyme, seu
 [lang]
 yes = "Oui"
 no = "Non"
+send_button = "Envoyer"
 
 [numeric_or_not]
 text = "Êtes-vous un professionnel du secteur du numérique ou non ?"
@@ -20,7 +21,7 @@ text = "Je suis une truite"
 type = "number"
 min = 0
 max = 10
-label = "années"
+label = "Nombre d'années: "
 
 [question.numeric-pro.4-experience-in-field]
 text = "Êtes-vous une truite ?"
@@ -34,7 +35,6 @@ note = "10 = Totalement d'accord"
 type = "range"
 min = 0
 max = 10
-label = "/ 10"
 display_value = true
 
 [question.numeric-pro.6-experience-in-field]

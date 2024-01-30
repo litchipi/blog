@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 
-{% block stylesheets %}
-  <link rel="stylesheet" href="/poll.css" />
-{% endblock stylesheets %}
-
-{% block scripts %}
-  <script type="text/javascript" src="/poll.js"></script>
-{% endblock scripts %}
-
 {% block meta %}
+  {% set_global langage = add_endpoint_path | split(pat="/") | last %}
+
+  {% if langage == "fr" %}
+    {% set_global poll = poll_fr %}
+  {% elif langage == "en" %}
+    {% set_global poll = poll_en %}
+  {% else %}
+    {{ throw(message="Langage not set: " ~ add_endpoint_path) }}
+  {% endif %}
+
   <meta name=" robots" content=" index">
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="{{ poll.title }}" />
@@ -19,73 +21,87 @@
   <meta property="og:site_name" content="{{ site.name }}" />
 {% endblock meta %}
 
+{% block stylesheets %}
+  <link rel="stylesheet" href="/poll.css" />
+{% endblock stylesheets %}
+
+{% block scripts %}
+  <script type="text/javascript" src="/poll.js"></script>
+{% endblock scripts %}
+
 {% block title %}{{ poll.title }}{% endblock title %}
 
-{% macro disp_question(qslug, q, addclass) %}
-    <li id="{{ qslug }}" class="question-container {{ addclass }}">
-      <p class="question-text">{{ q.text }}</p>
-      {% if q.note %}
-        <p class="question-note">{{ q.note }}</p>
-      {% endif %}
+{% macro disp_question(qslug, q, addclass, lang) %}
+  {% set qname = addclass ~ "-" ~ qslug %}
+  {% set idbase = "inp-" ~ qname %}
 
-      {% if q.type == "yes_or_no" %}
-        <input type="radio" id="inp-{{ qslug }}-yes" name="{{ qslug }}" value="true">
-        <label for="inp-{{ qslug }}-yes">{{ poll.lang.yes }}</label>
-        <input type="radio" id="inp-{{ qslug }}-no"  name="{{ qslug }}" value="false">
-        <label for="inp-{{ qslug }}-no">{{ poll.lang.no }}</label>
-      {% endif %}
+  <li id="{{ qslug }}" class="question-container {{ addclass }}">
+    <p class="question-text">{{ q.text }}</p>
+    {% if q.note %}
+      <p class="question-note">{{ q.note }}</p>
+    {% endif %}
+    {% if q.label %}
+      <label for="inp-{{ qslug }}">{{ q.label }}</label>
+    {% endif %}
 
-      {% if q.type == "radio" %}
-        {% for choice in q.choices %}
-        <input type="radio" id="inp-{{ qslug }}-{{ choice | slugify }}" name="{{ qslug }}" value="{{ loop.index0 }}">
-        <label for="inp-{{ qslug }}-{{ choice | slugify }}">{{ choice }}</label>
-        <br/>
-        {% endfor %}
-      {% endif %}
+    {% if q.type == "yes_or_no" %}
+      <input type="radio" id="{{ idbase }}-yes" name="{{ qname }}" value="true">
+      <label for="{{ idbase }}-yes">{{ lang.yes }}</label>
+      <input type="radio" id="{{ idbase }}-no"  name="{{ qname }}" value="false">
+      <label for="{{ idbase }}-no">{{ lang.no }}</label>
+    {% endif %}
 
-      {% if q.type == "number" %}
-        <input type="number" id="inp-{{ qslug }}" name="{{ qslug }}" min="{{ q.min }}" max="{{ q.max }}">
-        {% if q.label %}
-          <label for="inp-{{ qslug }}">{{ q.label }}</label>
-        {% endif %}
-      {% endif %}
+    {% if q.type == "radio" %}
+      {% for choice in q.choices %}
+      <input type="radio" id="{{ idbase }}-{{ choice | slugify }}" name="{{ qname }}" value="{{ loop.index0 }}">
+      <label for="{{ idbase }}-{{ choice | slugify }}">{{ choice }}</label>
+      <br/>
+      {% endfor %}
+    {% endif %}
 
-      {% if q.type == "range" %}
-        <input type="range" id="inp-{{ qslug }}" name="{{ qslug }}" min="{{ q.min}}" max="{{ q.max}}" value="{{ q.min + ((q.max - q.min) / 2) }}" list="rangelist-{{ qslug }}">
-        {% if q.display_value %}
-          <output id="inp-{{ qslug }}-value"></output>
-        {% endif %}
-        {% if q.label %}
-          <label for="inp-{{ qslug }}">{{ q.label }}</label>
-        {% endif %}
+    {% if q.type == "number" %}
+      <input type="number" id="{{ idbase }}" name="{{ qname }}" min="{{ q.min }}" max="{{ q.max }}">
+    {% endif %}
+
+    {% if q.type == "range" %}
+      <input type="range" id="{{ idbase }}" name="{{ qname }}" min="{{ q.min}}" max="{{ q.max}}" value="{{ q.min + ((q.max - q.min) / 2) }}" list="rangelist-{{ qslug }}">
+      {% if q.display_value %}
+        <output id="{{ idbase }}-value" class="range-value"></output>
       {% endif %}
-    </li>
+    {% endif %}
+
+    {% if q.type == "text" %}
+      <input type="text" id="{{ idbase }}" name="{{ qname }}" size="100%">
+    {% endif %}
+  </li>
 {% endmacro disp_question %}
 
 {% block content %}
-  <div id="poll-footer-disclamer">
+  <div id="poll-disclamer">
     {{ poll.disclamer }}
   </div>
 
   <form id="poll-form">
   <ul>
-  {{ self::disp_question(qslug="numeric-or-not", q=poll.numeric_or_not, addclass="") }}
+  {{ self::disp_question(qslug="numeric-or-not", q=poll.numeric_or_not, addclass="preli", lang=poll.lang) }}
 
   {% for qslug, q in poll.question["numeric-pro"] %}
-    {{ self::disp_question(qslug=qslug, q=q, addclass="numeric-pro") }}
+    {{ self::disp_question(qslug=qslug, q=q, addclass="numeric-pro", lang=poll.lang) }}
   {% endfor %}
 
   {% for qslug, q in poll.question["not-numeric"] %}
-    {{ self::disp_question(qslug=qslug, q=q, addclass="not-numeric") }}
+    {{ self::disp_question(qslug=qslug, q=q, addclass="not-numeric", lang=poll.lang) }}
   {% endfor %}
-
   </ul>
+
+  <input type="text" id="polltoken" name="polltoken" style="display: none;"/>
+  <input type="checkbox" name="h0nYPot" style="display: none;"/>
 
   <!--
     TODO  Submit button to a save-data endpoint in ecoweb -> new extension
           Add a password entry before submit to prevent spoofing
-          In backend, save the thing as a JSON data (anonymously)
           Encrypt the data using asymetric encryption
   -->
+  <input type="submit" id="submitForm" value="{{ poll.lang.send_button }}" formaction="/savedata/business_survey_{{ langage }}" formmethod="post"/>
   </form>
 {% endblock content %}

@@ -37,4 +37,5 @@ previous = "https://scatter.flowers"
 next = "https://themathjester.com"
 
 [additionnal_context]
-poll = "ctxt/poll.toml"
+poll_fr = "ctxt/poll_fr.toml"
+poll_en = "ctxt/poll_en.toml"

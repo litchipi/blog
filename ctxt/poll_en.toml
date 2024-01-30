@@ -1,0 +1,21 @@
+# TODO  English business survey
+title = "Poll"
+disclamer = "Data are confidential"
+
+[lang]
+yes = "Yes"
+no = "No"
+
+[numeric_or_not]
+text = "Are you numeric"
+type = "yes_or_no"
+
+[question.numeric-pro.1-toto]
+text = "My taylor is rich"
+type = "yes_or_no"
+
+[question.not-numeric.1-tutu]
+text = "I am a happy apple"
+type = "number"
+min = 0
+max = 20
