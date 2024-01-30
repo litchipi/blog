@@ -73,7 +73,7 @@ function getQuery(q) {
 
 function init_form_token() {
   let token = getQuery("token");
-  document.getElementById("polltoken").value = token;
+  document.getElementById("save-data-token").value = token;
 }
 
 function init() {

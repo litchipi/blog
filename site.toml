@@ -19,6 +19,8 @@ favicon = "favicon.png"
 blog_src = "https://github.com/litchipi/blog"
 blog_engine_src = "https://github.com/litchipi/ecoweb"
 
+allowed_savedata_tokens = []
+
 [webhook_update]
 zipfile_fetch_url = "https://github.com/litchipi/blog/archive/"
 
