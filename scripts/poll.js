@@ -1,4 +1,4 @@
-window.onload = hide_form;
+window.onload = init;
 
 function set_numeric_pro_visible() {
   console.log("Numeric pro visible");
@@ -30,7 +30,7 @@ function set_not_numeric_pro_visible() {
   }
 }
 
-function hide_form() {
+function init_hide_form() {
   if (document.getElementById('inp-numeric-or-not-yes').checked) {
     set_numeric_pro_visible();
   }
@@ -46,4 +46,25 @@ function hide_form() {
   document.getElementById('inp-numeric-or-not-no').addEventListener("change", function (evt) {
     set_not_numeric_pro_visible();
   }, false);
+}
+
+function init_range_value_disp() {
+  document.querySelectorAll("input[type=range]").forEach(inp => {
+    let val = document.getElementById(inp.id + "-value");
+    if (val) {
+      val.textContent = inp.value;
+    }
+
+    inp.addEventListener("input", (evt) => {
+      let val = document.getElementById(inp.id + "-value");
+      if (val) {
+        val.textContent = evt.target.value;
+      }
+    });
+  });
+}
+
+function init() {
+  init_hide_form();
+  init_range_value_disp();
 }

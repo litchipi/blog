@@ -2,7 +2,9 @@
 
 .question-container {
   border-left: 5pt solid $color1;
-  padding: 10pt 10pt;
+  padding-bottom: 10pt;
+  padding-left: 20pt;
+  padding-top: 5pt;
   margin: 20pt 0pt;
   list-style: none;
 }
@@ -20,4 +22,16 @@
 #poll-footer-disclamer {
   color: gray;
   // border: 1px solid blue;
+}
+
+.question-text {
+  margin-bottom: 5pt;
+  margin-top: 0pt;
+  font-size: 20pt;
+}
+
+.question-note {
+  color: gray;
+  font-size: 12pt;
+  margin-top: 0pt;
 }

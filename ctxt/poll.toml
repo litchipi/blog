@@ -12,23 +12,36 @@ type = "yes_or_no"
 # Questions for numeric pros
 [question.numeric-pro.2-experience-in-field]
 text = "Depuis combien de temps (environ) travaillez vous dans le numérique ?"
-type = "number"
+type = "radio"
+choices = [ "a", "B", "c-d-e", "Je suis une truite" ]
 
 [question.numeric-pro.3-experience-in-field]
 text = "Je suis une truite"
 type = "number"
+min = 0
+max = 10
+label = "années"
 
 [question.numeric-pro.4-experience-in-field]
 text = "Êtes-vous une truite ?"
-type = "yes_or_no"
+type = "number"
+min = 0
+max = 5
 
 [question.numeric-pro.5-experience-in-field]
 text = "Je suis un saumon"
-type = "number"
+note = "10 = Totalement d'accord"
+type = "range"
+min = 0
+max = 10
+label = "/ 10"
+display_value = true
 
 [question.numeric-pro.6-experience-in-field]
 text = "Êtes-vous un saumon ?"
-type = "yes_or_no"
+type = "range"
+min = 0
+max = 100
 
 
 # Questions for not numeric pros

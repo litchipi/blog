@@ -24,12 +24,40 @@
 {% macro disp_question(qslug, q, addclass) %}
     <li id="{{ qslug }}" class="question-container {{ addclass }}">
       <p class="question-text">{{ q.text }}</p>
+      {% if q.note %}
+        <p class="question-note">{{ q.note }}</p>
+      {% endif %}
 
       {% if q.type == "yes_or_no" %}
         <input type="radio" id="inp-{{ qslug }}-yes" name="{{ qslug }}" value="true">
         <label for="inp-{{ qslug }}-yes">{{ poll.lang.yes }}</label>
         <input type="radio" id="inp-{{ qslug }}-no"  name="{{ qslug }}" value="false">
         <label for="inp-{{ qslug }}-no">{{ poll.lang.no }}</label>
+      {% endif %}
+
+      {% if q.type == "radio" %}
+        {% for choice in q.choices %}
+        <input type="radio" id="inp-{{ qslug }}-{{ choice | slugify }}" name="{{ qslug }}" value="{{ loop.index0 }}">
+        <label for="inp-{{ qslug }}-{{ choice | slugify }}">{{ choice }}</label>
+        <br/>
+        {% endfor %}
+      {% endif %}
+
+      {% if q.type == "number" %}
+        <input type="number" id="inp-{{ qslug }}" name="{{ qslug }}" min="{{ q.min }}" max="{{ q.max }}">
+        {% if q.label %}
+          <label for="inp-{{ qslug }}">{{ q.label }}</label>
+        {% endif %}
+      {% endif %}
+
+      {% if q.type == "range" %}
+        <input type="range" id="inp-{{ qslug }}" name="{{ qslug }}" min="{{ q.min}}" max="{{ q.max}}" value="{{ q.min + ((q.max - q.min) / 2) }}" list="rangelist-{{ qslug }}">
+        {% if q.display_value %}
+          <output id="inp-{{ qslug }}-value"></output>
+        {% endif %}
+        {% if q.label %}
+          <label for="inp-{{ qslug }}">{{ q.label }}</label>
+        {% endif %}
       {% endif %}
     </li>
 {% endmacro disp_question %}
