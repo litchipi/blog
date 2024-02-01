@@ -13,46 +13,43 @@ type = "yes_or_no"
 # Questions for numeric pros
 [question.numeric-pro.2-experience-in-field]
 text = "Depuis combien de temps (environ) travaillez vous dans le numérique ?"
-type = "radio"
-choices = [ "a", "B", "c-d-e", "Je suis une truite" ]
-
-[question.numeric-pro.3-experience-in-field]
-text = "Je suis une truite"
 type = "number"
 min = 0
-max = 10
-label = "Nombre d'années: "
+max = 70
 
-[question.numeric-pro.4-experience-in-field]
-text = "Êtes-vous une truite ?"
-type = "number"
-min = 0
-max = 5
-
-[question.numeric-pro.5-experience-in-field]
-text = "Je suis un saumon"
-note = "10 = Totalement d'accord"
+[question.numeric-pro.3-rse-sensibility]
+text = "À quel point êtes vous sensible aux problématiques de RSE ? (Écologie, inclusion, accessibilité, ...)"
+note = "0 = Pas du tout sensible, 10 = Très sensible"
 type = "range"
 min = 0
 max = 10
 display_value = true
 
-[question.numeric-pro.6-experience-in-field]
-text = "Êtes-vous un saumon ?"
+[question.numeric-pro.4-quality-sensibility]
+text = "Préférez-vous la qualité, ou la facilité de mise en oeuvre d'une solution ?"
+note = "0 = Facilité de la mise en oeuvre, 100 = Qualité de la solution"
 type = "range"
 min = 0
 max = 100
-
+display_value = true
 
 # Questions for not numeric pros
 [question.not-numeric.2-what-field]
 text = "Dans quel secteur d'activité travaillez-vous ?"
 type = "text"
 
-[question.not-numeric.3-what-field]
-text = "Aimez-vous les cookies ?"
-type = "yes_or_no"
+[question.not-numeric.3-ease-with-numeric]
+text = "À quel point êtes vous à l'aise avec les outils du numérique ?"
+note = "0 = Pas à l'aide, 10 = Très à l'aise"
+type = "range"
+min = 0
+max = 10
+display_value = true
 
-[question.not-numeric.4-what-field]
-text = "Qui meurt à la fin ?"
-type = "text"
+[question.not-numeric.4-rse-sensibility]
+text = "À quel point êtes vous sensible aux problématiques de RSE ? (Écologie, inclusion, accessibilité, ...)"
+note = "0 = Pas du tout sensible, 10 = Très sensible"
+type = "range"
+min = 0
+max = 10
+display_value = true
