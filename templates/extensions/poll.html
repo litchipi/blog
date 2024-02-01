@@ -27,53 +27,88 @@
 
 {% block scripts %}
   <script type="text/javascript" src="/poll.js"></script>
+  <script>
+  {% for qsetslug, qset in poll.question %}
+    // TODO  Make this script, call a pre-made function in poll.js to register events
+    {% for qslug, q in qset %}
+      {% if q.type == "yes_or_no" %}
+        {% if q.addq_yes %}
+          console.log("Add event listener for {{ qslug }}, display questions {{ q.addq_yes }} if yes");
+        {% endif %}
+        {% if q.addq_no %}
+          console.log("Add event listener for {{ qslug }}, display questions {{ q.addq_no }} if no");
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+  // Then make the first question display-able
+  </script>
 {% endblock scripts %}
 
 {% block title %}{{ poll.title }}{% endblock title %}
 
-{% macro disp_question(qslug, q, addclass, lang) %}
-  {% set qname = addclass ~ "-" ~ qslug %}
-  {% set idbase = "inp-" ~ qname %}
+{% macro disp_child_question(parents, key, poll) %}
+  {% set new_parents = parents | concat(with=[key]) %}
+  {% for qslug, q in poll.question[key] %}
+    {{ self::disp_question(qslug=qslug, q=q, poll=poll, parents=new_parents) }}
+  {% endfor %}
+{% endmacro disp_child_question %}
 
-  <li id="{{ qslug }}" class="question-container {{ addclass }}">
+{% macro disp_question(qslug, q, poll, parents) %}
+  {% if parents | length == 0 %}
+    {% set addclass = "" %}
+    {% set idbase = qslug %}
+  {% else %}
+    {% set addclass = parents | join(sep="_") %}
+    {% set idbase = addclass ~ "-" ~ qslug %}
+  {% endif %}
+
+  <li id="q-{{idbase}}" class="question-container {{ addclass }}">
     <p class="question-text">{{ q.text }}</p>
     {% if q.note %}
       <p class="question-note">{{ q.note }}</p>
     {% endif %}
     {% if q.label %}
-      <label for="inp-{{ qslug }}">{{ q.label }}</label>
+      <label for="{{idbase}}">{{ q.label }}</label>
     {% endif %}
 
     {% if q.type == "yes_or_no" %}
-      <input type="radio" id="{{ idbase }}-yes" name="{{ qname }}" value="true">
-      <label for="{{ idbase }}-yes">{{ lang.yes }}</label>
-      <input type="radio" id="{{ idbase }}-no"  name="{{ qname }}" value="false">
-      <label for="{{ idbase }}-no">{{ lang.no }}</label>
+      <input type="radio" id="{{ idbase }}-yes" name="{{ idbase }}" value="true">
+      <label for="{{ idbase }}-yes">{{ poll.lang.yes }}</label>
+      <input type="radio" id="{{ idbase }}-no"  name="{{ idbase }}" value="false">
+      <label for="{{ idbase }}-no">{{ poll.lang.no }}</label>
     {% endif %}
 
     {% if q.type == "radio" %}
       {% for choice in q.choices %}
-      <input type="radio" id="{{ idbase }}-{{ choice | slugify }}" name="{{ qname }}" value="{{ loop.index0 }}">
+      <input type="radio" id="{{ idbase }}-{{ choice | slugify }}" name="{{ idbase }}" value="{{ loop.index0 }}">
       <label for="{{ idbase }}-{{ choice | slugify }}">{{ choice }}</label>
       <br/>
       {% endfor %}
     {% endif %}
 
     {% if q.type == "number" %}
-      <input type="number" id="{{ idbase }}" name="{{ qname }}" min="{{ q.min }}" max="{{ q.max }}">
+      <input type="number" id="{{ idbase }}" name="{{ idbase }}" min="{{ q.min }}" max="{{ q.max }}">
     {% endif %}
 
     {% if q.type == "range" %}
-      <input type="range" id="{{ idbase }}" name="{{ qname }}" min="{{ q.min}}" max="{{ q.max}}" value="{{ q.min + ((q.max - q.min) / 2) }}" list="rangelist-{{ qslug }}">
+      <input type="range" id="{{ idbase }}" name="{{ idbase }}" min="{{ q.min}}" max="{{ q.max}}" value="{{ q.min + ((q.max - q.min) / 2) }}" list="rangelist-{{ qslug }}">
       {% if q.display_value %}
         <output id="{{ idbase }}-value" class="range-value"></output>
       {% endif %}
     {% endif %}
 
     {% if q.type == "text" %}
-      <input type="text" id="{{ idbase }}" name="{{ qname }}" size="100%">
+      <input type="text" id="{{ idbase }}" name="{{ idbase }}" size="100%">
     {% endif %}
   </li>
+
+  {% if q.addq_yes %}
+    {{ self::disp_child_question(parents=parents, key=q.addq_yes, poll=poll) }}
+  {% endif %}
+  {% if q.addq_no %}
+    {{ self::disp_child_question(parents=parents, key=q.addq_no, poll=poll) }}
+  {% endif %}
 {% endmacro disp_question %}
 
 {% block content %}
@@ -83,14 +118,8 @@
 
   <form id="poll-form">
   <ul>
-  {{ self::disp_question(qslug="numeric-or-not", q=poll.numeric_or_not, addclass="preli", lang=poll.lang) }}
-
-  {% for qslug, q in poll.question["numeric-pro"] %}
-    {{ self::disp_question(qslug=qslug, q=q, addclass="numeric-pro", lang=poll.lang) }}
-  {% endfor %}
-
-  {% for qslug, q in poll.question["not-numeric"] %}
-    {{ self::disp_question(qslug=qslug, q=q, addclass="not-numeric", lang=poll.lang) }}
+  {% for qslug, q in poll.question[poll.first_question_set] %}
+    {{ self::disp_question(qslug=qslug, q=q, poll=poll, parents=[]) }}
   {% endfor %}
   </ul>
 

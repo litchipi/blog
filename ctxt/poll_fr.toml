@@ -1,14 +1,17 @@
 title = "Sondage"
 disclamer = "Les données de ce formulaire sont stockées de façon anonyme, seuls vos réponses sont conservées, aucune autre donnée n'est collectée."
+first_question_set = "intro"
 
 [lang]
 yes = "Oui"
 no = "Non"
 send_button = "Envoyer"
 
-[numeric_or_not]
+[question.intro.numeric_or_not]
 text = "Êtes-vous un professionnel du secteur du numérique ou non ?"
 type = "yes_or_no"
+addq_yes = "numeric-pro"
+addq_no = "not-numeric"
 
 # Questions for numeric pros
 [question.numeric-pro.2-experience-in-field]
@@ -53,3 +56,17 @@ type = "range"
 min = 0
 max = 10
 display_value = true
+
+[question.not-numeric.test]
+text = "Test"
+type = "yes_or_no"
+addq_yes = "testset"
+
+[question.testset.toto]
+text = "tutu"
+type = "yes_or_no"
+addq_no = "azekl"
+
+[question.azekl.tata]
+text = "pok"
+type = "yes_or_no"
