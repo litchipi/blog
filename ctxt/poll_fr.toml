@@ -2,6 +2,8 @@ title = "Sondage"
 disclamer = "Les données de ce formulaire sont stockées de façon anonyme, seuls vos réponses sont conservées, aucune autre donnée n'est collectée."
 first_question_set = "intro"
 
+# TODO List of str
+
 [lang]
 yes = "Oui"
 no = "Non"
@@ -22,19 +24,17 @@ max = 70
 
 [question.numeric-pro.3-rse-sensibility]
 text = "À quel point êtes vous sensible aux problématiques de RSE ? (Écologie, inclusion, accessibilité, ...)"
-note = "0 = Pas du tout sensible, 10 = Très sensible"
 type = "range"
+threshold = { "Peu sensible" = 2, "Neutre" = 5, "Sensible" = 7, "Très sensible" = 10 }
 min = 0
 max = 10
-display_value = true
 
 [question.numeric-pro.4-quality-sensibility]
 text = "Préférez-vous la qualité, ou la facilité de mise en oeuvre d'une solution ?"
-note = "0 = Facilité de la mise en oeuvre, 100 = Qualité de la solution"
 type = "range"
+threshold = { "A Something" = 5, "B Aoakze" = 7, "Final" = 10 }
 min = 0
 max = 100
-display_value = true
 
 # Questions for not numeric pros
 [question.not-numeric.2-what-field]
@@ -43,19 +43,18 @@ type = "text"
 
 [question.not-numeric.3-ease-with-numeric]
 text = "À quel point êtes vous à l'aise avec les outils du numérique ?"
-note = "0 = Pas à l'aide, 10 = Très à l'aise"
 type = "range"
+threshold = { "A Something" = 5, "B Aoakze" = 7, "Final" = 10 }
 min = 0
 max = 10
-display_value = true
 
 [question.not-numeric.4-rse-sensibility]
-text = "À quel point êtes vous sensible aux problématiques de RSE ? (Écologie, inclusion, accessibilité, ...)"
-note = "0 = Pas du tout sensible, 10 = Très sensible"
+text = "À quel point êtes vous sensible aux problématiques de RSE ?"
+note = "RSE = Responsabilité Social des Entreprises (Écologie, inclusion, accessibilité, ...)"
 type = "range"
+threshold = { "Peu sensible" = 2, "Neutre" = 5, "Sensible" = 7, "Très sensible" = 10 }
 min = 0
 max = 10
-display_value = true
 
 [question.not-numeric.test]
 text = "Test"

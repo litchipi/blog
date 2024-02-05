@@ -1,0 +1,63 @@
+<!--
+  TODO  More questions types:
+  - List of str
+-->
+
+{% macro yes_or_no_addq(qslug, qsetslug, q) %}
+  {% if q.addq_yes %}
+    visibleIfChecked("q-{{qsetslug}}-{{qslug}}-yes", "set-{{q.addq_yes}}");
+    invisibleIfChecked("q-{{qsetslug}}-{{qslug}}-no", "set-{{q.addq_yes}}");
+  {% endif %}
+  {% if q.addq_no %}
+    visibleIfChecked("q-{{qsetslug}}-{{qslug}}-no", "set-{{q.addq_no}}");
+    invisibleIfChecked("q-{{qsetslug}}-{{qslug}}-yes", "set-{{q.addq_no}}");
+  {% endif %}
+{% endmacro %}
+
+{% macro yes_or_no(idbase, yes, no) %}
+<input type="radio" id="{{idbase}}-yes" name="{{idbase}}" value="true">
+<label for="{{idbase}}-yes">{{ yes }}</label>
+<input type="radio" id="{{idbase}}-no"  name="{{idbase}}" value="false">
+<label for="{{idbase}}-no">{{ no }}</label>
+{% endmacro %}
+
+{% macro radio(idbase, choices) %}
+{% for choice in choices %}
+  <input
+    type="radio"
+    id="{{idbase}}-{{ choice | slugify }}" name="{{idbase}}"
+    value="{{ loop.index0 }}"
+  >
+  <label for="{{idbase}}-{{ choice | slugify }}">{{ choice }}</label>
+  <br/>
+{% endfor %}
+{% endmacro %}
+
+{% macro number(idbase, min, max) %}
+<input type="number" id="{{idbase}}" name="{{idbase}}" min="{{ min }}" max="{{ max }}">
+{% endmacro %}
+
+{% macro range(idbase, min, max) %}
+<input
+  type="range"
+  id="{{idbase}}" name="{{idbase}}"
+  min="{{min}}" max="{{max}}"
+  value="{{ min + ((max - min) / 2) }}"
+  list="rangelist-{{idbase}}"
+  onkeyup="saveValue(this);"
+/>
+<output id="{{idbase}}-value" class="range-value"></output>
+{% endmacro %}
+
+{% macro range_disp_threshold(qsetslug, qslug, q) %}
+var dict = {
+  {%- for th, val in q.threshold -%}
+    "{{ th }}": {{ val }},
+  {%- endfor -%}
+};
+initRangeThreshold("q-{{qsetslug}}-{{qslug}}", {{q.min}}, {{q.max}}, dict);
+{% endmacro %}
+
+{% macro text(idbase, size) %}
+<input type="text" id="{{idbase}}" name="{{idbase}}" size="{{ size }}">
+{% endmacro %}

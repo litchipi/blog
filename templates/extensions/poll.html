@@ -1,3 +1,5 @@
+{% import "macros/poll_question_types.html" as qtype %}
+
 {% extends "base.html" %}
 
 {% block meta %}
@@ -28,42 +30,38 @@
 {% block scripts %}
   <script type="text/javascript" src="/poll.js"></script>
   <script>
-  {% for qsetslug, qset in poll.question %}
-    // TODO  Make this script, call a pre-made function in poll.js to register events
-    {% for qslug, q in qset %}
-      {% if q.type == "yes_or_no" %}
-        {% if q.addq_yes %}
-          console.log("Add event listener for {{ qslug }}, display questions {{ q.addq_yes }} if yes");
+  function init_questions_events() {
+    {% for qsetslug, qset in poll.question %}
+      {% for qslug, q in qset %}
+        {% if q.type == "yes_or_no" %}
+          {{ qtype::yes_or_no_addq(
+            qslug=qslug,
+            qsetslug=qsetslug,
+            q=q,
+          ) }}
         {% endif %}
-        {% if q.addq_no %}
-          console.log("Add event listener for {{ qslug }}, display questions {{ q.addq_no }} if no");
+
+        {% if q.type == "range" %}
+          {{ qtype::range_disp_threshold(qsetslug=qsetslug, qslug=qslug, q=q) }}
         {% endif %}
-      {% endif %}
+      {% endfor %}
     {% endfor %}
-  {% endfor %}
-  // Then make the first question display-able
+  }
   </script>
 {% endblock scripts %}
 
 {% block title %}{{ poll.title }}{% endblock title %}
 
-{% macro disp_child_question(parents, key, poll) %}
-  {% set new_parents = parents | concat(with=[key]) %}
+{% macro disp_child_question(key, poll) %}
   {% for qslug, q in poll.question[key] %}
-    {{ self::disp_question(qslug=qslug, q=q, poll=poll, parents=new_parents) }}
+    {{ self::disp_question(qset=key, qslug=qslug, q=q, poll=poll) }}
   {% endfor %}
 {% endmacro disp_child_question %}
 
-{% macro disp_question(qslug, q, poll, parents) %}
-  {% if parents | length == 0 %}
-    {% set addclass = "" %}
-    {% set idbase = qslug %}
-  {% else %}
-    {% set addclass = parents | join(sep="_") %}
-    {% set idbase = addclass ~ "-" ~ qslug %}
-  {% endif %}
+{% macro disp_question(qset, qslug, q, poll, style="") %}
+  {% set idbase = "q-" ~ qset ~ "-" ~ qslug %}
 
-  <li id="q-{{idbase}}" class="question-container {{ addclass }}">
+  <li id="{{idbase}}" class="question-container set-{{ qset }}" style="{{ style }}">
     <p class="question-text">{{ q.text }}</p>
     {% if q.note %}
       <p class="question-note">{{ q.note }}</p>
@@ -73,42 +71,46 @@
     {% endif %}
 
     {% if q.type == "yes_or_no" %}
-      <input type="radio" id="{{ idbase }}-yes" name="{{ idbase }}" value="true">
-      <label for="{{ idbase }}-yes">{{ poll.lang.yes }}</label>
-      <input type="radio" id="{{ idbase }}-no"  name="{{ idbase }}" value="false">
-      <label for="{{ idbase }}-no">{{ poll.lang.no }}</label>
-    {% endif %}
+      {{ qtype::yes_or_no(
+        idbase=idbase,
+        yes=poll.lang.yes,
+        no=poll.lang.no
+      ) }}
+      {% if q.addq_yes %}
+        {{ self::disp_child_question(key=q.addq_yes, poll=poll) }}
+      {% endif %}
 
-    {% if q.type == "radio" %}
-      {% for choice in q.choices %}
-      <input type="radio" id="{{ idbase }}-{{ choice | slugify }}" name="{{ idbase }}" value="{{ loop.index0 }}">
-      <label for="{{ idbase }}-{{ choice | slugify }}">{{ choice }}</label>
-      <br/>
-      {% endfor %}
-    {% endif %}
-
-    {% if q.type == "number" %}
-      <input type="number" id="{{ idbase }}" name="{{ idbase }}" min="{{ q.min }}" max="{{ q.max }}">
-    {% endif %}
-
-    {% if q.type == "range" %}
-      <input type="range" id="{{ idbase }}" name="{{ idbase }}" min="{{ q.min}}" max="{{ q.max}}" value="{{ q.min + ((q.max - q.min) / 2) }}" list="rangelist-{{ qslug }}">
-      {% if q.display_value %}
-        <output id="{{ idbase }}-value" class="range-value"></output>
+      {% if q.addq_no %}
+        {{ self::disp_child_question(key=q.addq_no, poll=poll) }}
       {% endif %}
     {% endif %}
 
+    {% if q.type == "radio" %}
+      {{ qtype::radio(idbase=idbase,
+        choices=q.choices
+      ) }}
+    {% endif %}
+
+    {% if q.type == "number" %}
+      {{ qtype::number(idbase=idbase,
+        min=q.min,
+        max=q.max
+      ) }}
+    {% endif %}
+
+    {% if q.type == "range" %}
+      {{ qtype::range(idbase=idbase,
+        min=q.min | default(value="0"),
+        max=q.max | default(value="10")
+      ) }}
+    {% endif %}
+
     {% if q.type == "text" %}
-      <input type="text" id="{{ idbase }}" name="{{ idbase }}" size="100%">
+      {{ qtype::text(idbase=idbase,
+        size=q.size | default(value="100%")
+      ) }}
     {% endif %}
   </li>
-
-  {% if q.addq_yes %}
-    {{ self::disp_child_question(parents=parents, key=q.addq_yes, poll=poll) }}
-  {% endif %}
-  {% if q.addq_no %}
-    {{ self::disp_child_question(parents=parents, key=q.addq_no, poll=poll) }}
-  {% endif %}
 {% endmacro disp_question %}
 
 {% block content %}
@@ -119,17 +121,17 @@
   <form id="poll-form">
   <ul>
   {% for qslug, q in poll.question[poll.first_question_set] %}
-    {{ self::disp_question(qslug=qslug, q=q, poll=poll, parents=[]) }}
+    {{ self::disp_question(
+      qset=poll.first_question_set,
+      qslug=qslug, q=q,
+      poll=poll,
+      style="display: block;"
+    ) }}
   {% endfor %}
   </ul>
 
   <input type="text" id="save-data-token" name="save-data-token" style="display: none;"/>
-
-  <!--
-    TODO  Submit button to a save-data endpoint in ecoweb -> new extension
-          Add a password entry before submit to prevent spoofing
-          Encrypt the data using asymetric encryption
-  -->
+  <!-- TODO  Add a Enter Email field for future prospect if they are interested -->
   <input type="submit" id="submitForm" value="{{ poll.lang.send_button }}" formaction="/savedata/business_survey_{{ langage }}" formmethod="post"/>
   </form>
 {% endblock content %}
