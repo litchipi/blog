@@ -3,11 +3,19 @@ disclamer = "Les données de ce formulaire sont stockées de façon anonyme, seu
 first_question_set = "intro"
 
 # TODO List of str
+# TODO  Remake hireme
+# TODO  Hireme in french and english
 
 [lang]
 yes = "Oui"
 no = "Non"
 send_button = "Envoyer"
+email_text = """
+Si <a href="/hireme">mon project</a> vous intéresse,
+entrez votre e-mail et je vous recontacterai"""
+email_note = """Ceci est totalement optionnel.<br/>
+L'adresse e-mail collectée ne sera pas utilisé avec abus, et ne sera partagé avec personne."""
+email_lbl = "Adresse e-mail:"
 
 [question.intro.numeric_or_not]
 text = "Êtes-vous un professionnel du secteur du numérique ou non ?"
@@ -21,6 +29,7 @@ text = "Depuis combien de temps (environ) travaillez vous dans le numérique ?"
 type = "number"
 min = 0
 max = 70
+label_after = "années"
 
 [question.numeric-pro.3-rse-sensibility]
 text = "À quel point êtes vous sensible aux problématiques de RSE ? (Écologie, inclusion, accessibilité, ...)"

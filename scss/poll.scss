@@ -36,3 +36,12 @@ $graynote-size: 17pt;
   margin-left: 20pt;
   color: $light-gray;
 }
+
+#ask-email {
+  a {
+    text-decoration: underline;
+  }
+  label {
+    margin-right: 25px;
+  }
+}

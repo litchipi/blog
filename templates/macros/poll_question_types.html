@@ -1,25 +1,64 @@
-<!--
-  TODO  More questions types:
-  - List of str
--->
-
-{% macro yes_or_no_addq(qslug, qsetslug, q) %}
-  {% if q.addq_yes %}
-    visibleIfChecked("q-{{qsetslug}}-{{qslug}}-yes", "set-{{q.addq_yes}}");
-    invisibleIfChecked("q-{{qsetslug}}-{{qslug}}-no", "set-{{q.addq_yes}}");
-  {% endif %}
-  {% if q.addq_no %}
-    visibleIfChecked("q-{{qsetslug}}-{{qslug}}-no", "set-{{q.addq_no}}");
-    invisibleIfChecked("q-{{qsetslug}}-{{qslug}}-yes", "set-{{q.addq_no}}");
-  {% endif %}
-{% endmacro %}
-
 {% macro yes_or_no(idbase, yes, no) %}
 <input type="radio" id="{{idbase}}-yes" name="{{idbase}}" value="true">
 <label for="{{idbase}}-yes">{{ yes }}</label>
 <input type="radio" id="{{idbase}}-no"  name="{{idbase}}" value="false">
 <label for="{{idbase}}-no">{{ no }}</label>
-{% endmacro %}
+{% endmacro yes_or_no %}
+
+{% macro recurse_state_set(id, addq, allq, func) %}
+  {% set qset = allq[addq] %}
+
+  // Qset {{ addq }}
+  {% for qslug, q in qset %}
+    // {{ id }} {{ qslug }}
+
+    {% if q.addq_yes %}
+      {{ func }}("{{ id }}", "q-{{ addq }}-{{ qslug }}-yes", "set-{{q.addq_yes}}");
+      {{ qtype::recurse_state_set(id=id, addq=q.addq_yes, allq=allq, func=func) }}
+    {% endif %}
+
+    {% if q.addq_no %}
+      // {{ id }}: {{ q.addq_no }} (no)
+      {{ func }}("{{ id }}", "q-{{ addq }}-{{ qslug }}-no", "set-{{q.addq_no}}");
+      {{ qtype::recurse_state_set(id=id, addq=q.addq_no, allq=allq, func=func) }}
+    {% endif %}
+  {% endfor %}
+{% endmacro recurse_state_set %}
+
+{% macro yes_or_no_addq(qslug, qsetslug, q, allq) %}
+  {%- if q.addq_yes -%}
+    visibleIfChecked("q-{{qsetslug}}-{{qslug}}-yes", null, "set-{{q.addq_yes}}");
+    {{ qtype::recurse_state_set(
+      id="q-" ~ qsetslug ~ "-" ~ qslug ~ "-yes",
+      addq=q.addq_yes,
+      allq=allq,
+      func="visibleIfChecked",
+    ) }}
+    invisibleIfChecked("q-{{qsetslug}}-{{qslug}}-no", null, "set-{{q.addq_yes}}");
+    {{ qtype::recurse_state_set(
+      id="q-" ~ qsetslug ~ "-" ~ qslug ~ "-no",
+      addq=q.addq_yes,
+      allq=allq,
+      func="invisibleIfChecked",
+    ) }}
+  {%- endif -%}
+  {%- if q.addq_no -%}
+    visibleIfChecked("q-{{qsetslug}}-{{qslug}}-no", null, "set-{{q.addq_no}}");
+    {{ qtype::recurse_state_set(
+      id="q-" ~ qsetslug ~ "-" ~ qslug ~ "-no",
+      addq=q.addq_no,
+      allq=allq,
+      func="visibleIfChecked",
+    ) }}
+    invisibleIfChecked("q-{{qsetslug}}-{{qslug}}-yes", null, "set-{{q.addq_no}}");
+    {{ qtype::recurse_state_set(
+      id="q-" ~ qsetslug ~ "-" ~ qslug ~ "-yes",
+      addq=q.addq_no,
+      allq=allq,
+      func="invisibleIfChecked",
+    ) }}
+  {%- endif -%}
+{% endmacro yes_or_no_addq %}
 
 {% macro radio(idbase, choices) %}
 {% for choice in choices %}
@@ -31,23 +70,23 @@
   <label for="{{idbase}}-{{ choice | slugify }}">{{ choice }}</label>
   <br/>
 {% endfor %}
-{% endmacro %}
+{% endmacro radio %}
 
 {% macro number(idbase, min, max) %}
-<input type="number" id="{{idbase}}" name="{{idbase}}" min="{{ min }}" max="{{ max }}">
-{% endmacro %}
+<input type="number" id="{{idbase}}-nb" name="{{idbase}}" min="{{ min }}" max="{{ max }}">
+{% endmacro number %}
 
 {% macro range(idbase, min, max) %}
 <input
   type="range"
-  id="{{idbase}}" name="{{idbase}}"
+  id="{{idbase}}-range" name="{{idbase}}"
   min="{{min}}" max="{{max}}"
   value="{{ min + ((max - min) / 2) }}"
   list="rangelist-{{idbase}}"
   onkeyup="saveValue(this);"
 />
 <output id="{{idbase}}-value" class="range-value"></output>
-{% endmacro %}
+{% endmacro range %}
 
 {% macro range_disp_threshold(qsetslug, qslug, q) %}
 var dict = {
@@ -56,8 +95,8 @@ var dict = {
   {%- endfor -%}
 };
 initRangeThreshold("q-{{qsetslug}}-{{qslug}}", {{q.min}}, {{q.max}}, dict);
-{% endmacro %}
+{% endmacro range_disp_threshold %}
 
 {% macro text(idbase, size) %}
-<input type="text" id="{{idbase}}" name="{{idbase}}" size="{{ size }}">
-{% endmacro %}
+<input type="text" id="{{idbase}}-txt" name="{{idbase}}" size="{{ size }}">
+{% endmacro text %}
