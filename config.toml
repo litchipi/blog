@@ -26,9 +26,6 @@ post_list = "post_list.html"
 index = "index.html"
 notification = "notification.html"
 
-# TODO    Re-implement hireme page entirely from add-endpoints extension
-hireme = "extensions/hireme.html"
-
 [scss]
 "style.css" = [
   "base.scss",
@@ -45,3 +42,5 @@ hireme = "extensions/hireme.html"
 [add_endpoints]
 "business_survey/fr" = "extensions/poll.html"
 "business_survey/en" = "extensions/poll.html"
+"hireme/fr" = "extensions/hireme.html"
+"hireme/en" = "extensions/hireme.html"

@@ -1,26 +1,66 @@
 {% extends "base.html" %}
 
-<!-- TODO  Make a French flag button that goes into a french-translated version -->
+{% block meta %}
+  {% set_global langage = add_endpoint_path | split(pat="/") | last %}
+
+  {% if langage == "fr" %}
+    {% set_global hireme = hireme_fr %}
+  {% elif langage == "en" %}
+    {% set_global hireme = hireme_en %}
+  {% else %}
+    {{ throw(message="Langage not set: " ~ add_endpoint_path) }}
+  {% endif %}
+
+  <meta name=" robots" content=" index">
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="{{hireme.title}}" />
+  {% if site.og_image %}
+  <meta property="og:image" content="{{site.base_url | safe}}/{{ site.og_image }}" />
+  {% endif %}
+  <meta property="og:url" content="{{ site.base_url | safe }}/{{ add_endpoint_path }}" />
+  <meta property="og:site_name" content="{{ site.name }}" />
+{% endblock meta %}
 
 {% block stylesheets %}
   <link rel="stylesheet" href="/hireme.css" />
 {% endblock stylesheets %}
 
-{% block meta %}
-  <meta name=" robots" content=" index">
-  <meta property="og:type" content="profile" />
-  <meta property="og:title" content="{{site.hireme.title}}" />
-  {% if site.og_image %}
-  <meta property="og:image" content="{{site.base_url | safe}}/{{ site.og_image }}" />
-  {% endif %}
-  <meta property="og:url" content="{{ site.base_url | safe }}/hireme" />
-  <meta property="og:site_name" content="{{ site.name }}" />
-{% endblock meta %}
-
-{% block title %}{{ site.hireme.title }}{% endblock title %}
+{% block title %}{{ hireme.title }}{% endblock title %}
 
 {% block content %}
-<div class="hireme">
-  {{ site.hireme.html_content | safe }}
+<div id="hireme-wrapper">
+  <div class="hireme-intro">
+    {{ hireme.introduction | safe }}
+  </div>
+
+  <hr>
+
+  <section id="offer">
+    <h1>{{ hireme.offer.title }}</h1>
+    {% for par in hireme.offer.body %}
+    <p id="offer-body-{{ loop.index0 }}" class="offer-body">{{ par | safe }}</p>
+    {% endfor %}
+  </section>
+
+  <hr>
+
+  <section id="whoami">
+    <h1>{{ hireme.whoami.title }}</h1>
+    {% for par in hireme.whoami.body %}
+    <p id="whoami-body-{{ loop.index0 }}" class="whoami-body">{{ par | safe }}</p>
+    {% endfor %}
+  </section>
+
+  <hr>
+
+  <section id="conclusion">
+    <h1>{{ hireme.conclusion.title }}</h1>
+    {% for par in hireme.conclusion.body %}
+    <p id="conclusion-body-{{ loop.index0 }}" class="conclusion-body">{{ par | safe }}</p>
+    {% endfor %}
+  </section>
+
+  <hr id="end-of-page">
+
 </div>
 {% endblock content %}

@@ -3,7 +3,7 @@ author_name = "Litchi Pi"
 author_email = "litchi.pi@proton.me"
 base_url = "https://litchipi.site"
 description = """
-Freelance Rust Software engineer, graduated in electronics and embedded systems, with side interests in information security as well.
+  Building efficient software for efficient businesses.
 """
 
 welcome_message = """
@@ -29,10 +29,6 @@ github = "https://github.com/litchipi/"
 mastodon = "https://fosstodon.org/@litchipi"
 email = "mailto:litchi.pi@proton.me"
 
-[hireme]
-title = "Hire me"
-markdown_file = "posts/.hireme.md"
-
 [webring]
 name = "Experimental Math & Programming Ring"
 previous = "https://scatter.flowers"
@@ -41,3 +37,10 @@ next = "https://themathjester.com"
 [additionnal_context]
 poll_fr = "ctxt/poll_fr.toml"
 poll_en = "ctxt/poll_en.toml"
+
+hireme_fr = "ctxt/hireme_fr.toml"
+hireme_en = "ctxt/hireme_en.toml"
+
+# [hireme]
+# title = "Hire me"
+# markdown_file = "posts/.hireme.md"

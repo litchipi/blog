@@ -1,0 +1,66 @@
+title = "Hire me"
+
+introduction = """
+<p>In need of help for a project ?<br/>
+Here is what I propose, feel free to contact me so we can chat about it in depth !</p>
+<p>Email me today at <code>litchi.pi@proton.me</code> !</p>
+"""
+
+[offer]
+title = "Better tools, less time wasted"
+body = [
+  """
+    In modern businesses, people's <strong>time</strong> is what costs the most.<br/>
+    Highly skilled people are hard to find, hard to keep.<br/>
+    If you waste their time, <em>you waste money</em>.
+  """,
+
+  """
+    Against slow, frustrating, unadapted, unmaintained, insecure software,<br/>
+    I create <strong>tailor-made software</strong> for individuals, teams and companies,
+    to <em>increase</em>:
+    <ul id="offer-benefits-list">
+      <li>Productivity</li>
+      <li>Ergonomy</li>
+      <li>Hapiness at work</li>
+      <li>Resilience</li>
+    </ul>
+  """,
+
+  """
+    Specific businesses have specific needs ! <br/>
+
+    Instead of <em>being bound</em> to a big software company's product, I propose that
+    <em>we meet</em>, have a brainstorming,
+    and create a tool <strong>that fits</strong> your needs,
+    your environment, your way of doing things.<br/>
+
+    Only <em>your imagination will be our limit</em>.
+  """
+]
+
+[whoami]
+title = "About me"
+body = [
+  """
+    Against the monopoly of big software companies in the cyberspace,
+    <strong>my mission</strong> is to let people <em>feel free</em> with
+    their tools, enjoy <em>an alternative</em> for the crappy software products that cripple our field.<br/>
+  """,
+  """
+    Everyone is different, have different ways to think, interact, do,
+    and <em>I believe</em> that the software should <strong>adapt to the people</strong>,
+    not the other way around.
+  """,
+  """
+    Wether you are visually impaired, eccentric, old, artistic, autistic, geek, dyslexic, or none of all this,
+    there is a software we can <em>build together</em> to fit your vision, your way, your world.
+  """
+]
+
+[conclusion]
+title = "Human-first software engineering"
+body = [
+  """
+  """
+]

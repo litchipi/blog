@@ -1,6 +1,9 @@
 @import "variables";
 
-.hireme {
+#hireme-wrapper {
+  p {
+    line-height: 20pt;
+  }
   strong {
     color: $color1;
   }
@@ -27,5 +30,9 @@
     color: $color1;
     margin-top: 40pt;
     margin-bottom: 40pt;
+  }
+
+  em {
+    color: $color1;
   }
 }
