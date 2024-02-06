@@ -1,2 +1,19 @@
-# TODO  hireme page FR
-title = "Travaillons ensemble"
+# TODO  French hireme page
+title = "TODO"
+introduction = "TODO"
+
+[why]
+title = "TODO"
+body = "TODO"
+
+[how]
+title = "TODO"
+body = "TODO"
+
+[what]
+title = "TODO"
+body = "TODO"
+
+[outro]
+title = "TODO"
+body = "TODO"

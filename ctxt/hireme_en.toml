@@ -1,46 +1,13 @@
 title = "Hire me"
 
 introduction = """
-<p>In need of help for a project ?<br/>
-Here is what I propose, feel free to contact me so we can chat about it in depth !</p>
-<p>Email me today at <code>litchi.pi@proton.me</code> !</p>
+  <p>In need of help for a project ?<br/>
+  Here is what I propose, feel free to contact me so we can chat about it in depth !</p>
+  <p>Email me today at <code>litchi.pi@proton.me</code> !</p>
 """
 
-[offer]
-title = "Better tools, less time wasted"
-body = [
-  """
-    In modern businesses, people's <strong>time</strong> is what costs the most.<br/>
-    Highly skilled people are hard to find, hard to keep.<br/>
-    If you waste their time, <em>you waste money</em>.
-  """,
-
-  """
-    Against slow, frustrating, unadapted, unmaintained, insecure software,<br/>
-    I create <strong>tailor-made software</strong> for individuals, teams and companies,
-    to <em>increase</em>:
-    <ul id="offer-benefits-list">
-      <li>Productivity</li>
-      <li>Ergonomy</li>
-      <li>Hapiness at work</li>
-      <li>Resilience</li>
-    </ul>
-  """,
-
-  """
-    Specific businesses have specific needs ! <br/>
-
-    Instead of <em>being bound</em> to a big software company's product, I propose that
-    <em>we meet</em>, have a brainstorming,
-    and create a tool <strong>that fits</strong> your needs,
-    your environment, your way of doing things.<br/>
-
-    Only <em>your imagination will be our limit</em>.
-  """
-]
-
-[whoami]
-title = "About me"
+[why]
+title = "Empowering our differences"
 body = [
   """
     Against the monopoly of big software companies in the cyberspace,
@@ -53,14 +20,64 @@ body = [
     not the other way around.
   """,
   """
-    Wether you are visually impaired, eccentric, old, artistic, autistic, geek, dyslexic, or none of all this,
-    there is a software we can <em>build together</em> to fit your vision, your way, your world.
+    Wether you are visually impaired, eccentric, old, artistic, autistic,
+    geek, dyslexic, or none of all this,
+    there is a software we can <em>build together</em> to fit your vision,
+    your way, your world.
   """
 ]
 
-[conclusion]
-title = "Human-first software engineering"
+[how]
+title = "Human-first software crafting"
 body = [
   """
+    Everything is possible, a whole new way to use a computer can be redefined from
+    <em>your vision</em>.<br/>
+    Tell me what holds you from feeling finally free on your computer environment,
+    your needs and desires, and I will craft a software for it.
+  """,
+  """
+    Only after completely <strong>understanding</strong> someone else's view,
+    can someone create something that fits their vision, who they are.<br/>
+    For this reason, the whole process is centered around <strong>you</strong>.
+  """,
+  """
+    After being sure all of your criterias are defined and addressed in the proposed
+    solution, a piece of software is crafted to <em>fit exactly</em> all of them.
   """
 ]
+
+[what]
+title = "Better tools, greater efficiency"
+body = [
+  """
+    <em>People's time</em> is the most expensive resource a company spend,
+    <em>don't waste it</em> !<br/>
+
+    Tools have a big impact on people's <em>happiness at work</em>,
+    improving it means optimizing how the core system of your company performs.
+  """,
+  """
+    While ensuring the <em>high quality</em> of the tool created,
+    the implementation will also think of the future, when some maintenance or
+    improvements will be needed.<br/>
+    Security, maintenability, performances, extensibility, these are the priorities
+    that will drive the craft of your tool.
+  """,
+  """
+    Wether your are a CEO, a Team lead, or a worker, improving your work environment
+    can be <em>what is missing</em> to reach a significant ergonomy, performance, to
+    get through a tough period, or handle an overly productive one.<br/>
+  """,
+  """
+    The finest swordmaker <strong>isn't able</strong> to make a butter knife
+    without a furnace.
+  """
+]
+
+[outro]
+title = "Interested ?"
+body = """
+  Contact me today at <code>litchi.pi@proton.me</code> !<br/>
+  Let's build together a work environment that empowers your business !
+"""

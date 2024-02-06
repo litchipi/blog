@@ -1,8 +1,14 @@
 @import "variables";
 
+$hireme-line-height: 20pt;
+
+.webring-footer {
+  display: none;
+}
+
 #hireme-wrapper {
   p {
-    line-height: 20pt;
+    line-height: $hireme-line-height;
   }
   strong {
     color: $color1;
@@ -14,7 +20,8 @@
   }
 
   h2 {
-    color: $color3;
+    color: $color1;
+    margin: unset;
   }
 
   h3 {
@@ -34,5 +41,17 @@
 
   em {
     color: $color1;
+  }
+
+  .hireme-outro {
+    margin-bottom: 100pt;
+  }
+}
+
+@media screen and (max-width: $phone-media) {
+  #hireme-wrapper {
+    p {
+      line-height: calc($hireme-line-height * 2.0);
+    }
   }
 }

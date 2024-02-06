@@ -35,32 +35,35 @@
 
   <hr>
 
-  <section id="offer">
-    <h1>{{ hireme.offer.title }}</h1>
-    {% for par in hireme.offer.body %}
-    <p id="offer-body-{{ loop.index0 }}" class="offer-body">{{ par | safe }}</p>
+  <section id="why">
+    <h1>{{ hireme.why.title }}</h1>
+    {% for par in hireme.why.body %}
+    <p id="why-body-{{ loop.index0 }}" class="why-body">{{ par | safe }}</p>
     {% endfor %}
   </section>
 
   <hr>
 
-  <section id="whoami">
-    <h1>{{ hireme.whoami.title }}</h1>
-    {% for par in hireme.whoami.body %}
-    <p id="whoami-body-{{ loop.index0 }}" class="whoami-body">{{ par | safe }}</p>
+  <section id="how">
+    <h1>{{ hireme.how.title }}</h1>
+    {% for par in hireme.how.body %}
+    <p id="how-body-{{ loop.index0 }}" class="how-body">{{ par | safe }}</p>
     {% endfor %}
   </section>
 
   <hr>
 
-  <section id="conclusion">
-    <h1>{{ hireme.conclusion.title }}</h1>
-    {% for par in hireme.conclusion.body %}
-    <p id="conclusion-body-{{ loop.index0 }}" class="conclusion-body">{{ par | safe }}</p>
+  <section id="what">
+    <h1>{{ hireme.what.title }}</h1>
+    {% for par in hireme.what.body %}
+    <p id="what-body-{{ loop.index0 }}" class="what-body">{{ par | safe }}</p>
     {% endfor %}
   </section>
 
-  <hr id="end-of-page">
+  <hr>
+
+  <h2>{{ hireme.outro.title }}</h2>
+  <p class="hireme-outro">{{ hireme.outro.body | safe }}</p>
 
 </div>
 {% endblock content %}
