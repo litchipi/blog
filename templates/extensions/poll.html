@@ -46,6 +46,14 @@
         {% endif %}
       {%- endfor -%}
     {%- endfor -%}
+
+    {% set qset=poll.first_question_set %}
+    {% for qslug, q in poll.question[poll.first_question_set] %}
+      visibleIfChecked("q-{{qset}}-{{qslug}}-yes", null, "ask-email");
+      visibleIfChecked("q-{{qset}}-{{qslug}}-yes", null, "submit-button");
+      visibleIfChecked("q-{{qset}}-{{qslug}}-no", null, "ask-email");
+      visibleIfChecked("q-{{qset}}-{{qslug}}-no", null, "submit-button");
+    {% endfor %}
   }
   </script>
 {% endblock scripts %}
@@ -133,7 +141,7 @@
     ) }}
   {% endfor %}
 
-    <li id="ask-email" class="question-container" style="display: block;">
+    <li id="ask-email" class="question-container ask-email">
       <p class="question-text">
         {{ poll.lang.email_text | safe }}
       </p>
@@ -144,6 +152,12 @@
   </ul>
 
   <input type="text" id="save-data-token" name="save-data-token" style="display: none;"/>
-  <input type="submit" id="submitForm" value="{{ poll.lang.send_button }}" formaction="/savedata/business_survey_{{ langage }}" formmethod="post"/>
+  <input
+    type="submit"
+    id="submitForm" class="submit-button"
+    value="{{ poll.lang.send_button }}"
+    formaction="/savedata/business_survey_{{ langage }}" formmethod="post"
+    style="display: none;"
+  />
   </form>
 {% endblock content %}
