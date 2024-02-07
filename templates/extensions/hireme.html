@@ -29,12 +29,6 @@
 
 {% block mainattrs %}id="hireme"{% endblock %}
 {% block content %}
-<div class="hireme-intro">
-  {{ hireme.introduction | markdown_render | safe }}
-</div>
-
-<hr>
-
 <section id="why">
   <h1>{{ hireme.why.title }}</h1>
   {{ hireme.why.body | markdown_render | safe }}
