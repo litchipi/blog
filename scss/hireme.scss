@@ -2,6 +2,7 @@
 
 $hireme-line-height: 20pt;
 
+
 .webring-footer {
   display: none;
 }
@@ -9,9 +10,16 @@ $hireme-line-height: 20pt;
 #hireme {
   p {
     line-height: $hireme-line-height;
+    margin-bottom: 20pt;
+    margin-top: 20pt;
+
   }
   strong {
     color: $color2;
+  }
+
+  em {
+    color: $color1;
   }
   
   h1 {
@@ -39,14 +47,16 @@ $hireme-line-height: 20pt;
     margin-bottom: 40pt;
   }
 
-  em {
-    color: $color1;
+  #outro {
+    margin-bottom: 100pt;
   }
 
-  #outro {
-    p {
-      margin-bottom: 100pt;
-    }
+  blockquote {
+    width: fit-content;
+    color: white;
+    border-left: 2px solid $color2-light; //$light-gray;
+    border-bottom: 2px solid $color2-light; //light-gray;
+    padding: 5pt 10pt;
   }
 }
 

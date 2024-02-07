@@ -37,21 +37,21 @@
 
 <section id="why">
   <h1>{{ hireme.why.title }}</h1>
-  {% for par in hireme.why.body %} {{ par | markdown_render | safe }} {% endfor %}
+  {{ hireme.why.body | markdown_render | safe }}
 </section>
 
 <hr>
 
 <section id="how">
   <h1>{{ hireme.how.title }}</h1>
-  {% for par in hireme.how.body %} {{ par | markdown_render | safe }} {% endfor %}
+  {{ hireme.how.body | markdown_render | safe }}
 </section>
 
 <hr>
 
 <section id="what">
   <h1>{{ hireme.what.title }}</h1>
-  {% for par in hireme.what.body %} {{ par | markdown_render | safe }} {% endfor %}
+  {{ hireme.what.body | markdown_render | safe }}
 </section>
 
 <hr>

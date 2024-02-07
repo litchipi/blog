@@ -1,18 +1,48 @@
 # TODO  French hireme page
-title = "TODO"
-introduction = "TODO"
+title = "Travaillons ensemble"
+introduction = """
+  Voici une brève introduction de ce que je fais et *pourquoi* je le fais.  
+  Pour parler en détail de tout idée avec vous, je suis à votre entière disposition !
+
+  Envoyez moi un e-mail dès à présent à `litchi.pi@proton.me` !
+"""
 
 [why]
-title = "TODO"
-body = "TODO"
+title = "Valoriser nos différences"
+body = [
+  """
+    Face au monopole des grandes entreprises dans le cyber-espace,
+    **ma mission** est de permettre à quiconque de se *sentir libre* sur ses outils
+    numériques, et apprécier *une alternative* aux médiocres produits qui affecte
+    le monde du numérique.
+  """,
+  """
+    Toute personne est différente, chacun a sa manière de penser, d'intéragir, de faire,
+    et *je crois* que les outils logiciels doivent **s'adapter aux personnes** qui
+    l'utilisent, et non le contraire.
+  """,
+  """
+    Que vous soyez malvoyant, excentrique, vieillisant, artistique, autistique, geek,
+    dyslexique, ou rien de tout cela; nous pouvons *construire ensemble* un outil qui
+    corresponds à votre vision, votre manière, votre monde.
+  """
+]
 
 [how]
 title = "TODO"
-body = "TODO"
+body = [
+  """
+    TODO
+  """
+]
 
 [what]
 title = "TODO"
-body = "TODO"
+body = [
+  """
+    TODO
+  """
+]
 
 [outro]
 title = "TODO"
