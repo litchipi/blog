@@ -2,6 +2,7 @@ name = "Litchi Pi"
 author_name = "Litchi Pi"
 author_email = "litchi.pi@proton.me"
 base_url = "https://litchipi.site"
+# TODO  Find a good website description for Litchi Pi
 description = """
   Empower businesses by crafting high quality tailor-made software in Rust.
 """
