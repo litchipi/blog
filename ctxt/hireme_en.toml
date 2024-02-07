@@ -1,9 +1,10 @@
 title = "Hire me"
 
 introduction = """
-  <p>In need of help for a project ?<br/>
-  Here is what I propose, feel free to contact me so we can chat about it in depth !</p>
-  <p>Email me today at <code>litchi.pi@proton.me</code> !</p>
+  In need of help for a project ?  
+  Here is what I propose, feel free to contact me so we can chat about it in depth !
+
+  Email me today at `litchi.pi@proton.me` !
 """
 
 [why]
@@ -11,39 +12,45 @@ title = "Empowering our differences"
 body = [
   """
     Against the monopoly of big software companies in the cyberspace,
-    <strong>my mission</strong> is to let people <em>feel free</em> with
-    their tools, enjoy <em>an alternative</em> for the crappy software products that cripple our field.<br/>
+    **my mission** is to let people *feel free* with their tools,
+    enjoy *an alternative* for the crappy software products that cripple our field.
   """,
   """
     Everyone is different, have different ways to think, interact, do,
-    and <em>I believe</em> that the software should <strong>adapt to the people</strong>,
+    and *I believe* that the software should **adapt to the people**,
     not the other way around.
   """,
   """
     Wether you are visually impaired, eccentric, old, artistic, autistic,
     geek, dyslexic, or none of all this,
-    there is a software we can <em>build together</em> to fit your vision,
+    there is a software we can *build together* to fit your vision,
     your way, your world.
   """
 ]
+
+# [[why.body]]
+# title = "Against the monopoly"
+# text = """of big software companies in the cyberspace,
+# **my mission** is to let people *feel free* with
+# their tools, enjoy *an alternative* for the crappy software products that cripple our field.  "
 
 [how]
 title = "Human-first software crafting"
 body = [
   """
     Everything is possible, a whole new way to use a computer can be redefined from
-    <em>your vision</em>.<br/>
+    *your vision*.  
     Tell me what holds you from feeling finally free on your computer environment,
     your needs and desires, and I will craft a software for it.
   """,
   """
-    Only after completely <strong>understanding</strong> someone else's view,
-    can someone create something that fits their vision, who they are.<br/>
-    For this reason, the whole process is centered around <strong>you</strong>.
+    Only after completely **understanding** someone else's view,
+    can someone create something that fits their vision, who they are.  
+    For this reason, the whole process is centered around **you**.
   """,
   """
     After being sure all of your criterias are defined and addressed in the proposed
-    solution, a piece of software is crafted to <em>fit exactly</em> all of them.
+    solution, a piece of software is crafted to *fit exactly* all of them.
   """
 ]
 
@@ -51,26 +58,26 @@ body = [
 title = "Better tools, greater efficiency"
 body = [
   """
-    <em>People's time</em> is the most expensive resource a company spend,
-    <em>don't waste it</em> !<br/>
+    *People's time* is the most expensive resource a company spend,
+    *don't waste it* !  
 
-    Tools have a big impact on people's <em>happiness at work</em>,
+    Tools have a big impact on people's *happiness at work*,
     improving it means optimizing how the core system of your company performs.
   """,
   """
-    While ensuring the <em>high quality</em> of the tool created,
+    While ensuring the *high quality* of the tool created,
     the implementation will also think of the future, when some maintenance or
-    improvements will be needed.<br/>
+    improvements will be needed.  
     Security, maintenability, performances, extensibility, these are the priorities
     that will drive the craft of your tool.
   """,
   """
     Wether your are a CEO, a Team lead, or a worker, improving your work environment
-    can be <em>what is missing</em> to reach a significant ergonomy, performance, to
-    get through a tough period, or handle an overly productive one.<br/>
+    can be *what is missing* to reach a significant ergonomy, performance, to
+    get through a tough period, or handle an overly productive one.  
   """,
   """
-    The finest swordmaker <strong>isn't able</strong> to make a butter knife
+    The finest swordmaker **isn't able** to make a butter knife
     without a furnace.
   """
 ]
@@ -78,6 +85,6 @@ body = [
 [outro]
 title = "Interested ?"
 body = """
-  Contact me today at <code>litchi.pi@proton.me</code> !<br/>
+  Contact me today at `litchi.pi@proton.me` !  
   Let's build together a work environment that empowers your business !
 """

@@ -4,8 +4,9 @@
 {{ by | capitalize }}{% if filter %} - {{ filter | capitalize }}{% endif %}
 {% endblock title %}
 
+{% block mainattrs %}id="post-list"{% endblock %}
+{% block mainclass %}styled-list{% endblock %}
 {% block content %}
-  <section id="post-list" class="styled-list">
   {% if filter %}
     <h1>{{ filter | capitalize }}</h1>
   {% endif %}
@@ -43,5 +44,4 @@
     {% set_global n = n + 1 %}
   {% endfor %}
   </ul>
-  </section>
 {% endblock content %}

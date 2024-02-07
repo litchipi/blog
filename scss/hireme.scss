@@ -6,12 +6,12 @@ $hireme-line-height: 20pt;
   display: none;
 }
 
-#hireme-wrapper {
+#hireme {
   p {
     line-height: $hireme-line-height;
   }
   strong {
-    color: $color1;
+    color: $color2;
   }
   
   h1 {
@@ -43,13 +43,15 @@ $hireme-line-height: 20pt;
     color: $color1;
   }
 
-  .hireme-outro {
-    margin-bottom: 100pt;
+  #outro {
+    p {
+      margin-bottom: 100pt;
+    }
   }
 }
 
 @media screen and (max-width: $phone-media) {
-  #hireme-wrapper {
+  #hireme {
     p {
       line-height: calc($hireme-line-height * 2.0);
     }
