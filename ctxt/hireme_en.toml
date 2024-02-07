@@ -11,7 +11,7 @@ introduction = """
 [why]
 title = "Empowering our differences"
 body = """
-  Tools we use have a big impact on people's *happiness at work*,
+  Tools people use have a big impact on their *happiness at work*,
   and worker's ardour is the engine of every great company.  
   Worker's fervour is what will **drive** a company up a flourishing economy,
   or **protect** it from crashing down in case of a crisis.
@@ -19,7 +19,7 @@ body = """
   **People's time** is the most expensive resource a company spend, *don't waste it* !  
   Recruiting skilled workers is hard, it's primordial to use their time wisely,
   and *not restrain* their benefit with slow tools, boring manual processes,
-  or un-ergonomic work environment.
+  or an un-ergonomic work environment.
 
   Therefore, against the monopoly of big software companies in the cyberspace,
   **my mission** is to let people *feel free* with their tools,
@@ -45,7 +45,7 @@ body = """
   improve what is primordial, remove what is unnecessary,
   and **adapt** the interface to *your liking*, the process to *your methods*.
 
-  After completely *understanding* your ideal and building a solution for it,
+  After completely *understanding* your ideal, and a solution for it on paper,
   only then will we craft a piece of software, and adjust it so it **fits perfectly**.  
   Until finally you reach a level of *serenity* you deserve to feel with your tools.
 
@@ -64,11 +64,11 @@ body = """
   While ensuring the **high quality** of the tool created,
   the implementation will also think of the future, when some maintenance or
   improvements will be needed.  
-  In this regards, a *complete documentation* will be redacted to enable any software
+  In this regard, a *complete documentation* will be redacted to enable any software
   engineer to understand, maintain and extend this software.
 
   *Security*, *maintenability*, *performances*, *extensibility*,
-  these are the priorities that will drive the craft of your tool.  
+  these are the priorities that will drive the craft of your software.  
   With these high quality standards, you will obtain a very reliable companion
   for your business.
 """
@@ -78,8 +78,8 @@ title = "Expose me your vision"
 body = """
   Have an ideal you wish to share ?
   
-  Let's meet, talk about it in depth, and design together your vision,
-  build serenity in your work environment !
+  Let's meet, talk about it in depth, and build together your vision,
+  cultivate serenity in your work environment !
   
   Contact me today at `litchi.pi@proton.me` !
 """

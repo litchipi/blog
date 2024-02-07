@@ -9,25 +9,80 @@ introduction = """
 
 [why]
 title = "Valoriser nos différences"
-# TODO  French hireme translation
 body = """
-  TODO  
+  Les outils utilisés par des travailleurs ont un grand impact sur leur
+  *bonheur au travail*, et ce qui est précisément le moteur de toute entreprise
+  à succès, c'est justement l'ardeur de leurs travailleurs.  
+  C'est leur ferveur qui permet de **développer** une entreprise au sommet d'une
+  économie fleurissante, mais aussi la **protéger** en cas de crise.
+  
+  Le **temps d'un travailleur** est la ressource la plus précieuse d'une entreprise,
+  *ne le gaspillez pas* !  
+  Recruter des travailleurs talentueux est difficile, c'est donc primordial d'utiliser
+  leur temps judicieusement, et *ne pas freiner* leurs apports avec des outils lents,
+  des tâches fastidieuses ou un environement de travail inadatpé.
+
+  Par conséquent, face au monopole des grands éditeurs de logiciels dans le cyber-espace,
+  **ma mission** est de permettre aux gens de se *sentir libre* avec leurs outils,
+  apprécier *une alternative* aux produits de moindre de qualité qui pululent dans
+  l'industrie du numérique.
+
+  Chaque personne est différente, a une façon distincte de penser, d'intéragir, de faire,
+  et *je crois* que les logiciels doivent **s'adapter aux personnes** qui les emplois,
+  non l'inverse.  
+  Que vous soyez malvoyant, excentrique, vieillissant, artistique, autiste, geek,
+  dyslexique, ou rien de tout cela;
+  nous pouvons *construire ensemble* un logiciel qui correspond à votre vision, votre
+  manière, votre monde.
 """
 
 [how]
-title = "TODO"
+title = "Humaniser la confection de logiciel"
 body = """
-  TODO  
+  Tout commence par **vous**, nous définissons ensemble précisément ce qui vous retiens
+  de vous sentir à l'aise avec vos outils, et explorons votre idéal, *votre vision*.
+
+  Ensemble, nous joindrons nos expertises afin d'analyser les solutions possibles,
+  améliorer ce qui est primordial, retirer ce qui est superflu,
+  et **adapter** l'interface selon *vos goûts*, le comportement selon *vos méthodes*.
+
+  Une fois votre ideal complètement **compris**, et une solution couchée sur le papier,
+  alors seulement nous pourrons entamer la confection du logiciel, et l'ajuster afin
+  qu'il **convienne parfaitement**.  
+  Ce processus prendra fin lorsque vous atteindrez finalement un niveau de *sérénité*
+  avec votre outil.
+
+  Tout au long de ce procédé, **vous** serez le maestro, et le logiciel en résultant
+  aura été façonné à *votre image*, et personne d'autre.
 """
 
 [what]
-title = "TODO"
+title = "De meilleurs outils pour une plus grande efficacité"
 body = """
-  TODO  
+  Un outil bien ajusté vous fera sentir *à la maison*, et soulagera la tension
+  lors de leur utilisation.  
+  Au delà du gain ergonomique, je promet une haute qualité du logiciel,
+  et sa **fiabilité** à travers les années.
+  
+  En parallèle de la **haute qualité** de l'outil façonné,
+  la conception prendra aussi en compte le future, lorsque de la maintenance ou
+  des améliorations seront nécessaire.  
+  À cet égard, une *documentation complète* sera rédigée afin de permettre à tout
+  développeur de comprendre, maintenir et étendre ce logiciel.
+
+  *Sécurité*, *maintenabilité*, *performances*, *extensibilité*,
+  voici les priorités qui conduiront la conception de votre logiciel.  
+  Avec ces critères de qualité exigents, vous aurez alors à vos côté un compagnon très
+  fiable pour votre activité.
 """
 
 [outro]
-title = "TODO"
+title = "Parlez moi de votre vision"
 body = """
-  TODO  
+  Vous avez un idéal que vous souhaitez partager ?
+
+  Rencontrons-nous, parlons-en en détail, et construison ensemble votre vision,
+  cultivons la sérénité dans votre environement de travail !
+
+  Contactez moi dès à présent par e-mail à `litchi.pi@proton.me` !
 """
