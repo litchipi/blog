@@ -1,6 +1,12 @@
 title = "Sondage"
-disclamer = "Les données de ce formulaire sont stockées de façon anonyme, seuls vos réponses sont conservées, aucune autre donnée n'est collectée."
 first_question_set = "intro"
+
+introduction = """
+  Merci des quelques minutes que vous accordez pour [mon projet](/hireme/fr)  !
+
+  Les données de ce formulaire sont stockées de façon anonyme,
+  seuls vos réponses sont conservées, aucune autre donnée n'est collectée.
+"""
 
 # TODO List of str
 
@@ -9,10 +15,15 @@ yes = "Oui"
 no = "Non"
 send_button = "Envoyer"
 email_text = """
-Si <a href="/hireme/fr">mon project</a> vous intéresse,
-entrez votre e-mail et je vous recontacterai"""
-email_note = """Ceci est totalement optionnel.<br/>
-L'adresse e-mail collectée ne sera pas utilisé avec abus, et ne sera partagé avec personne."""
+  Si [mon project](/hireme/fr) vous intéresse, entrez votre e-mail
+  et je vous recontacterai
+"""
+
+email_note = """
+  Ceci est totalement optionnel.  
+  L'adresse e-mail collectée ne sera pas utilisé avec abus, et ne sera partagé avec
+  personne.
+"""
 email_lbl = "Adresse e-mail:"
 
 [question.intro.numeric_or_not]

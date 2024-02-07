@@ -126,8 +126,8 @@
 {% endmacro disp_question %}
 
 {% block content %}
-  <div id="poll-disclamer">
-    {{ poll.disclamer }}
+  <div id="poll-intro">
+    {{ poll.introduction | markdown_render | safe }}
   </div>
 
   <form id="poll-form">
@@ -142,10 +142,12 @@
   {% endfor %}
 
     <li id="ask-email" class="question-container ask-email">
-      <p class="question-text">
-        {{ poll.lang.email_text | safe }}
-      </p>
-      <p class="question-note">{{ poll.lang.email_note | safe }}</p>
+      <div class="question-text">
+        {{ poll.lang.email_text | markdown_render | safe }}
+      </div>
+      <div class="question-note">
+        {{ poll.lang.email_note | markdown_render | safe }}
+      </div>
       <label for="ask-email">{{ poll.lang.email_lbl }}</label>
       <input type="email" id="ask-email" name="ask-email" size=50/>
     </li>

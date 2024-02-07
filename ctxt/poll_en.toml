@@ -1,14 +1,32 @@
 # TODO  English business survey
 title = "Poll"
-disclamer = "Data are confidential"
+first_question_set = "intro"
+introduction = """
+  Thank you
+"""
 
 [lang]
 yes = "Yes"
 no = "No"
 
-[numeric_or_not]
+send_button = "Envoyer"
+email_text = """
+  Si [mon project](/hireme/fr) vous intéresse, entrez votre e-mail
+  et je vous recontacterai
+"""
+
+email_note = """
+  Ceci est totalement optionnel.  
+  L'adresse e-mail collectée ne sera pas utilisé avec abus, et ne sera partagé avec
+  personne.
+"""
+email_lbl = "Adresse e-mail:"
+
+[question.intro.numeric_or_not]
 text = "Are you numeric"
 type = "yes_or_no"
+addq_yes = "numeric-pro"
+addq_no = "not_numeric"
 
 [question.numeric-pro.1-toto]
 text = "My taylor is rich"

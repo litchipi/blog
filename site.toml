@@ -2,9 +2,10 @@ name = "Litchi Pi"
 author_name = "Litchi Pi"
 author_email = "litchi.pi@proton.me"
 base_url = "https://litchipi.site"
-# TODO  Find a good website description for Litchi Pi
 description = """
-  Empower businesses by crafting high quality tailor-made software in Rust.
+  Freelance Rust Software engineer
+
+  Increase happiness at work by crafting high quality tailor-made software.
 """
 
 welcome_message = """
@@ -41,7 +42,3 @@ poll_en = "ctxt/poll_en.toml"
 
 hireme_fr = "ctxt/hireme_fr.toml"
 hireme_en = "ctxt/hireme_en.toml"
-
-# [hireme]
-# title = "Hire me"
-# markdown_file = "posts/.hireme.md"
