@@ -1,14 +1,10 @@
 title = "Sondage"
-first_question_set = "intro"
-
 introduction = """
   Merci des quelques minutes que vous accordez pour [mon projet](/hireme/fr)  !
 
   Les données de ce formulaire sont stockées de façon anonyme,
   seuls vos réponses sont conservées, aucune autre donnée n'est collectée.
 """
-
-# TODO List of str
 
 [lang]
 yes = "Oui"
@@ -26,34 +22,71 @@ email_note = """
 """
 email_lbl = "Adresse e-mail:"
 
-[question.intro.numeric_or_not]
+first_question_set = "intro"
+
+# Introduction
+
+[question.intro.1_numeric_or_not]
 text = "Êtes-vous un professionnel du secteur du numérique ou non ?"
 type = "yes_or_no"
 addq_yes = "numeric-pro"
 addq_no = "not-numeric"
 
-# Questions for numeric pros
-[question.numeric-pro.2-experience-in-field]
-text = "Depuis combien de temps (environ) travaillez vous dans le numérique ?"
+[question.intro.2_position]
+text = "Quel poste excercez vous au sein de votre entreprise ?"
+type = "text"
+
+[question.intro.3_company_size]
+text = "Combien d'employés environ compte votre entreprise ?"
+type = "radio"
+choices = [
+  "Individuel",
+  "Moins de 5 personnes",
+  "De 5 à 20 personnes",
+  "De 20 à 50 personnes",
+  "De 50 à 200 personnes",
+  "De 200 à 1000 personnes",
+  "Plus de 1000 personnes"
+]
+
+[question.intro.4_hours_front_computer]
+text = "Dans une journée de travail, combien d'heure passez-vous devant un ordinateur ?"
 type = "number"
-min = 0
-max = 70
-label_after = "années"
 
-[question.numeric-pro.3-rse-sensibility]
-text = "À quel point êtes vous sensible aux problématiques de RSE ? (Écologie, inclusion, accessibilité, ...)"
-type = "range"
-threshold = { "Peu sensible" = 2, "Neutre" = 5, "Sensible" = 7, "Très sensible" = 10 }
-min = 0
-max = 10
+# Numeric pro
+[question.numeric-pro.1_write_code]
+text = "Écrivez-vous du logiciel à partir d'un langage de programmation ?"
+type = "yes_or_no"
+addq_yes = "write-code"
 
-[question.numeric-pro.4-quality-sensibility]
-text = "Préférez-vous la qualité, ou la facilité de mise en oeuvre d'une solution ?"
-type = "range"
-threshold = { "A Something" = 5, "B Aoakze" = 7, "Final" = 10 }
-min = 0
-max = 100
+## Write code
+[question.write-code.1_what_langage]
+text = "Quel(s) language(s) utilisez-vous ?"
+type = "text"
 
+[question.write-code.2_high_constraints]
+text = "Certaines parties de votre code sont-ils soumis à de hautes contraintes ?"
+type = "yes_or_no"
+note = """
+  En terme de performance, mémoire utilisée, et tout aspect pouvant être optimisé.
+  Logiciels utilisés en interne ou développé pour un client
+"""
+addq_yes = "high_constraints"
+
+# TODO The rest
+## High constraints
+
+# ## Effectuez-vous des benchmarks, et optimisations sur ces parties critiques ?
+# Condition: Si code soumis à haute contrainte
+# Type: Yes / No
+
+
+# ## Avez vous déjà atteint les limites de vos logiciels lors d'une période inhabituelle ?
+# Note: Une fréquentation inhabituelle, des données volumineuses, une attaque informatique
+# Type: Yes / No
+# Add question: Détails sur cette période
+
+# TODO  Questions not numeric
 # Questions for not numeric pros
 [question.not-numeric.2-what-field]
 text = "Dans quel secteur d'activité travaillez-vous ?"
