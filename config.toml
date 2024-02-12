@@ -37,7 +37,10 @@ notification = "notification.html"
 ]
 "print.css" = [ "print.scss" ]
 "hireme.css" = [ "hireme.scss" ]
+"poll.css" = [ "poll.scss"]
 
 [add_endpoints]
+"market_research/fr" = "extensions/poll.html"
+"market_research/en" = "extensions/poll.html"
 "hireme/fr" = "extensions/hireme.html"
 "hireme/en" = "extensions/hireme.html"
