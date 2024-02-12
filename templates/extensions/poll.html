@@ -162,7 +162,7 @@
     type="submit"
     id="submitForm" class="poll-submit-button"
     value="{{ poll.lang.send_button }}"
-    formaction="/savedata/business_survey_{{ langage }}" formmethod="post"
+    formaction="{{ poll.endpoint }}" formmethod="post"
   />
   </form>
 {% endblock content %}

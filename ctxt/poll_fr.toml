@@ -7,6 +7,7 @@ introduction = """
 """
 
 question_set_order = ["intro", "tools", "quality_price"]
+endpoint="/savedata/market_research_fr"
 
 [lang]
 yes = "Oui"
