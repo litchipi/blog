@@ -5,9 +5,9 @@
   <p id="sitedescr">{{ site.description | linebreaksbr | safe }}</p>
 
   <ul id="sitesocial">
-    <li id="rss"><a href="/rss">&ltRSS&gt</a></li>
+    <li id="rss"><a href="/rss">RSS</a></li>
     {% for socialnet, link in site.social %}
-      <li id="{{ socialnet }}"><a href="{{ link }}">&lt{{ socialnet | capitalize }}&gt</a></li>
+      <li id="{{ socialnet }}"><a href="{{ link }}">{{ socialnet | capitalize }}</a></li>
     {% endfor %}
   </ul>
 </div>
