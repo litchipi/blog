@@ -9,7 +9,7 @@ $color2: #77de81; //67e349; //39b54a; // Green
 $color3: #A2B2F0; //7B91EA; //4967E3; //4297cf; // Blue
 
 $text-color:            #EFEFEF;
-$background-color:      #202020;
+$background-color:      #181818;
 $light-gray: #8F8F8F;
 
 $color1_dark:  darken($color1, 20%);
@@ -18,13 +18,13 @@ $color3_dark:  darken($color3, 20%);
 
 $color1_light: lighten($color1, 18%);
 $color2_light: lighten($color2, 17%);
-$color3_light: lighten($color3, 12%);
+$color3_light: lighten($color3, 5%);
 
 $color1_dimmed: desaturate($color1_dark, 40%);
 $color2_dimmed: desaturate($color2_dark, 40%);
 $color3_dimmed: desaturate($color3_dark, 40%);
 
-$code-background: lighten($background-color, 8%);
+$code-background: lighten($background-color, 10%);
 
 $link-hover: #FFF;
 $link-color: $color1;
