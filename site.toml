@@ -3,7 +3,9 @@ author_name = "Litchi Pi"
 author_email = "litchi.pi@proton.me"
 base_url = "https://litchipi.site"
 description = """
-Freelance Rust Software engineer, graduated in electronics and embedded systems, with side interests in information security as well.
+  Freelance Rust Software engineer
+
+  Increase happiness at work by crafting high quality tailor-made software.
 """
 
 welcome_message = """
