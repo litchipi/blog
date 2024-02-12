@@ -188,10 +188,9 @@ max = 100
 "En moyenne, je perds du temps" = 80
 "Ils me font perdre beaucoup de temps" = 100
 
-# TODO  Quality / price
 [question.quality_price.1_software_quality_importance]
 text="Parmis les critères de qualité d'un logiciel ci-dessous, quel est le plus important pour votre usage ?"
-type = "radio"
+type = "checkbox"
 choices = [
   "Ergonomie",
   "Absence de bugs",
@@ -227,7 +226,7 @@ choices = [
 ]
 
 [question.quality_price.4_rse_important]
-text = "Est-ce que l'aspect RSE d'un outil est un critère important dans votre choix ?"
+text = "Est-ce que l'impact RSE d'un outil est un critère important dans votre choix ?"
 note = """
   Son impact écologique, son accessibilité pour les personnes malvoyantes, handicapées,
   ou ayant un mauvais équipement informatique.
@@ -245,17 +244,17 @@ max=10
 
 [question.quality_price.5_hired_freelance_before]
 text = "Avez-vous déjà eu recours à un consultant externe pour un besoin en logiciel ?"
-note = "Un freelance, une entreprise de prestation, une ESN, ..."
+note = "Un freelance, une entreprise de prestation, ..."
 type = "yes_or_no"
 
-[question.quality_price.6_after_sale_serv_importance]
+[question.quality_price.6_customer_service_importance]
 text = "À quel point est-ce que le SAV est important pour vous ?"
 note = "SAV = Service après vente"
 type = "range"
 min=0
 max=10
 
-[question.quality_price.6_after_sale_serv_importance.threshold]
+[question.quality_price.6_customer_service_importance.threshold]
 "Pas du tout important" = 2
 "Peu important" = 4
 "Neutre" = 6
