@@ -19,7 +19,7 @@ email_text = """
 """
 
 email_note = """
-  This is totally optionnal.
+  This is totally optional.
   The e-mail address collected will not be abused, and will not be shared with anyone.
 """
 email_lbl = "E-mail address:"
@@ -70,7 +70,7 @@ addq_yes = "write-code"
 
 ## Write code
 [question.write-code.1_what_langage]
-text = "What langage do you use to write code ?"
+text = "What language do you use to write code ?"
 type = "text"
 
 [question.write-code.2_high_constraints]
