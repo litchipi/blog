@@ -68,7 +68,7 @@ function initRangeThreshold(id, min, max, threshold) {
     var txt = "";
     for (t of arr) {
       if (val <= t[1]) {
-        txt = decodeURI(t[0]);
+        txt = decodeURIComponent(t[0]);
       } else {
         break;
       }

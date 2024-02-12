@@ -91,7 +91,7 @@
 {% macro range_disp_threshold(qsetslug, qslug, q) %}
 var dict = {
   {%- for th, val in q.threshold -%}
-    "{{th|urlencode}}": {{val}},
+    "{{th|urlencode_strict}}": {{val}},
   {%- endfor -%}
 };
 initRangeThreshold("q-{{qsetslug}}-{{qslug}}", {{q.min}}, {{q.max}}, dict);
