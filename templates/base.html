@@ -4,6 +4,9 @@
 <head>
     <meta charset="utf-8">
     {% block head %}
+        {% block meta %}
+        {% endblock meta %}
+
         {% block scripts %}
         {% endblock scripts %}
 
@@ -16,9 +19,6 @@
         {% endblock stylesheets %}
 
         <title>{% block title %}{% endblock title %}</title>
-
-        {% block meta %}
-        {% endblock meta %}
     {% endblock head %}
 </head>
 
