@@ -25,7 +25,6 @@ error = "error.html"
 post = "post.html"
 post_list = "post_list.html"
 index = "index.html"
-hireme = "hireme.html"
 
 [scss]
 "style.css" = [
@@ -36,11 +35,9 @@ hireme = "hireme.html"
   "specific.scss", 
   "error.scss",
 ]
+"print.css" = [ "print.scss" ]
+"hireme.css" = [ "hireme.scss" ]
 
-"print.css" = [
-  "print.scss",
-]
-
-"hireme.css" = [
-  "hireme.scss",
-]
+[add_endpoints]
+"hireme/fr" = "extensions/hireme.html"
+"hireme/en" = "extensions/hireme.html"

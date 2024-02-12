@@ -27,11 +27,11 @@ github = "https://github.com/litchipi/"
 mastodon = "https://fosstodon.org/@litchipi"
 email = "mailto:litchi.pi@proton.me"
 
-[hireme]
-title = "Hire me"
-markdown_file = "posts/.hireme.md"
-
 [webring]
 name = "Experimental Math & Programming Ring"
 previous = "https://scatter.flowers"
 next = "https://themathjester.com"
+
+[additionnal_context]
+hireme_fr = "ctxt/hireme_fr.toml"
+hireme_en = "ctxt/hireme_en.toml"

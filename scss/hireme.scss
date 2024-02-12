@@ -1,7 +1,24 @@
 @import "variables";
 
-.hireme {
+$hireme-line-height: 20pt;
+
+
+.webring-footer {
+  display: none;
+}
+
+#hireme {
+  p {
+    line-height: $hireme-line-height;
+    margin-bottom: 20pt;
+    margin-top: 20pt;
+
+  }
   strong {
+    color: $color2;
+  }
+
+  em {
     color: $color1;
   }
   
@@ -11,7 +28,8 @@
   }
 
   h2 {
-    color: $color3;
+    color: $color1;
+    margin: unset;
   }
 
   h3 {
@@ -27,5 +45,25 @@
     color: $color1;
     margin-top: 40pt;
     margin-bottom: 40pt;
+  }
+
+  #outro {
+    margin-bottom: 100pt;
+  }
+
+  blockquote {
+    width: fit-content;
+    color: white;
+    border-left: 2px solid $color2-light; //$light-gray;
+    border-bottom: 2px solid $color2-light; //light-gray;
+    padding: 5pt 10pt;
+  }
+}
+
+@media screen and (max-width: $phone-media) {
+  #hireme {
+    p {
+      line-height: calc($hireme-line-height * 2.0);
+    }
   }
 }
