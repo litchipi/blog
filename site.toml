@@ -5,7 +5,7 @@ base_url = "https://litchipi.site"
 description = """
   Freelance Rust Software engineer
 
-  Increase happiness at work by crafting high quality tailor-made software.
+  Crafting tailor-made software solutions for humans in businesses
 """
 
 welcome_message = """
