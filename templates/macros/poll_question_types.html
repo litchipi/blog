@@ -104,4 +104,14 @@ initRangeThreshold("q-{{qsetslug}}-{{qslug}}", {{q.min}}, {{q.max}}, dict);
 </textarea>
 {% endmacro text %}
 
-<!-- TODO  Checkbox type -->
+{% macro checkbox(idbase, choices) %}
+{% for choice in choices %}
+  <input
+    type="checkbox"
+    id="{{idbase}}-{{ choice | slugify }}" name="{{idbase}}"
+    value="{{ loop.index0 }}"
+  >
+  <label for="{{idbase}}-{{ choice | slugify }}">{{ choice }}</label>
+  <br/>
+{% endfor %}
+{% endmacro checkbox %}

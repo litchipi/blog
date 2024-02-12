@@ -112,6 +112,10 @@
       ) }}
     {% endif %}
 
+    {% if q.type == "checkbox" %}
+      {{ qtype::checkbox(idbase=idbase, choices=q.choices) }}
+    {% endif %}
+
     {% if q.label_after %}
       <label for="{{idbase}}">{{ q.label_after }}</label>
     {% endif %}
