@@ -17,11 +17,12 @@
       <a href="/post/{{ post.id }}">
         <li>
           <div class="item-title">{{ post.title }}</div>
-          {% if post.serie %}
-            <div class="item-metadata">
+          <div class="item-metadata">
+            {% if post.serie %}
               (serie "<strong>{{ post.serie_title | capitalize }}</strong>")
-            </div>
-          {% endif %}
+            {% endif %}
+            <time class="item-date">{{ post.date | timestamp_convert }}</time>
+          </div>
           <div class="item-description">{{ post.description }}</div>
         </li>
       </a>
