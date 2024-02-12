@@ -40,7 +40,7 @@ notification = "notification.html"
 "poll.css" = [ "poll.scss"]
 
 [add_endpoints]
-"business_survey/fr" = "extensions/poll.html"
-"business_survey/en" = "extensions/poll.html"
+"market_research/fr" = "extensions/poll.html"
+"market_research/en" = "extensions/poll.html"
 "hireme/fr" = "extensions/hireme.html"
 "hireme/en" = "extensions/hireme.html"
