@@ -24,6 +24,11 @@ email_note = """
 """
 email_lbl = "Adresse e-mail:"
 
+data_consent = """
+  Je consent à ce que mes réponses (et e-mail si renseigné) soit stocké
+  et utilisé afin de conduire une étude de marché.
+"""
+
 # Introduction
 
 [question.intro.1_numeric_or_not]
