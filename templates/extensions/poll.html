@@ -76,13 +76,6 @@
         yes=poll.lang.yes,
         no=poll.lang.no
       ) }}
-      {% if q.addq_yes %}
-        {{ self::disp_child_question(key=q.addq_yes, poll=poll) }}
-      {% endif %}
-
-      {% if q.addq_no %}
-        {{ self::disp_child_question(key=q.addq_no, poll=poll) }}
-      {% endif %}
     {% endif %}
 
     {% if q.type == "radio" %}
@@ -120,6 +113,14 @@
       <label for="{{idbase}}">{{ q.label_after }}</label>
     {% endif %}
   </li>
+
+  {% if q.addq_yes %}
+    {{ self::disp_child_question(key=q.addq_yes, poll=poll) }}
+  {% endif %}
+
+  {% if q.addq_no %}
+    {{ self::disp_child_question(key=q.addq_no, poll=poll) }}
+  {% endif %}
 {% endmacro disp_question %}
 
 {% block content %}
