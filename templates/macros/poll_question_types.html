@@ -91,12 +91,13 @@
 {% macro range_disp_threshold(qsetslug, qslug, q) %}
 var dict = {
   {%- for th, val in q.threshold -%}
-    "{{ th }}": {{ val }},
+    "{{th|urlencode}}": {{val}},
   {%- endfor -%}
 };
 initRangeThreshold("q-{{qsetslug}}-{{qslug}}", {{q.min}}, {{q.max}}, dict);
 {% endmacro range_disp_threshold %}
 
-{% macro text(idbase, size) %}
-<input type="text" id="{{idbase}}-txt" name="{{idbase}}" size="{{ size }}">
+{% macro text(idbase, rows, cols) %}
+<textarea id="{{idbase}}-txt" name="{{idbase}}" rows="{{rows}}" cols="{{cols}}">
+</textarea>
 {% endmacro text %}

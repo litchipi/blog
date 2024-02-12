@@ -46,14 +46,6 @@
         {% endif %}
       {%- endfor -%}
     {%- endfor -%}
-
-    {% set qset=poll.first_question_set %}
-    {% for qslug, q in poll.question[poll.first_question_set] %}
-      visibleIfChecked("q-{{qset}}-{{qslug}}-yes", null, "ask-email");
-      visibleIfChecked("q-{{qset}}-{{qslug}}-yes", null, "submit-button");
-      visibleIfChecked("q-{{qset}}-{{qslug}}-no", null, "ask-email");
-      visibleIfChecked("q-{{qset}}-{{qslug}}-no", null, "submit-button");
-    {% endfor %}
   }
   </script>
 {% endblock scripts %}
@@ -115,7 +107,8 @@
 
     {% if q.type == "text" %}
       {{ qtype::text(idbase=idbase,
-        size=q.size | default(value="100%")
+        rows=q.rows | default(value="3"),
+        cols=q.cols | default(value="75"),
       ) }}
     {% endif %}
 
@@ -132,16 +125,18 @@
 
   <form id="poll-form">
   <ul>
-  {% for qslug, q in poll.question[poll.first_question_set] %}
-    {{ self::disp_question(
-      qset=poll.first_question_set,
-      qslug=qslug, q=q,
-      poll=poll,
-      style="display: block;"
-    ) }}
+  {% for qset in poll.question_set_order %}
+    {% for qslug, q in poll.question[qset] %}
+      {{ self::disp_question(
+        qset=qset,
+        qslug=qslug, q=q,
+        poll=poll,
+        style="display: block;"
+      ) }}
+    {% endfor %}
   {% endfor %}
 
-    <li id="ask-email" class="question-container ask-email">
+    <li id="ask-email" class="question-container ask-email" style="display: block;">
       <div class="question-text">
         {{ poll.lang.email_text | markdown_render | safe }}
       </div>
@@ -159,7 +154,6 @@
     id="submitForm" class="submit-button"
     value="{{ poll.lang.send_button }}"
     formaction="/savedata/business_survey_{{ langage }}" formmethod="post"
-    style="display: none;"
   />
   </form>
 {% endblock content %}

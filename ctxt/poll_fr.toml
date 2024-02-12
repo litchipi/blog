@@ -6,6 +6,8 @@ introduction = """
   seuls vos réponses sont conservées, aucune autre donnée n'est collectée.
 """
 
+question_set_order = ["intro", "tools"]
+
 [lang]
 yes = "Oui"
 no = "Non"
@@ -21,8 +23,6 @@ email_note = """
   personne.
 """
 email_lbl = "Adresse e-mail:"
-
-first_question_set = "intro"
 
 # Introduction
 
@@ -52,8 +52,12 @@ choices = [
 [question.intro.4_hours_front_computer]
 text = "Dans une journée de travail, combien d'heure passez-vous devant un ordinateur ?"
 type = "number"
+min = 0
+max = 24
+
 
 # Numeric pro
+
 [question.numeric-pro.1_write_code]
 text = "Écrivez-vous du logiciel à partir d'un langage de programmation ?"
 type = "yes_or_no"
@@ -73,50 +77,115 @@ note = """
 """
 addq_yes = "high_constraints"
 
-# TODO The rest
-## High constraints
+[question.write-code.3_reach_limits]
+text = "Avez vous déjà atteint les limites de votre code lors d'une période inhabituelle ?"
+note = "Une fréquentation inhabituelle, des données volumineuses, une attaque informatique..."
+type = "yes_or_no"
+addq_yes = "code_limit_details"
 
-# ## Effectuez-vous des benchmarks, et optimisations sur ces parties critiques ?
-# Condition: Si code soumis à haute contrainte
-# Type: Yes / No
+[question.code_limit_details.details]
+text = "Pouvez-vous nous donner des détails sur ce sujet ?"
+note = "Autant de détails que la discrétion vous permet de donner"
+type = "text"
+
+[question.high_constraints.benchmark]
+text = "Effectuez-vous des benchmarks et optimsations sur ces parties critiques ?"
+type = "yes_or_no"
 
 
-# ## Avez vous déjà atteint les limites de vos logiciels lors d'une période inhabituelle ?
-# Note: Une fréquentation inhabituelle, des données volumineuses, une attaque informatique
-# Type: Yes / No
-# Add question: Détails sur cette période
+# Not numeric pro
 
-# TODO  Questions not numeric
-# Questions for not numeric pros
-[question.not-numeric.2-what-field]
+[question.not-numeric.1_what_field]
 text = "Dans quel secteur d'activité travaillez-vous ?"
 type = "text"
 
-[question.not-numeric.3-ease-with-numeric]
-text = "À quel point êtes vous à l'aise avec les outils du numérique ?"
+[question.not-numeric.2_ease_with_software]
+text = "À quel point êtes vous à l'aise avec l'informatique en général ?"
 type = "range"
-threshold = { "A Something" = 5, "B Aoakze" = 7, "Final" = 10 }
+min = 0
+max = 100
+
+[question.not-numeric.2_ease_with_software.threshold]
+"Sans aucun repères" = 5
+"Pas très à l'aise" = 20
+"Actions de base" = 40
+"Moyennement à l'aise" = 60
+"À l'aise en tant qu'utilisateur" = 75
+"Administrateur" = 90
+"Hacker" = 100
+
+
+# Tools used
+
+[question.tools.1_link_ergonomy_tools]
+text = "Votre ergonomie de travail est-elle liée aux outils logiciels que vous utilisez ?"
+type = "range"
 min = 0
 max = 10
 
-[question.not-numeric.4-rse-sensibility]
-text = "À quel point êtes vous sensible aux problématiques de RSE ?"
-note = "RSE = Responsabilité Social des Entreprises (Écologie, inclusion, accessibilité, ...)"
+[question.tools.1_link_ergonomy_tools.threshold]
+"Pas du tout" = 1
+"Un peu" = 4
+"Moyennement" = 6
+"Beaucoup" = 9
+"Entièrement" = 10
+
+[question.tools.2_tools_used_everyday]
+text = "Quels sont les outils que vous utilisez au quotidien ?"
+note = """
+  S'il y en a trop à lister, merci de prioriser les logiciels les plus spécifiques à
+  votre corps de métier.
+"""
+type = "text"
+rows=10
+cols=50
+
+[question.tools.3_software_frustration]
+text = "Vous arrive-t-il d'être frustré par un outil logiciel ?"
+note = "Parce qu'il est trop lent, pas assez complet, pas agréable à utiliser..."
 type = "range"
-threshold = { "Peu sensible" = 2, "Neutre" = 5, "Sensible" = 7, "Très sensible" = 10 }
 min = 0
 max = 10
 
-[question.not-numeric.test]
-text = "Test"
-type = "yes_or_no"
-addq_yes = "testset"
+[question.tools.3_software_frustration.threshold]
+"Jamais" = 2
+"C'est très rare" = 4
+"De temps en temps" = 6
+"Régulièrement" = 8
+"Tout le temps" = 10
 
-[question.testset.toto]
-text = "tutu"
+[question.tools.4_special_need]
+text = "Manque-t-il à votre corps de métier un outil qui n'existe pas encore, ou est insuffisant ?"
 type = "yes_or_no"
-addq_no = "azekl"
+addq_yes = "special_need_details"
 
-[question.azekl.tata]
-text = "pok"
+[question.special_need_details.details]
+text = "Pouvez-vous nous donner des détails sur ce sujet ?"
+note = "Autant de détails que la discrétion vous permet de donner"
+type = "text"
+
+[question.tools.5_manual_trask_repetition]
+text = "Avez-vous déjà effecuté une tâche manuelle répétitive par faute d'avoir un outil l'automatisant ?"
+note = "Des tâches peu complexes, ne nécessitant pas de réflexion réelle"
 type = "yes_or_no"
+
+[question.tools.6_high_intensity_slow]
+text = "Lors d'une période de haute intensité, un outil logiciel vous a-t-il déjà ralenti, dérangé, frustré ?"
+note = "Vous ou vos collaborateurs"
+type = "yes_or_no"
+
+[question.tools.7_tools_slowing_everyday]
+text = "Estimez-vous que, au quotidien, les outils logiciels vous font perdre du temps ?"
+note = "Vous ou vos collaborateurs"
+type = "range"
+min = 0
+max = 100
+
+[question.tools.7_tools_slowing_everyday.threshold]
+"Ils me font gagner beaucoup de temps" = 20
+"En moyenne, je gagne du temps" = 40
+"Je ne perds pas de temps" = 60
+"En moyenne, je perds du temps" = 80
+"Ils me font perdre beaucoup de temps" = 100
+
+# TODO  Quality / price
