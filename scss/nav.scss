@@ -12,18 +12,6 @@ nav {
   }
 }
 
-@media screen and (max-width: $tablet-media) {
-  #site-nav {
-    display: none !important;
-  }
-}
-
-@media screen and (max-width: $phone-media) {
-  #post-nav {
-    display: none !important;
-  }
-}
-
 #post-nav {
   position: sticky;
   top: 2rem;
@@ -203,16 +191,3 @@ nav {
     // border: 1px solid green;
   }
 }
-
-@media screen and (max-width: $tablet-media) {
-  #pagination span a div {
-    font-size: calc($pagination-font-size * 1.4);
-  }
-}
-
-@media screen and (max-width: $phone-media) {
-  #pagination span a div {
-    font-size: calc($pagination-font-size * 1.7);
-  }
-}
-

@@ -53,34 +53,3 @@
     text-decoration: underline;
   }
 }
-
-@media screen and (max-width: $tablet-media) {
-  #banner {
-    grid-template-columns: $logo-size calc($left-margin-offset - $logo-size) 1fr;
-  }
-  #sitesocial {
-    display: none !important;
-  }
-  #banner {
-    display: block;
-  }
-  header { 
-    padding-bottom: 20px;
-  }
-  #sitename {
-    text-align: center;
-    width: 100%;
-    font-size: calc($title-font-size * 2);
-    line-height: calc($title-line-height * 1.1);
-    margin-bottom: 50px;
-  }
-  #sitedescr {
-    display: flex;
-    margin: 10px 0px 40px 40px;
-  }
-  #logo {
-    width: $logo-size;
-    height: 0px;
-    overflow: hidden;
-  }
-}

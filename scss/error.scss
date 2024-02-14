@@ -19,12 +19,3 @@
   color: $color3-light;
   font-size: calc($base-font-size * 1.2);
 }
-
-@media screen and (max-width: $phone-media) {
-  .err-title {
-    font-size: calc($title-font-size * 1.5);
-  }
-  .err-content {
-    font-size: calc($base-font-size * 2);
-  }
-}

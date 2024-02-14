@@ -1,0 +1,73 @@
+@import "variables";
+
+@media screen and (max-width: $phone-media) {
+
+  // Base
+  html {
+    font-size: calc($base-font-size * 2);
+  }
+  .item-title {
+    font-size: calc($base-font-size * 2.1) !important;
+  }
+  .page-grid {
+    grid-template-columns: 0 minmax(300px, auto) 0;
+  }
+  .body-content-wrapper {
+    max-width: unset;
+    min-width: $phone-content-width;
+  }
+  .webring-footer {
+    display: none;
+  }
+
+  // Post
+  #post-title {
+    font-size: calc($title-font-size * 1.8);
+    line-height: calc($title-line-height * 1.2);
+  }
+  #post-content {
+    line-height: calc($base-line-height * 1.8);
+    h1 {
+      font-size: calc($title-font-size * 1.6);
+      margin-top: 200px;
+    }
+    h2 {
+      font-size: calc($title-font-size * 1.4);
+      margin-top: 100px;
+    }
+    margin-left: 20px;
+  }
+
+  blockquote {
+    font-size: calc($blockquote-font-size * 1.95);
+    line-height: calc($blockquote-line-height * 1.65);
+  }
+  code {
+    white-space: unset;
+  }
+
+  // Nav
+  #post-nav {
+    display: none !important;
+  }
+
+  #pagination span a div {
+    font-size: calc($pagination-font-size * 1.7);
+  }
+
+  // Error
+  .err-title {
+    font-size: calc($title-font-size * 1.5);
+  }
+
+  .err-content {
+    font-size: calc($base-font-size * 2);
+  }
+
+  // Hireme
+  #hireme {
+    p {
+      line-height: calc($hireme-line-height * 2.0);
+    }
+  }
+}

@@ -59,11 +59,3 @@ $hireme-line-height: 20pt;
     padding: 5pt 10pt;
   }
 }
-
-@media screen and (max-width: $phone-media) {
-  #hireme {
-    p {
-      line-height: calc($hireme-line-height * 2.0);
-    }
-  }
-}
