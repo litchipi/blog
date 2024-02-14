@@ -38,6 +38,10 @@ $base-line-height: calc($base-font-size * 1.4);
 $title-line-height: calc($title-font-size * 1.4);
 $blockquote-line-height: calc($base-line-height * 0.9);
 
+$h1-size: $title-font-size;
+$h2-size: calc(0.75 * $h1-size);
+$h3-size: calc(0.75 * $h2-size);
+
 //   Screen calculation
 $title-nb-chars: 10;
 $banner-padding-left: 10px;
@@ -60,3 +64,6 @@ $min-panel-size: 400px;
 
 $tablet-media: $tablet-content-width + ($min-panel-size * 2);
 $phone-media: $phone-content-width + ($min-panel-size);
+
+// Additionnal endpoints
+$hireme-line-height: 20pt;

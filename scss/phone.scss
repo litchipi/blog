@@ -1,17 +1,28 @@
 @import "variables";
 
+// TODO  Find another way to override instead of using !important everywhere
+
+$title-font-mult: 2;
+$font-line-mult: 1;
+$title-font-mult: 1.4;
+
+$font-mult: 1.5;
+$line-height-mult: 1.5;
+
 @media screen and (max-width: $phone-media) {
 
   // Base
   html {
-    font-size: calc($base-font-size * 2);
+    font-size: calc($base-font-size * $font-mult);
+    // line-height: calc($base-line-height * $line-height-mult);
   }
   .item-title {
-    font-size: calc($base-font-size * 2.1) !important;
+    font-size: calc($base-font-size * $title-font-mult) !important;
   }
   .page-grid {
-    grid-template-columns: 0 minmax(300px, auto) 0;
+    grid-template-columns: 30pt auto 30pt !important;
   }
+
   .body-content-wrapper {
     max-width: unset;
     min-width: $phone-content-width;
@@ -22,28 +33,32 @@
 
   // Post
   #post-title {
-    font-size: calc($title-font-size * 1.8);
-    line-height: calc($title-line-height * 1.2);
+    margin-top: unset;
+    line-height: calc($title-line-height * $line-height-mult) !important;
   }
+
   #post-content {
-    line-height: calc($base-line-height * 1.8);
+    line-height: calc($base-line-height * $line-height-mult) !important;
     h1 {
-      font-size: calc($title-font-size * 1.6);
-      margin-top: 200px;
+      margin-top: 100pt;
+      font-size: calc($h1-size * $font-mult);
     }
     h2 {
-      font-size: calc($title-font-size * 1.4);
-      margin-top: 100px;
+      margin-top: 50pt;
+      font-size: calc($h2-size * $font-mult);
     }
-    margin-left: 20px;
+    h3 {
+      font-size: calc($h3-size * $font-mult);
+    }
+  }
+
+  code {
+    white-space: unset;
   }
 
   blockquote {
-    font-size: calc($blockquote-font-size * 1.95);
-    line-height: calc($blockquote-line-height * 1.65);
-  }
-  code {
-    white-space: unset;
+    font-size: calc($blockquote-font-size * $font-mult);
+    line-height: calc($blockquote-line-height * $line-height-mult);
   }
 
   // Nav
@@ -51,8 +66,42 @@
     display: none !important;
   }
 
+  #site-nav {
+    display: none !important;
+  }
+
   #pagination span a div {
-    font-size: calc($pagination-font-size * 1.7);
+    font-size: calc($pagination-font-size * $font-mult);
+  }
+
+  // Banner
+  #banner {
+    grid-template-columns: $logo-size calc($left-margin-offset - $logo-size) 1fr;
+  }
+  #sitesocial {
+    display: none !important;
+  }
+  #banner {
+    display: block;
+  }
+  header { 
+    padding-bottom: 10px;
+  }
+  #sitename {
+    text-align: center;
+    width: 100%;
+    font-size: calc($title-font-size * 2);
+    line-height: calc($title-line-height * 1.1);
+    margin-bottom: 50px;
+  }
+  #sitedescr {
+    display: flex;
+    margin: 10px 0px 40px 40px;
+  }
+  #logo {
+    width: $logo-size;
+    height: 0px;
+    overflow: hidden;
   }
 
   // Error
