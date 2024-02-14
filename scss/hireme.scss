@@ -56,3 +56,25 @@
     padding: 5pt 10pt;
   }
 }
+
+$line-height-mult: 2.2;
+$title-font-mult: 1.3;
+
+@media screen and (max-width: $phone-media) {
+  #hireme {
+    p {
+      margin-top: 2em;
+      font-size: calc($base-font-size * 2.4);
+      line-height: calc($base-line-height * 2.4);
+    }
+
+    hr {
+      margin-top: 80pt;
+      margin-bottom: 80pt;
+    }
+
+    h1 {
+      font-size: calc($title-font-size * 1.6);
+    }
+  }
+}

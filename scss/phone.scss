@@ -38,11 +38,14 @@ $line-height-mult: 2.2;
     }
   }
 
+  #hireme-link {
+    max-width: unset;
+  }
+
   // Post
   #post-title {
     margin-top: 2em;
     margin-bottom: 1em;
-    // line-height: calc($title-line-height * $line-height-mult);
     font-size: calc($title-font-size * $title-font-mult);
   }
 
@@ -132,12 +135,5 @@ $line-height-mult: 2.2;
 
   .err-content {
     font-size: calc($base-font-size * 2);
-  }
-
-  // Hireme
-  #hireme {
-    p {
-      line-height: calc($hireme-line-height * 2.0);
-    }
   }
 }

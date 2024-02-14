@@ -34,8 +34,8 @@ notification = "notification.html"
   "post.scss", 
   "specific.scss", 
   "error.scss",
-  "phone.scss",
   "tablet.scss",
+  "phone.scss",
 ]
 "print.css" = [ "print.scss" ]
 "hireme.css" = [ "hireme.scss" ]
