@@ -11,7 +11,8 @@ posts_dir = "posts"
 
 site_config_file = "site.toml"
 add_assets = [
-  "images"
+  "images",
+  "fonts",
 ]
 
 [limits]

@@ -1,5 +1,5 @@
 // Logo
-$logo-size: 120px;
+$logo-size: 140px;
 $logo-padding: 30px;
 $site-descr-grid: 1fr;
 
@@ -23,8 +23,13 @@ $color2_dimmed: desaturate($color2_dark, 40%);
 $color3_dimmed: desaturate($color3_dark, 40%);
 
 // Fonts
+@font-face {
+  font-family: "blog-font";
+  src: url('/fonts/Roboto-Regular.ttf');
+}
+
 $base-font-size: 20px;
-$title-font-size: 44px;
+$title-font-size: 50px;
 $blockquote-font-size: calc($base-font-size * 0.9);
 
 $base-line-height: calc($base-font-size * 1.4);
