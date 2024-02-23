@@ -11,26 +11,16 @@
     margin-top: 20pt;
 
   }
-  strong {
-    color: $color2;
-  }
-
-  em {
-    color: $color1;
-  }
   
   h1 {
-    color: $color2;
     font-size: $title-font-size;
   }
 
   h2 {
-    color: $color1;
     margin: unset;
   }
 
   h3 {
-    color: $color3;
     margin-top: 20pt;
   }
 
@@ -39,7 +29,6 @@
   }
 
   hr {
-    color: $color1;
     margin-top: 40pt;
     margin-bottom: 40pt;
   }
@@ -50,9 +39,10 @@
 
   blockquote {
     width: fit-content;
-    color: white;
-    border-left: 2px solid $color2-light; //$light-gray;
-    border-bottom: 2px solid $color2-light; //light-gray;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
     padding: 5pt 10pt;
   }
 }

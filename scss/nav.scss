@@ -21,52 +21,44 @@ nav {
   a {
     display: block;
     padding: 7px 0;
-    color: $color3_light;
     transition: all 50ms ease-in-out;
     margin-left: 6px;
   }
 
-  a:hover {
-    color: #FFFFFF !important;
-  }
   .h1 {
-    color: $color1_dimmed;
     padding-left: 30px;
   }
 
   .h2 {
-    color: $color2_dimmed;
     padding-left: 45px;
   }
 
   .h3 {
-    color: $color3_dimmed;
     padding-left: 60px;
   }
 
   li > a {
     transition: all 400ms ease-out;
-    border-left: 3px solid $background-color;
+    border-left-width: 3px;
+    border-left-style: solid;
   }
 
   li.active > a.h1 {
-    color: $color1_light;
-    border-left: 3px solid $color1;
+    border-left-width: 3px;
+    border-left-style: solid;
   }
 
   li.active > a.h2 {
-    color: $color2_light;
-    border-left: 3px solid $color2;
+    border-left-width: 3px;
+    border-left-style: solid;
   }
 
   li.active > a.h3 {
-    color: $color3_light;
-    border-left: 3px solid $color3;
+    border-left-width: 3px;
+    border-left-style: solid;
   }
 
   .back-top {
-    color: $color2_light;
-    background-color: unset;
     margin: unset;
     margin-top: 20px;
   }
@@ -85,11 +77,6 @@ nav {
     font-size: calc(0.75 * $title-font-size);
     letter-spacing: -2px;
     font-weight: 1000;
-    color: $color1;
-  }
-
-  .to-index:hover {
-    color: $link-hover;
   }
 
   #nav-serie-post {
@@ -103,13 +90,11 @@ nav {
         display: grid;
         grid-template-columns: calc($base-font-size + 0px) auto $slide-amount;
         transition: all $link-animation-time ease-out;
-        color: $text-color;
         .serie-post-index {
           margin-right: 20px;
         }
       }
       li:hover {
-        color: $color3_light;
         grid-template-columns: calc($base-font-size + $slide-amount) auto 0px;
         .post-title {
           padding-left: 10px;
@@ -118,42 +103,30 @@ nav {
       .current-post {
         font-weight: 800;
         grid-template-columns: calc($base-font-size + $slide-amount) auto 0px;
-        color: $text-color;
         .post-index {
           margin-right: 10px;
         }
       }
       .current-post:hover {
         padding-left: 0px;  
-        color: $link-hover;
-        color: $color3_light;
       }
     }
     a h3 {
-      color: $color3;
       transition: all $link-animation-time ease-out;
-    }
-    a h3:hover {
-      color: $color3_light;
     }
   }
 
   #same-category {
-    h3 {
-      color: $color1;
-    }
     a {
       transition: all $link-animation-time ease-in-out;
       display: block;
       padding-right: $slide-amount;
       padding-left: 0px;
       font-weight: 800;
-      color: $text-color;
     }
     a:hover {
       padding-right: 0px;
       padding-left: $slide-amount;
-      color: $color3_light;
     }
 
     li {
@@ -171,14 +144,7 @@ nav {
     div {
       font-weight: 700;
       font-size: $pagination-font-size;
-      color: $text-color;
       transition: color 150ms ease-in-out;
-      span {
-        color: $color1;
-      }
-    }
-    div:hover {
-      color: $color1;
     }
   }
 

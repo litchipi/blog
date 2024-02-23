@@ -2,15 +2,11 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: $background-color !important;
-  border-top: solid $color1 $banner-top-border;
-  color: $text-color;
   font-size: $base-font-size;
   font-family: "Roboto", sans-serif;
 }
 
 a {
-  color: $link-color;
   transition: color 150ms ease-in-out;
   text-decoration: none;
 }
@@ -19,10 +15,6 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: calc(100vh - $footer-height);
-}
-
-a:hover {
-  color: $link-hover;
 }
 
 .page-grid {
@@ -38,9 +30,6 @@ a:hover {
 }
 
 .styled-list {
-  h1 {
-    color: $color1;
-  }
   a {
     text-decoration: none;
   }
@@ -48,7 +37,8 @@ a:hover {
   li {
     list-style: none;
     margin-bottom: 40px;
-    border-left: 3px solid lighten($background-color, 10%);
+    border-left-width: 3px;
+    border-left-style: solid;
     padding-left: 20px;
     margin-left: 2px;
     transition-property: color, border-color;
@@ -62,73 +52,44 @@ a:hover {
   }
 
   .item-title {
-    color: $color2;
     font-size: calc($base-font-size * 1.3);
   }
 
   .item-description {
     padding-top: 10px;
     padding-left: 30px;
-    color: darken($text-color, 13%);
   }
 
   .item-metadata {
     padding-left: 20px;
-    color: $color3;
-    strong {
-      color: inherit;
-    }
-
-    .item-date {
-      color: #777777;
-    }
   }
 
   .item-index {
     transition: all 200ms ease-in-out;
     font-weight: 1000;
-    color: $color3;
     margin-right: 10px;
   }
 
   .show-more {
     font-weight: 1000;
-    color: $text-color; //desaturate($color2_dark, 20%);
-    border-left: unset; //3px solid desaturate($color2_dark, 20%);
+    border-left: unset;
     margin-left: 5px;
   }
 
   li:hover {
-    border-left: 5px solid $link-hover;
-    color: $link-hover;
+    border-left-width: 5px;
+    border-left-style: solid;
     margin-left: 0px; 
-
-    .item-header strong {
-      color: $color3_light;
-    }
-
-    .item-title {
-      color: $color2_light;
-    }
-
-    .item-description {
-      color: $link-hover;
-    }
-
-    .item-index {
-      color: $color3_light;
-    }
   }
 }
 
 #welcome-message {
   margin-top: 50px;
   margin-bottom: 50px;
-  border: solid 1px $color3_light;
-  // box-shadow: 0px 0px 80px darken($color3_dark, 10%);
+  border-width: 1px;
+  border-style: solid;
   padding: 30px;
   border-radius: 10px;
-  background-color: #2A2A2A;
 }
 
 footer {
@@ -148,10 +109,6 @@ footer {
   margin: 10px 20px 10px 20px;
   text-align: center;
   
-  a {
-    color: $color2;
-  }
-
   .next {
     padding-right: 20px;
     border-right: 5px solid $color2;
@@ -169,21 +126,10 @@ footer {
   margin: 30pt auto;
   max-width: 50%;
   padding: 0.3em;
-  background-color: $code-background;
   text-align: center;
-  color: white;
   transition: background-color 500ms ease-in-out;
   transition: color 200ms ease-in-out;
   strong {
     transition: color 200ms ease-in-out;
-    color: white;
-  }
-}
-
-#hireme-link:hover {
-  background-color: $color2;
-  color: black;
-  strong {
-    color: black;
   }
 }

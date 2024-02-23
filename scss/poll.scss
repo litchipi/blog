@@ -16,7 +16,6 @@ $graynote-size: 17pt;
 }
 
 #poll-intro {
-  color: $light-gray;
   font-size: $graynote-size;
 }
 
@@ -27,14 +26,12 @@ $graynote-size: 17pt;
 }
 
 .question-note {
-  color: $light-gray;
   font-size: $graynote-size;
   margin-top: 0pt;
 }
 
 .range-value {
   margin-left: 20pt;
-  color: $light-gray;
 }
 
 #ask-email {
@@ -54,8 +51,8 @@ $graynote-size: 17pt;
   padding: 5pt 10pt;
   font-size: 15pt;
   font-weight: 1000;
-  background-color: $color2;
-  border: 1px solid black;
+  border-width: 1px;
+  border-style: solid;
   transition-property: color, background-color, border-color;
   transition-duration: 200ms;
   display: block;
@@ -64,10 +61,4 @@ $graynote-size: 17pt;
   margin-left: auto;
   margin-right: auto;
   width: 30%;
-}
-
-.poll-submit-button:hover {
-  background-color: white;
-  color: $color1;
-  border-color: $color1;
 }
