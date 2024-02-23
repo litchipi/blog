@@ -1,23 +1,23 @@
 @import "variables";
 
-$text-color-dark: #EFEFEF;
-$background-color-dark: #181818;
-$code-background-dark: lighten($background-color-dark, 10%);
+$text-color: #EFEFEF;
+$background-color: #181818;
+$code-background: lighten($background-color, 10%);
 
-$link-hover-dark: #FFF;
-$link-color-dark: $color1;
+$link-hover: #FFF;
+$link-color: $color1;
 
 html[class="dark-mode"] {
-  background-color: $background-color-dark;
+  background-color: $background-color;
   border-top: solid $color1 $banner-top-border;
-  color: $text-color-dark;
+  color: $text-color;
 
   a {
-    color: $link-color-dark;
+    color: $link-color;
   }
 
   a:hover {
-    color: $link-hover-dark;
+    color: $link-hover;
   }
 
   strong {
@@ -29,15 +29,15 @@ html[class="dark-mode"] {
   }
 
   code {
-    color: $text-color-dark;
+    color: $text-color;
     border-color: $color1;
-    background-color: $code-background-dark;
+    background-color: $code-background;
   }
 
   pre {
-    background-color: $code-background-dark;
+    background-color: $code-background;
     code {
-      color: $text-color-dark;
+      color: $text-color;
     }
   }
 
@@ -58,12 +58,12 @@ html[class="dark-mode"] {
     }
 
     li {
-     border-left-color: lighten($background-color-dark, 10%);
+     border-left-color: lighten($background-color, 10%);
     }
 
     li:hover {
-      color: $link-hover-dark;
-      border-left-color: $link-hover-dark;
+      color: $link-hover;
+      border-left-color: $link-hover;
 
       .item-header strong {
         color: $color3_light;
@@ -74,7 +74,7 @@ html[class="dark-mode"] {
       }
 
       .item-description {
-        color: $link-hover-dark;
+        color: $link-hover;
       }
 
       .item-index {
@@ -87,7 +87,7 @@ html[class="dark-mode"] {
     }
 
     .item-description {
-      color: darken($text-color-dark, 13%);
+      color: darken($text-color, 13%);
     }
 
     .item-metadata {
@@ -107,7 +107,7 @@ html[class="dark-mode"] {
 
     
     .show-more {
-      color: $text-color-dark;
+      color: $text-color;
     }
   }
 
@@ -124,7 +124,7 @@ html[class="dark-mode"] {
 
   #hireme-link {
     color: white;
-    background-color: $code-background-dark;
+    background-color: $code-background;
     strong {
       color: white;
     }
@@ -153,7 +153,7 @@ html[class="dark-mode"] {
         color: $color3;
       }
       .serie-title:hover {
-        color: $link-hover-dark;
+        color: $link-hover;
       }
     }
   }
@@ -193,7 +193,7 @@ html[class="dark-mode"] {
     }
 
     a:hover {
-      color: $link-color-dark;
+      color: $link-color;
     }
 
     .h1 {
@@ -206,7 +206,7 @@ html[class="dark-mode"] {
       color: $color3_dimmed;
     }
     li > a {
-      border-left-color: $background-color-dark;
+      border-left-color: $background-color;
     }
     li.active > a.h1 {
       color: $color1_light;
@@ -234,22 +234,22 @@ html[class="dark-mode"] {
     }
 
     .to-index:hover {
-      color: $link-hover-dark;
+      color: $link-hover;
     }
 
     #nav-serie-post {
       a {
         li {
-          color: $text-color-dark;
+          color: $text-color;
         }
         li:hover {
           color: $color3_light;
         }
         .current-post {
-          color: $text-color-dark;
+          color: $text-color;
         }
         .current-post:hover {
-          color: $link-hover-dark;
+          color: $link-hover;
           color: $color3_light;
         }
       }
@@ -266,7 +266,7 @@ html[class="dark-mode"] {
         color: $color1;
       }
       a {
-        color: $text-color-dark;
+        color: $text-color;
       }
       a:hover {
         color: $color3_light;
@@ -277,7 +277,7 @@ html[class="dark-mode"] {
   #pagination {
     span a {
       div {
-        color: $text-color-dark;
+        color: $text-color;
         span {
           color: $color1;
         }
