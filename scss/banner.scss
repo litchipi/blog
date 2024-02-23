@@ -1,8 +1,6 @@
 @import "variables";
 
 #banner {
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
   display: grid;
   grid-template-columns: auto auto $site-descr-grid $left-margin-offset;
   column-gap: 30pt;

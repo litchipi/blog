@@ -124,11 +124,11 @@ footer {
 
 #hireme-link {
   margin: 30pt auto;
-  max-width: 50%;
   padding: 0.3em;
   text-align: center;
-  transition: background-color 500ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color, color;
   strong {
     transition: color 200ms ease-in-out;
   }

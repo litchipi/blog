@@ -1,15 +1,15 @@
 @import "variables";
 
-$text-color: #EFEFEF;
-$background-color: #181818;
-$code-background: lighten($background-color, 10%);
+$text-color: black;
+$background-color: #FCFCFC;
+$code-background: #323232;
 
-$link-hover: #FFF;
+$link-hover: black;
 $link-color: $color1;
 
-html[class="dark-mode"] {
+html[class="light-mode"] {
   background-color: $background-color;
-  border-top: solid $color1 $banner-top-border;
+  // border-top: solid $color1 $banner-top-border;
   color: $text-color;
 
   a {
@@ -21,34 +21,38 @@ html[class="dark-mode"] {
   }
 
   strong {
-    color: $color3_light;
+    color: $color3_dark;
   }
 
   em {
-    color: $color3_light;
+    color: $color3_dark;
   }
 
   code {
     color: $text-color;
     border-color: $color1;
-    background-color: $code-background;
+    background-color: white;
   }
 
   pre {
     background-color: $code-background;
+    border-color: $color1;
+    border-with: 5px;
     code {
-      color: $text-color;
+      border-width: 5px;
+      background-color: $code-background;
+      color: white;
     }
   }
 
   blockquote {
-    color: $color2;
+    color: $color2_dark;
     border-left-color: $color2_dark;
   }
 
   footer {
     .index-link {
-      color: $color2;
+      color: $color2_dark;
     }
   }
 
@@ -58,7 +62,7 @@ html[class="dark-mode"] {
     }
 
     li {
-     border-left-color: lighten($background-color, 10%);
+     border-left-color: darken($background-color, 10%);
     }
 
     li:hover {
@@ -66,11 +70,11 @@ html[class="dark-mode"] {
       border-left-color: $link-hover;
 
       .item-header strong {
-        color: $color3_light;
+        color: $color3_dark;
       }
 
       .item-title {
-        color: $color2_light;
+        color: $color2_dark;
       }
 
       .item-description {
@@ -78,20 +82,20 @@ html[class="dark-mode"] {
       }
 
       .item-index {
-        color: $color3_light;
+        color: $color3_dark;
       }
     }
 
     .item-title {
-      color: $color2;
+      color: $color2_dark;
     }
 
     .item-description {
-      color: darken($text-color, 13%);
+      color: lighten($text-color, 13%);
     }
 
     .item-metadata {
-      color: $color3;
+      color: $color3_dark;
       strong {
         color: inherit;
       }
@@ -113,33 +117,33 @@ html[class="dark-mode"] {
 
   #welcome-message {
     background-color: #2A2A2A;
-    border-color: $color3_light;
+    border-color: $color3_dark;
   }
 
   .webring-footer {
     a {
-      color: $color2;
+      color: $color2_dark;
     }
   }
 
   #hireme-link {
+    background-color: $background-color;
+    color: $color1;
+    strong {
+      color: $color2;
+    }
+  }
+
+  #hireme-link:hover {
+    background-color: $color1;
     color: white;
-    background-color: $code-background;
     strong {
       color: white;
     }
   }
 
-  #hireme-link:hover {
-    background-color: $color2;
-    color: black;
-    strong {
-      color: black;
-    }
-  }
-
   #serie-name {
-    color: $color3_light;
+    color: $color3_dark;
   }
 
   #post-date, #post-date-modified {
@@ -150,7 +154,7 @@ html[class="dark-mode"] {
     #post-serie-metadata {
       color: $light-gray;
       .serie-title {
-        color: $color3;
+        color: $color3_dark;
       }
       .serie-title:hover {
         color: $link-hover;
@@ -163,7 +167,7 @@ html[class="dark-mode"] {
       color: $color1;
     }
     h2 {
-      color: $color2;
+      color: $color2_dark;
     }
     h3 { 
       color: $color3;
@@ -171,8 +175,8 @@ html[class="dark-mode"] {
   }
 
   .back-top {
-    color: #000000;
-    background-color: desaturate($color2, 20%);
+    color: white;
+    background-color: $color2;
   }
 
   .back-top:hover {
@@ -182,14 +186,14 @@ html[class="dark-mode"] {
 
   #post-tags {
     .post-tag:hover {
-      border-color: $color2;
-      color: $color3_light;
+      border-color: $color2_dark;
+      color: $color3_dark;
     }
   }
 
   #post-nav {
     a {
-      color: $color3_light;
+      color: $color3_dark;
     }
 
     a:hover {
@@ -197,33 +201,33 @@ html[class="dark-mode"] {
     }
 
     .h1 {
-      color: $color1_dimmed;
+      color: $color1;
     }
     .h2 {
-      color: $color2_dimmed;
+      color: $color2;
     }
     .h3 {
-      color: $color3_dimmed;
+      color: $color3;
     }
     li > a {
       border-left-color: $background-color;
     }
     li.active > a.h1 {
-      color: $color1_light;
+      color: $color1_dark;
       border-left-color: $color1;
     }
 
     li.active > a.h2 {
-      color: $color2_light;
-      border-left-color: $color2;
+      color: $color2_dark;
+      border-left-color: $color2_dark;
     }
 
     li.active > a.h3 {
-      color: $color3_light;
+      color: $color3_dark;
       border-left-color: $color3;
     }
     .back-top {
-      color: $color2_light;
+      color: $color2_dark;
       background-color: unset;
     }
   }
@@ -243,21 +247,21 @@ html[class="dark-mode"] {
           color: $text-color;
         }
         li:hover {
-          color: $color3_light;
+          color: $color3_dark;
         }
         .current-post {
           color: $text-color;
         }
         .current-post:hover {
           color: $link-hover;
-          color: $color3_light;
+          color: $color3_dark;
         }
       }
       a h3 {
         color: $color3;
       }
       a h3:hover {
-        color: $color3_light;
+        color: $color3_dark;
       }
     }
 
@@ -269,7 +273,7 @@ html[class="dark-mode"] {
         color: $text-color;
       }
       a:hover {
-        color: $color3_light;
+        color: $color3_dark;
       }
     }
   }
@@ -288,13 +292,9 @@ html[class="dark-mode"] {
     }
   }
 
-  #banner {
-    border-bottom: 1px solid #4A4A4A;
-  }
-
   #sitesocial {
     a {
-      color: $color2;
+      color: $color1;
     }
   }
 
@@ -311,23 +311,23 @@ html[class="dark-mode"] {
   }
 
   .poll-submit-button {
-    background-color: $color2;
-    border-color: black;
+    background-color: $color1;
+    border-color: white;
+    color: white;
   }
 
   .poll-submit-button:hover {
     background-color: white;
-    color: $color1;
     border-color: $color1;
+    color: $color1;
   }
 
   #hireme {
     strong {
-      color: $color2;
-    }
-
-    em {
       color: $color1;
+    }
+    em {
+      color: $color2_dark;
     }
     h1 {
       color: $color2;
@@ -339,12 +339,12 @@ html[class="dark-mode"] {
       color: $color3;
     }
     hr {
-      color: $color1;
+      color: $color1_light;
     }
     blockquote {
       color: white;
-      border-left-color: $color2-light;
-      border-bottom-color: $color2-light;
+      border-left-color: $color2_dark;
+      border-bottom-color: $color2_dark;
     }
   }
 }
