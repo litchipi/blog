@@ -36,6 +36,8 @@ html[class="dark-mode"] {
 
   pre {
     background-color: $code-background;
+    border-width: 1px;
+    border-color: $color1;
     code {
       color: $text-color;
     }
