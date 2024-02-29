@@ -14,7 +14,7 @@ html {
 }
 
 code {
-  font-size: 15pt;
+  font-size: $note-font-size;
 }
 
 #sitename {
@@ -56,7 +56,7 @@ footer {
 }
 
 #post-metadata {
-  font-size: 15pt;
+  font-size: $note-font-size;
 }
 
 #post-content {

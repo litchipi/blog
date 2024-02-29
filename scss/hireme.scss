@@ -6,7 +6,6 @@
 
 #hireme {
   p {
-    line-height: $hireme-line-height;
     margin-bottom: 20pt;
     margin-top: 20pt;
 
@@ -43,7 +42,6 @@
   }
 }
 
-$line-height-mult: 2.2;
 $title-font-mult: 1.3;
 
 @media screen and (max-width: $phone-media) {
@@ -51,7 +49,6 @@ $title-font-mult: 1.3;
     p {
       margin-top: 2em;
       font-size: calc($base-font-size * 2.4);
-      // line-height: calc($base-line-height * 2.4);
     }
 
     hr {
