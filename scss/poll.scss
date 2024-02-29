@@ -1,8 +1,5 @@
 @import "variables";
 
-$question-size: 22pt;
-$graynote-size: 17pt;
-
 .question-container {
   border-left: 5pt solid $color1;
   padding-bottom: 10pt;
@@ -15,18 +12,12 @@ $graynote-size: 17pt;
   display: none;
 }
 
-#poll-intro {
-  font-size: $graynote-size;
-}
-
 .question-text {
   margin-bottom: 5pt;
   margin-top: 0pt;
-  font-size: $question-size;
 }
 
 .question-note {
-  font-size: $graynote-size;
   margin-top: 0pt;
 }
 
@@ -49,8 +40,6 @@ $graynote-size: 17pt;
 
 .poll-submit-button {
   padding: 5pt 10pt;
-  font-size: 15pt;
-  font-weight: 1000;
   border-width: 1px;
   border-style: solid;
   transition-property: color, background-color, border-color;

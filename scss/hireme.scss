@@ -12,10 +12,6 @@
 
   }
   
-  h1 {
-    font-size: $title-font-size;
-  }
-
   h2 {
     margin: unset;
   }
@@ -55,7 +51,7 @@ $title-font-mult: 1.3;
     p {
       margin-top: 2em;
       font-size: calc($base-font-size * 2.4);
-      line-height: calc($base-line-height * 2.4);
+      // line-height: calc($base-line-height * 2.4);
     }
 
     hr {

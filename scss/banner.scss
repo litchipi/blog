@@ -1,9 +1,11 @@
 @import "variables";
 
+$title-space: calc($side-panel-size - $logo-size - $logo-padding);
+
 #banner {
   display: grid;
-  grid-template-columns: minmax($min-panel-size, 1fr) minmax(300px, auto) minmax($min-panel-size, 1fr);
-  column-gap: 30pt;
+  grid-template-columns: calc($logo-size + $logo-padding) $title-space 1fr $side-panel-size;
+  column-gap: 10pt;
 }
 
 #sitedescr {
@@ -12,27 +14,16 @@
 }
 
 #logo {
-  padding-left: $logo-padding;
+  margin: auto;
   img {
     width: $logo-size;
   }
 }
 
 #sitename {
-  letter-spacing: -3px;
-  font-family: "blog-font";
-  font-size: $title-font-size;
-  line-height: $title-line-height;
-  font-weight: bold;
-  vertical-align: middle;
-  /* top | right | bottom | left */
-  padding: 0px $title-padding-right 0px $banner-padding-left;
+  display: block;
   margin: auto;
-  height: 100%
-}
-
-#sitedescr, #sitesocial, #sitename, #logo {
-  display: inline-block;
+  margin-left: 0px;
 }
 
 #sitesocial {
